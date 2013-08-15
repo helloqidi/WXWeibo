@@ -1,0 +1,23 @@
+//
+// Prefix header for all source files of the 'WXWeibo' target in the 'WXWeibo' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <QuartzCore/QuartzCore.h>
+    #import<CoreText/CoreText.h>
+#endif
+
+#import "WXHLGlobalUICommon.h"
+
+//获取设备物理高度
+#define ScreenHeight [UIScreen mainScreen].bounds.size.height
+//获取设备物理宽度
+#define ScreenWidth [UIScreen mainScreen].bounds.size.width
