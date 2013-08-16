@@ -520,6 +520,13 @@
 		2D51B8A517BCDAA5004EFA82 /* SinaWeibo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B89D17BCDAA5004EFA82 /* SinaWeibo.m */; };
 		2D51B8A617BCDAA5004EFA82 /* SinaWeiboAuthorizeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B89F17BCDAA5004EFA82 /* SinaWeiboAuthorizeView.m */; };
 		2D51B8A717BCDAA5004EFA82 /* SinaWeiboRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B8A217BCDAA5004EFA82 /* SinaWeiboRequest.m */; };
+		2D51B8AA17BD1802004EFA82 /* Skins in Resources */ = {isa = PBXBuildFile; fileRef = 2D51B8A917BD1801004EFA82 /* Skins */; };
+		2D51B8AE17BD2318004EFA82 /* ThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B8AD17BD2318004EFA82 /* ThemeManager.m */; };
+		2D51B8B017BD2329004EFA82 /* theme.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D51B8AF17BD2329004EFA82 /* theme.plist */; };
+		2D51B8B317BD3860004EFA82 /* ThemeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B8B217BD3860004EFA82 /* ThemeButton.m */; };
+		2D51B8B717BDBC26004EFA82 /* ThemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B8B517BDBC26004EFA82 /* ThemeViewController.m */; };
+		2D51B8B817BDBC26004EFA82 /* ThemeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D51B8B617BDBC26004EFA82 /* ThemeViewController.xib */; };
+		2D51B8BB17BDC171004EFA82 /* UIFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B8BA17BDC171004EFA82 /* UIFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1072,6 +1079,17 @@
 		2D51B8A117BCDAA5004EFA82 /* SinaWeiboRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaWeiboRequest.h; sourceTree = "<group>"; };
 		2D51B8A217BCDAA5004EFA82 /* SinaWeiboRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaWeiboRequest.m; sourceTree = "<group>"; };
 		2D51B8A817BCDBEB004EFA82 /* CONSTS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CONSTS.h; sourceTree = "<group>"; };
+		2D51B8A917BD1801004EFA82 /* Skins */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Skins; sourceTree = "<group>"; };
+		2D51B8AC17BD2318004EFA82 /* ThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeManager.h; sourceTree = "<group>"; };
+		2D51B8AD17BD2318004EFA82 /* ThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeManager.m; sourceTree = "<group>"; };
+		2D51B8AF17BD2329004EFA82 /* theme.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = theme.plist; sourceTree = "<group>"; };
+		2D51B8B117BD385F004EFA82 /* ThemeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeButton.h; sourceTree = "<group>"; };
+		2D51B8B217BD3860004EFA82 /* ThemeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeButton.m; sourceTree = "<group>"; };
+		2D51B8B417BDBC26004EFA82 /* ThemeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeViewController.h; sourceTree = "<group>"; };
+		2D51B8B517BDBC26004EFA82 /* ThemeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeViewController.m; sourceTree = "<group>"; };
+		2D51B8B617BDBC26004EFA82 /* ThemeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemeViewController.xib; sourceTree = "<group>"; };
+		2D51B8B917BDC171004EFA82 /* UIFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFactory.h; sourceTree = "<group>"; };
+		2D51B8BA17BDC171004EFA82 /* UIFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFactory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1141,6 +1159,7 @@
 		2D39D39417BC69A300AA40EB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2D51B8AB17BD22F0004EFA82 /* ThemeManager */,
 				2D39D3B817BC6D1400AA40EB /* operSource */,
 				2D39D40417BC861E00AA40EB /* image */,
 				2D39D3AA17BC6A4500AA40EB /* Uitils */,
@@ -1293,6 +1312,9 @@
 				2D39D3FF17BC7CA700AA40EB /* MoreViewController.h */,
 				2D39D40017BC7CA700AA40EB /* MoreViewController.m */,
 				2D39D40117BC7CA700AA40EB /* MoreViewController.xib */,
+				2D51B8B417BDBC26004EFA82 /* ThemeViewController.h */,
+				2D51B8B517BDBC26004EFA82 /* ThemeViewController.m */,
+				2D51B8B617BDBC26004EFA82 /* ThemeViewController.xib */,
 			);
 			name = More;
 			sourceTree = "<group>";
@@ -1300,6 +1322,7 @@
 		2D39D40417BC861E00AA40EB /* image */ = {
 			isa = PBXGroup;
 			children = (
+				2D51B8A917BD1801004EFA82 /* Skins */,
 				2D39D40517BC861E00AA40EB /* btn_map_location.png */,
 				2D39D40617BC861E00AA40EB /* btn_map_location@2x.png */,
 				2D39D40717BC861E00AA40EB /* compose_camerabutton_background.png */,
@@ -1811,6 +1834,20 @@
 				2D51B8A217BCDAA5004EFA82 /* SinaWeiboRequest.m */,
 			);
 			path = SinaWeibo;
+			sourceTree = "<group>";
+		};
+		2D51B8AB17BD22F0004EFA82 /* ThemeManager */ = {
+			isa = PBXGroup;
+			children = (
+				2D51B8AC17BD2318004EFA82 /* ThemeManager.h */,
+				2D51B8AD17BD2318004EFA82 /* ThemeManager.m */,
+				2D51B8AF17BD2329004EFA82 /* theme.plist */,
+				2D51B8B117BD385F004EFA82 /* ThemeButton.h */,
+				2D51B8B217BD3860004EFA82 /* ThemeButton.m */,
+				2D51B8B917BDC171004EFA82 /* UIFactory.h */,
+				2D51B8BA17BDC171004EFA82 /* UIFactory.m */,
+			);
+			name = ThemeManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2344,6 +2381,9 @@
 				2D51B89017BCA58D004EFA82 /* LeftViewController.xib in Resources */,
 				2D51B89517BCA59C004EFA82 /* RightViewController.xib in Resources */,
 				2D51B8A417BCDAA5004EFA82 /* SinaWeibo.bundle in Resources */,
+				2D51B8AA17BD1802004EFA82 /* Skins in Resources */,
+				2D51B8B017BD2329004EFA82 /* theme.plist in Resources */,
+				2D51B8B817BDBC26004EFA82 /* ThemeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2382,6 +2422,10 @@
 				2D51B8A517BCDAA5004EFA82 /* SinaWeibo.m in Sources */,
 				2D51B8A617BCDAA5004EFA82 /* SinaWeiboAuthorizeView.m in Sources */,
 				2D51B8A717BCDAA5004EFA82 /* SinaWeiboRequest.m in Sources */,
+				2D51B8AE17BD2318004EFA82 /* ThemeManager.m in Sources */,
+				2D51B8B317BD3860004EFA82 /* ThemeButton.m in Sources */,
+				2D51B8B717BDBC26004EFA82 /* ThemeViewController.m in Sources */,
+				2D51B8BB17BDC171004EFA82 /* UIFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,8 @@
 #import "DiscoverViewController.h"
 #import "MoreViewController.h"
 #import "BaseNavigationController.h"
+#import "UIFactory.h"
+//#import "ThemeButton.h"
 
 @interface MainViewController ()
 
@@ -61,22 +63,24 @@
 - (void)_initTabBarView
 {
     self.tabBarView=[[[UIView alloc] initWithFrame:CGRectMake(0, ScreenHeight-49-20, 320, 49)] autorelease];
-    self.tabBarView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"tabbar_background"]];
+    self.tabBarView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"tabbar_background.png"]];
     [self.view addSubview:self.tabBarView];
     
-    NSArray *background=@[@"tabbar_home",@"tabbar_message_center",@"tabbar_profile",@"tabbar_discover",@"tabbar_more"];
-    NSArray *Highlightbackground=@[@"tabbar_home_highlighted",@"tabbar_message_center_highlighted",@"tabbar_profile_highlighted",@"tabbar_discover_highlighted",@"tabbar_more_highlighted"];
+    NSArray *background=@[@"tabbar_home.png",@"tabbar_message_center.png",@"tabbar_profile.png",@"tabbar_discover.png",@"tabbar_more.png"];
+    NSArray *Highlightbackground=@[@"tabbar_home_highlighted.png",@"tabbar_message_center_highlighted.png",@"tabbar_profile_highlighted.png",@"tabbar_discover_highlighted.png",@"tabbar_more_highlighted.png"];
     
     
     for (int i=0; i<5; i++) {
         NSString *imageName=background[i];
         NSString *highlightImageName=Highlightbackground[i];
         
-        UIButton *btn=[UIButton buttonWithType:UIButtonTypeCustom];
+        //UIButton *btn=[UIButton buttonWithType:UIButtonTypeCustom];
+        //ThemeButton *btn=[[[ThemeButton alloc] initWithImage:imageName highlighted:highlightImageName] autorelease];
+        UIButton *btn=[UIFactory createButton:imageName highlighted:highlightImageName];
         btn.frame=CGRectMake(64/2-30/2+i*64, 49/2-30/2, 30, 30);
         btn.tag=i;
-        [btn setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
-        [btn setImage:[UIImage imageNamed:highlightImageName] forState:UIControlStateHighlighted];
+        //[btn setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+        //[btn setImage:[UIImage imageNamed:highlightImageName] forState:UIControlStateHighlighted];
         [btn addTarget:self action:@selector(selectTab:) forControlEvents:UIControlEventTouchUpInside];
         
         [self.tabBarView addSubview:btn];

@@ -7,6 +7,7 @@
 //
 
 #import "MoreViewController.h"
+#import "ThemeViewController.h"
 
 @interface MoreViewController ()
 
@@ -26,13 +27,53 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    self.tableView=[[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, ScreenHeight-49) style:UITableViewStyleGrouped] autorelease];
+    self.tableView.dataSource=self;
+    self.tableView.delegate=self;
+    [self.view addSubview:self.tableView];
 }
 
+#pragma mark - UITableView Degelate
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 2;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell=[[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil] autorelease];
+    if (indexPath.row==0) {
+        cell.textLabel.text=@"主题";
+    }
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row==0) {
+        ThemeViewController *themeViewController=[[[ThemeViewController alloc] init] autorelease];
+        [self.navigationController pushViewController:themeViewController animated:YES];        
+    }
+
+}
+
+
+#pragma mark - dealloc/memoryWarning
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc
+{
+    self.tableView=nil;
+    [super dealloc];
+}
 @end

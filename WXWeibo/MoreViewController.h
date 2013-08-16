@@ -10,6 +10,8 @@
 
 #import "BaseViewController.h"
 
-@interface MoreViewController : BaseViewController
+@interface MoreViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
+
+@property(nonatomic,retain)UITableView *tableView;
 
 @end
