@@ -7,6 +7,7 @@
 //
 
 #import "BaseNavigationController.h"
+#import "ThemeManager.h"
 
 @interface BaseNavigationController ()
 
@@ -18,10 +19,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        float version=WXHLOSVersion();
-        if(version>=5.0){
-            [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationbar_background"] forBarMetrics:UIBarMetricsDefault];
-        }
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(themeNotification) name:kThemeDidChangeNotification object:nil];
     }
     return self;
 }
@@ -29,7 +27,34 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    [self loadThemeImage];
+}
+
+
+
+- (void)themeNotification
+{
+    [self loadThemeImage];
+}
+
+- (void)loadThemeImage
+{
+    float version=WXHLOSVersion();
+    if(version>=5.0){
+        UIImage *backgroundImage=[[ThemeManager shareInstance] getThemeImage:@"navigationbar_background.png"];
+        [self.navigationBar setBackgroundImage:backgroundImage forBarMetrics:UIBarMetricsDefault];
+    }else{
+        //调用setNeedsDisplay方法会让渲染引擎异步调用drawRect方法。
+        //不能直接调drawRect方法，它是系统异步调用的。
+        [self.navigationBar setNeedsDisplay];
+    }
+}
+
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kThemeDidChangeNotification object:nil];
+    [super dealloc];
 }
 
 - (void)didReceiveMemoryWarning
@@ -37,5 +62,4 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 @end

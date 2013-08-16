@@ -19,6 +19,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        self.title=@"主题切换";
+        
         self.themes=[[ThemeManager shareInstance].themesPlist allKeys];
     }
     return self;
@@ -26,6 +28,8 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+    
     self.tableView=[[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, ScreenHeight-49) style:UITableViewStylePlain] autorelease];
     self.tableView.dataSource=self;
     self.tableView.delegate=self;

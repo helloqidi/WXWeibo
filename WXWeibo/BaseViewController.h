@@ -11,6 +11,9 @@
 
 @interface BaseViewController : UIViewController
 
+//是否显示返回按钮
+@property(nonatomic,assign)BOOL isBackButton;
+
 - (SinaWeibo *) sinaweibo;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "BaseViewController.h"
 #import "AppDelegate.h"
+#import "UIFactory.h"
 
 @interface BaseViewController ()
 
@@ -19,7 +20,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.isBackButton=YES;
     }
     return self;
 }
@@ -27,7 +28,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	
+    NSArray *viewControllers=self.navigationController.viewControllers;
+    if (viewControllers.count>1 && self.isBackButton) {
+        UIButton *btn=[UIFactory createButton:@"navigationbar_back.png" highlighted:@"navigationbar_back_highlighted.png"];
+        btn.frame=CGRectMake(0, 0, 24, 24);
+        [btn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *backItem=[[[UIBarButtonItem alloc] initWithCustomView:btn] autorelease];
+        self.navigationItem.leftBarButtonItem=backItem;
+    }
+    
+}
+
+- (void)backAction
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,8 +65,10 @@
 {
     [super setTitle:title];
     
-    UILabel *titleLabel=[[[UILabel alloc] initWithFrame:CGRectZero] autorelease];
-    titleLabel.textColor=[UIColor blackColor];
+    //导航栏中的x，y坐标会自己调整，不需要指定
+    //UILabel *titleLabel=[[[UILabel alloc] initWithFrame:CGRectZero] autorelease];
+    UILabel *titleLabel=[UIFactory createLabel:kNavigationBarTitleLabel];
+    //titleLabel.textColor=[UIColor blackColor];
     titleLabel.backgroundColor=[UIColor clearColor];
     titleLabel.font=[UIFont systemFontOfSize:18.0f];
     titleLabel.text=title;

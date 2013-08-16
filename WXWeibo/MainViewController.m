@@ -63,8 +63,12 @@
 - (void)_initTabBarView
 {
     self.tabBarView=[[[UIView alloc] initWithFrame:CGRectMake(0, ScreenHeight-49-20, 320, 49)] autorelease];
-    self.tabBarView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"tabbar_background.png"]];
+    //self.tabBarView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"tabbar_background.png"]];
     [self.view addSubview:self.tabBarView];
+    
+    UIImageView *tabbarGroundImage=[UIFactory createImageView:@"tabbar_background.png"];
+    tabbarGroundImage.frame=self.tabBarView.bounds;
+    [self.tabBarView addSubview:tabbarGroundImage];
     
     NSArray *background=@[@"tabbar_home.png",@"tabbar_message_center.png",@"tabbar_profile.png",@"tabbar_discover.png",@"tabbar_more.png"];
     NSArray *Highlightbackground=@[@"tabbar_home_highlighted.png",@"tabbar_message_center_highlighted.png",@"tabbar_profile_highlighted.png",@"tabbar_discover_highlighted.png",@"tabbar_more_highlighted.png"];

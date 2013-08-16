@@ -8,6 +8,7 @@
 
 #import "ThemeManager.h"
 
+
 static ThemeManager *singleton=nil;
 
 @implementation ThemeManager
@@ -36,6 +37,18 @@ static ThemeManager *singleton=nil;
     return self;
 }
 
+//切换主题时会调用此方法，设置主题名称
+- (void)setThemeName:(NSString *)themeName
+{
+    if (_themeName!=themeName) {
+        [_themeName release];
+        _themeName=[themeName copy];
+    }
+    NSString *themeDir=[self getThemePath];
+    NSString *filePath=[themeDir stringByAppendingPathComponent:@"fontColor.plist"];
+    self.fontColorPlist=[NSDictionary dictionaryWithContentsOfFile:filePath];
+}
+
 //获取主题目录
 - (NSString *)getThemePath
 {
@@ -60,6 +73,24 @@ static ThemeManager *singleton=nil;
     NSString *imagePath=[themePath stringByAppendingPathComponent:imageName];
     UIImage *image=[UIImage imageWithContentsOfFile:imagePath];
     return image;
+}
+
+- (UIColor *)getColorWithName:(NSString *)name
+{
+    if (name.length==0) {
+        return nil;
+    }
+    //返回三色值，如：24，25，60
+    NSString *rgb=[self.fontColorPlist objectForKey:name];
+    NSArray *rgbs=[rgb componentsSeparatedByString:@","];
+    if (rgbs.count==3) {
+        float r=[rgbs[0] floatValue];
+        float g=[rgbs[1] floatValue];
+        float b=[rgbs[2] floatValue];
+        UIColor *color=Color(r, g, b, 1);
+        return color;
+    }
+    return nil;
 }
 
 

@@ -527,6 +527,8 @@
 		2D51B8B717BDBC26004EFA82 /* ThemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B8B517BDBC26004EFA82 /* ThemeViewController.m */; };
 		2D51B8B817BDBC26004EFA82 /* ThemeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D51B8B617BDBC26004EFA82 /* ThemeViewController.xib */; };
 		2D51B8BB17BDC171004EFA82 /* UIFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B8BA17BDC171004EFA82 /* UIFactory.m */; };
+		2D51B8BE17BE02EA004EFA82 /* ThemeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B8BD17BE02E9004EFA82 /* ThemeImageView.m */; };
+		2D51B8C117BE1A08004EFA82 /* ThemeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B8C017BE1A07004EFA82 /* ThemeLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1090,6 +1092,10 @@
 		2D51B8B617BDBC26004EFA82 /* ThemeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemeViewController.xib; sourceTree = "<group>"; };
 		2D51B8B917BDC171004EFA82 /* UIFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFactory.h; sourceTree = "<group>"; };
 		2D51B8BA17BDC171004EFA82 /* UIFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFactory.m; sourceTree = "<group>"; };
+		2D51B8BC17BE02E9004EFA82 /* ThemeImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeImageView.h; sourceTree = "<group>"; };
+		2D51B8BD17BE02E9004EFA82 /* ThemeImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeImageView.m; sourceTree = "<group>"; };
+		2D51B8BF17BE1A07004EFA82 /* ThemeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeLabel.h; sourceTree = "<group>"; };
+		2D51B8C017BE1A07004EFA82 /* ThemeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeLabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1846,6 +1852,10 @@
 				2D51B8B217BD3860004EFA82 /* ThemeButton.m */,
 				2D51B8B917BDC171004EFA82 /* UIFactory.h */,
 				2D51B8BA17BDC171004EFA82 /* UIFactory.m */,
+				2D51B8BC17BE02E9004EFA82 /* ThemeImageView.h */,
+				2D51B8BD17BE02E9004EFA82 /* ThemeImageView.m */,
+				2D51B8BF17BE1A07004EFA82 /* ThemeLabel.h */,
+				2D51B8C017BE1A07004EFA82 /* ThemeLabel.m */,
 			);
 			name = ThemeManager;
 			sourceTree = "<group>";
@@ -2426,6 +2436,8 @@
 				2D51B8B317BD3860004EFA82 /* ThemeButton.m in Sources */,
 				2D51B8B717BDBC26004EFA82 /* ThemeViewController.m in Sources */,
 				2D51B8BB17BDC171004EFA82 /* UIFactory.m in Sources */,
+				2D51B8BE17BE02EA004EFA82 /* ThemeImageView.m in Sources */,
+				2D51B8C117BE1A08004EFA82 /* ThemeLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

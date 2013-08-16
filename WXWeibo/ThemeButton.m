@@ -42,7 +42,7 @@
 
 - (void)themeNotification:(NSNotification *)notify
 {
-    [self loadImage];
+    [self loadThemeImage];
 }
 
 - (void)dealloc
@@ -51,7 +51,7 @@
     [super dealloc];
 }
 
-- (void)loadImage
+- (void)loadThemeImage
 {
     ThemeManager *themeManager=[ThemeManager shareInstance];
     
@@ -73,7 +73,7 @@
         [_imageName release];
         _imageName=[imageName copy];
     }
-    [self loadImage];
+    [self loadThemeImage];
 }
 
 - (void)setHighlightImageName:(NSString *)highlightImageName
@@ -82,7 +82,7 @@
         [_highlightImageName release];
         _highlightImageName=[highlightImageName copy];
     }
-    [self loadImage];
+    [self loadThemeImage];
 
 }
 
@@ -92,7 +92,7 @@
         [_backgroundImageName release];
         _backgroundImageName=[backgroundImageName copy];
     }
-    [self loadImage];
+    [self loadThemeImage];
 }
 
 - (void)setBackgroundHighlightImageName:(NSString *)backgroundHighlightImageName
@@ -101,7 +101,7 @@
         [_backgroundHighlightImageName release];
         _backgroundHighlightImageName=[backgroundHighlightImageName copy];
     }
-    [self loadImage];
+    [self loadThemeImage];
 
 }
 @end

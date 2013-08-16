@@ -11,7 +11,6 @@
 #import "DDMenuController.h"
 #import "LeftViewController.h"
 #import "RightViewController.h"
-#import "CONSTS.h"
 
 @implementation AppDelegate
 
