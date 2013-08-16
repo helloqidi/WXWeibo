@@ -23,3 +23,6 @@
 //font color keys
 #define kNavigationBarTitleLabel @"kNavigationBarTitleLabel"
 #define kThemeListLabel @"kThemeListLabel"
+
+//主题存储在NSUserDefaults中的key
+#define kThemeName @"kThemeName"

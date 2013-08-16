@@ -8,6 +8,7 @@
 
 #import "ThemeViewController.h"
 #import "ThemeManager.h"
+#import "UIFactory.h"
 
 @interface ThemeViewController ()
 
@@ -48,18 +49,50 @@
     UITableViewCell *cell=[self.tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell==nil) {
         cell=[[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
+        
+        UILabel *textLabel=[UIFactory createLabel:kThemeListLabel];
+        textLabel.frame=CGRectMake(10, 10, 200, 30);
+        textLabel.backgroundColor=[UIColor clearColor];
+        textLabel.font=[UIFont boldSystemFontOfSize:16.0f];
+        textLabel.tag=2013;
+        [cell.contentView addSubview:textLabel];
     }
-    cell.textLabel.text=self.themes[indexPath.row];
+    //cell.textLabel.text=self.themes[indexPath.row];
+    
+    UILabel *textLabel=(UILabel *)[cell.contentView viewWithTag:2013];
+    NSString *textName=self.themes[indexPath.row];
+    textLabel.text=textName;
+    
+    NSString *themeName=[ThemeManager shareInstance].themeName;
+    if (themeName==nil) {
+        themeName=@"默认";
+    }
+    if ([textName isEqualToString:themeName]) {
+        cell.accessoryType=UITableViewCellAccessoryCheckmark;
+    }else{
+        cell.accessoryType=UITableViewCellAccessoryNone;
+    }
     
     return cell;
 }
 
+//切换主题
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *themeName=self.themes[indexPath.row];
-    [ThemeManager shareInstance].themeName=themeName;
+    if ([themeName isEqualToString:@"默认"]) {
+        themeName=nil;
+    }
     
+    //保存主题到本地
+    [[NSUserDefaults standardUserDefaults] setObject:themeName forKey:kThemeName];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [ThemeManager shareInstance].themeName=themeName;
     [[NSNotificationCenter defaultCenter] postNotificationName:kThemeDidChangeNotification object:themeName];
+    
+    //刷新
+    [self.tableView reloadData];
 }
 
 

@@ -49,5 +49,11 @@
     UIColor *textColor=[[ThemeManager shareInstance] getColorWithName:self.colorName];
     self.textColor=textColor;
 }
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [super dealloc];
+}
+
 
 @end

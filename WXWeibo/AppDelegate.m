@@ -11,6 +11,7 @@
 #import "DDMenuController.h"
 #import "LeftViewController.h"
 #import "RightViewController.h"
+#import "ThemeManager.h"
 
 @implementation AppDelegate
 
@@ -37,6 +38,9 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
+    //读取主题
+    [self setTheme];
+    
     //主控制器不能销毁，不用autorelease
     self.mainViewController=[[MainViewController alloc] init];
     LeftViewController *leftViewController=[[LeftViewController alloc] init];
@@ -50,6 +54,12 @@
     
     self.window.rootViewController=ddMenuController;
     return YES;
+}
+
+- (void)setTheme
+{
+    NSString *themeName=[[NSUserDefaults standardUserDefaults] objectForKey:kThemeName];
+    [ThemeManager shareInstance].themeName=themeName;
 }
 
 

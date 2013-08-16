@@ -81,7 +81,7 @@
         //UIButton *btn=[UIButton buttonWithType:UIButtonTypeCustom];
         //ThemeButton *btn=[[[ThemeButton alloc] initWithImage:imageName highlighted:highlightImageName] autorelease];
         UIButton *btn=[UIFactory createButton:imageName highlighted:highlightImageName];
-        btn.frame=CGRectMake(64/2-30/2+i*64, 49/2-30/2, 30, 30);
+        btn.frame=CGRectMake((64-30)/2+i*64, 49/2-30/2, 30, 30);
         btn.tag=i;
         //[btn setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
         //[btn setImage:[UIImage imageNamed:highlightImageName] forState:UIControlStateHighlighted];
@@ -90,6 +90,10 @@
         [self.tabBarView addSubview:btn];
     }
     
+    self.sliderView=[UIFactory createImageView:@"tabbar_slider.png"];
+    self.sliderView.backgroundColor=[UIColor clearColor];
+    self.sliderView.frame=CGRectMake((64-15)/2, 5, 15, 44);
+    [self.tabBarView addSubview:self.sliderView];
 }
 
 #pragma mark - Action
@@ -97,6 +101,13 @@
 - (void)selectTab:(UIButton *)button
 {
     self.selectedIndex=button.tag;
+    
+    float x=button.left+(button.width-self.sliderView.width)/2;
+    //动画效果
+    [UIView animateWithDuration:0.2 animations:^{
+        self.sliderView.left=x;
+    }];
+    
 };
 
 
