@@ -31,7 +31,7 @@
 {
     [super viewDidLoad];
     
-    self.tableView=[[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, ScreenHeight-49) style:UITableViewStylePlain] autorelease];
+    self.tableView=[[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, ScreenHeight-49-20-44) style:UITableViewStylePlain] autorelease];
     self.tableView.dataSource=self;
     self.tableView.delegate=self;
     [self.view addSubview:self.tableView];

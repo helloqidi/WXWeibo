@@ -535,6 +535,8 @@
 		2D51B8CD17C2016F004EFA82 /* WeiboView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B8CC17C2016E004EFA82 /* WeiboView.m */; };
 		2DD4D47117C33D41006EC74C /* RegexKitLite.html in Resources */ = {isa = PBXBuildFile; fileRef = 2DD4D46F17C33D41006EC74C /* RegexKitLite.html */; };
 		2DD4D47217C33D41006EC74C /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D47017C33D41006EC74C /* RegexKitLite.m */; };
+		2DD4D47417C347BB006EC74C /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DD4D47317C347BB006EC74C /* libicucore.dylib */; };
+		2DD4D47717C35ACA006EC74C /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D47617C35ACA006EC74C /* NSString+URLEncoding.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1113,6 +1115,9 @@
 		2DD4D46E17C33D41006EC74C /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		2DD4D46F17C33D41006EC74C /* RegexKitLite.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = RegexKitLite.html; sourceTree = "<group>"; };
 		2DD4D47017C33D41006EC74C /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		2DD4D47317C347BB006EC74C /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		2DD4D47517C35ACA006EC74C /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
+		2DD4D47617C35ACA006EC74C /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1120,6 +1125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DD4D47417C347BB006EC74C /* libicucore.dylib in Frameworks */,
 				2D39D3DB17BC75B500AA40EB /* CoreText.framework in Frameworks */,
 				2D39D3D917BC751000AA40EB /* QuartzCore.framework in Frameworks */,
 				2D39D38E17BC69A300AA40EB /* UIKit.framework in Frameworks */,
@@ -1151,6 +1157,7 @@
 		2D39D38C17BC69A300AA40EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2DD4D47317C347BB006EC74C /* libicucore.dylib */,
 				2D39D3DA17BC75B500AA40EB /* CoreText.framework */,
 				2D39D3D817BC751000AA40EB /* QuartzCore.framework */,
 				2D39D38D17BC69A300AA40EB /* UIKit.framework */,
@@ -1200,6 +1207,8 @@
 		2D39D3AA17BC6A4500AA40EB /* Uitils */ = {
 			isa = PBXGroup;
 			children = (
+				2DD4D47517C35ACA006EC74C /* NSString+URLEncoding.h */,
+				2DD4D47617C35ACA006EC74C /* NSString+URLEncoding.m */,
 				2D39D3D517BC72FA00AA40EB /* CustomCatagory.h */,
 				2D39D3D617BC72FA00AA40EB /* CustomCatagory.m */,
 				2D39D3B517BC6C0000AA40EB /* WXHLGlobalUICommon.h */,
@@ -2480,6 +2489,7 @@
 				2D51B8CA17C20156004EFA82 /* WeiboCell.m in Sources */,
 				2D51B8CD17C2016F004EFA82 /* WeiboView.m in Sources */,
 				2DD4D47217C33D41006EC74C /* RegexKitLite.m in Sources */,
+				2DD4D47717C35ACA006EC74C /* NSString+URLEncoding.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

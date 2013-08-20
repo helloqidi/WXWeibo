@@ -35,6 +35,9 @@
 //微博图片
 @property(nonatomic,retain)UIImageView *image;
 
+//可变字符串
+@property(nonatomic,retain)NSMutableString *parseText;
+
 
 //计算微博视图的高度
 + (float)getWeiboViewHeight:(WeiboModel *)weiboModel isRepost:(BOOL)isRepost isDetail:(BOOL)isDetail;

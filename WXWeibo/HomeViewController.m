@@ -44,8 +44,9 @@
     
     
     //talbeview
-    //self.tableView=[[[UITableView alloc] initWithFrame:self.view.bounds] autorelease];
-    self.tableView=[[[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain] autorelease];
+    //NSLog(@"----%@",NSStringFromCGRect(self.view.bounds));
+    //NSLog(@"++++%@",NSStringFromCGRect(self.navigationController.navigationBar.bounds));
+    self.tableView=[[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, ScreenHeight-49-20-44) style:UITableViewStylePlain] autorelease];
     self.tableView.dataSource=self;
     self.tableView.delegate=self;
     [self.view addSubview:self.tableView];

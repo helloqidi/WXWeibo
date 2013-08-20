@@ -9,6 +9,8 @@
 #import "WeiboView.h"
 #import "UIFactory.h"
 #import "UIImageView+WebCache.h"
+#import "RegexKitLite.h"
+#import "NSString+URLEncoding.h"
 
 
 //列表中微博内容字体
@@ -29,6 +31,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self _initView];
+        self.parseText=[[NSMutableString alloc] initWithCapacity:1];
     }
     return self;
 }
@@ -86,10 +89,50 @@
         self.repostView.isRepost=YES;
         [self addSubview:self.repostView];
     }
+    
+    [self parseLink];
+}
+
+//解析超链接
+- (void)parseLink
+{
+    //每次都要清空，防止cell复用时self.parsetText被不断追加
+    self.parseText=[[NSMutableString alloc] initWithString:@""];
+    
+    NSString *text=self.weiboModel.text;
+    //正则表达式
+    //注：OC里面的'\'是转义符
+    NSString *regex=@"(@\\w+)|(#\\w+#)|(http(s)?://([A-Za-z0-9._-]+(/)?)*)";
+
+    NSArray *matchArray=[text componentsMatchedByRegex:regex];
+    
+    for (NSString *linkString in matchArray) {
+        //<a href='user://@用户' ></a>
+        //<a href='http://www.baidu.com'>http://www.baidu.com</a>
+        //<a href='topic://#话题#'>#话题#</a>
+        
+        NSString *replacing=nil;
+        if ([linkString hasPrefix:@"@"]) {
+            replacing=[NSString stringWithFormat:@"<a href='user://%@'>%@</a>",[linkString URLEncodedString],linkString];
+        }else if ([linkString hasPrefix:@"http"]){
+            replacing=[NSString stringWithFormat:@"<a href='%@'>%@</a>",linkString,linkString];
+        }else if ([linkString hasPrefix:@"#"]){
+            replacing=[NSString stringWithFormat:@"<a href='topic://%@'>%@</a>",[linkString URLEncodedString],linkString];
+        }
+        
+        
+        if (replacing!=nil) {
+            text=[text stringByReplacingOccurrencesOfString:linkString withString:replacing];
+        }
+    }
+    
+    [self.parseText appendString:text];
+
 }
 
 
 //展示数据，设置子视图布局
+//注：layoutSubviews 可能会被调用多次
 - (void)layoutSubviews
 {
     [super layoutSubviews];
@@ -103,7 +146,8 @@
     }else{
         self.textLabel.frame=CGRectMake(0,0,self.width,20);
     }
-    self.textLabel.text=self.weiboModel.text;
+    //self.textLabel.text=self.weiboModel.text;
+    self.textLabel.text=self.parseText;
     
     self.textLabel.font=[UIFont systemFontOfSize:fontSize];
     //内容的size
@@ -212,7 +256,21 @@
 #pragma mark - RTLabe Delegate
 - (void)rtLabel:(id)rtLabel didSelectLinkWithURL:(NSURL*)url
 {
-
+    NSString *absoluteString=[url absoluteString];
+    if([absoluteString hasPrefix:@"user"]){
+        NSString *urlString=[url host];
+        urlString=[urlString URLDecodedString];
+        NSLog(@"用户:%@",urlString);
+    }else if ([absoluteString hasPrefix:@"http"]){
+        NSLog(@"链接:%@",absoluteString);
+    }else if ([absoluteString hasPrefix:@"topic"]){
+        NSString *urlString=[url host];
+        urlString=[urlString URLDecodedString];
+        NSLog(@"话题:%@",urlString);
+    }
+    
+    
+    
 }
 
 #pragma mark - dealloc/memoryWarning
@@ -223,6 +281,7 @@
     self.repostBackgroundView=nil;
     self.textLabel=nil;
     self.image=nil;
+    self.parseText=nil;
     [super dealloc];
 }
 
