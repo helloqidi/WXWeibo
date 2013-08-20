@@ -11,6 +11,9 @@
 #import "WeiboView.h"
 #import "WeiboModel.h"
 #import "UIImageView+WebCache.h"
+#import "UIUtils.h"
+#import "RegexKitLite.h"
+#import "UIFactory.h"
 
 @implementation WeiboCell
 
@@ -73,6 +76,12 @@
     //weibo view
     self.weiboView=[[[WeiboView alloc] initWithFrame:CGRectZero] autorelease];
     [self.contentView addSubview:self.weiboView];
+    
+    //单元格选中的背景
+    //宽度和高度其实会自己调整
+    UIView *selectedBackgroundView=[[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 0)] autorelease];
+    selectedBackgroundView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"statusdetail_cell_sepatator.png"]];
+    self.selectedBackgroundView=selectedBackgroundView;
 }
 
 - (void)layoutSubviews
@@ -87,14 +96,76 @@
     //----昵称----
     self.nickLabel.frame=CGRectMake(50, 5, 200, 20);
     self.nickLabel.text=self.weiboModel.user.screen_name;
+    [self.nickLabel sizeToFit];
     
     //----微博视图----
     self.weiboView.weiboModel=self.weiboModel;
     float h= [WeiboView getWeiboViewHeight:self.weiboModel isRepost:NO isDetail:NO];
     self.weiboView.frame=CGRectMake(50, self.nickLabel.bottom+10,kWeibo_Width_List, h);
     
+    
+    //----发布时间----
+    if (self.weiboModel.createDate!=nil) {
+        self.createLabel.hidden=NO;
+        //格式化日期
+        NSString *datestring=[UIUtils fomateString:self.weiboModel.createDate];
+        self.createLabel.text=datestring;
+        self.createLabel.frame=CGRectMake(50, self.height-20, 100, 20);
+        [self.createLabel sizeToFit];
+    }else{
+        self.createLabel.hidden=YES;
+    }
+    
+    //----微博来源----
+    if (self.weiboModel.source!=nil) {
+        self.sourceLabel.hidden=NO;
+        //去掉超链接
+        NSString *source=[self parseSource:self.weiboModel.source];
+        self.sourceLabel.text=[NSString stringWithFormat:@"来自:%@",source];
+        self.sourceLabel.frame=CGRectMake(self.createLabel.right+8, self.createLabel.top, 100, 20);
+        [self.sourceLabel sizeToFit];
+    }else{
+        self.sourceLabel.hidden=YES;
+    }
+    
+    //----评论----
+    if (self.weiboModel.commentsCount!=nil) {
+        self.commentLabel.hidden=NO;
+        self.commentLabel.text=[NSString stringWithFormat:@"评论:%@",self.weiboModel.commentsCount];
+        self.commentLabel.frame=CGRectMake(self.right-60, 5, 50, 20);
+        [self.commentLabel sizeToFit];
+    }else{
+        self.commentLabel.hidden=YES;
+    }
+    
+    //----转发----
+    if (self.weiboModel.repostsCount!=nil) {
+        self.repostCountLabel.hidden=NO;
+        self.repostCountLabel.text=[NSString stringWithFormat:@"转发:%@",self.weiboModel.repostsCount];
+        self.repostCountLabel.frame=CGRectMake(self.commentLabel.left-10-50, 5, 50, 20);
+        [self.repostCountLabel sizeToFit];
+    }else{
+        self.repostCountLabel.hidden=YES;
+    }
+    
+
 }
 
+//解析微博来源
+- (NSString *)parseSource:(NSString *)source
+{
+    NSString *regex=@">\\w+<";
+    NSArray *array=[source componentsMatchedByRegex:regex];
+    if (array.count>0) {
+        NSString *ret=[array objectAtIndex:0];
+        NSRange range;
+        range.location=1;
+        range.length=ret.length-2;
+        NSString *resultstring=[ret substringWithRange:range];
+        return resultstring;
+    }
+    return  nil;
+}
 
 #pragma mark - dealloc/memoryWarning
 - (void)dealloc

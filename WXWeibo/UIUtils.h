@@ -17,6 +17,7 @@
 // string 格式化为 date
 + (NSDate *) dateFromFomate:(NSString *)datestring formate:(NSString*)formate;
 
+//格式化这样的日期：Sat Jan 12 11:50:16 +0800 2013 形成新的日期： 08-01 12:30
 + (NSString *)fomateString:(NSString *)datestring;
 
 @end

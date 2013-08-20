@@ -40,7 +40,7 @@
 //初始化子视图
 - (void)_initView
 {
-    //在layoutView中实现布局，此处不实现
+    //在layoutSubviews中实现布局，此处不实现
     self.textLabel=[[[RTLabel alloc] initWithFrame:CGRectZero] autorelease];
     self.textLabel.delegate=self;
     self.textLabel.font=[UIFont systemFontOfSize:14.0f];
@@ -96,10 +96,23 @@
 //解析超链接
 - (void)parseLink
 {
-    //每次都要清空，防止cell复用时self.parsetText被不断追加
+    //存储转换链接后的字符串。
+    //注：每次都要清空，防止cell复用时self.parsetText被不断追加
     self.parseText=[[NSMutableString alloc] initWithString:@""];
     
-    NSString *text=self.weiboModel.text;
+    //获得微博内容
+    NSMutableString *textMut=[[[NSMutableString alloc] initWithString:self.weiboModel.text] autorelease];
+    
+    //判断当前微博是否是被转发的微博
+    if (self.isRepost) {
+        //将微博作者拼接
+        NSString *userName=self.weiboModel.user.name;
+        [textMut insertString:[NSString stringWithFormat:@"@%@: ",userName] atIndex:0];
+    }
+    
+    //由NSMutableString转换回NSString，以方面使用stringByReplacingOccurrencesOfString方法
+    NSString *text=[[[NSString alloc] initWithString:textMut] autorelease];
+    
     //正则表达式
     //注：OC里面的'\'是转义符
     NSString *regex=@"(@\\w+)|(#\\w+#)|(http(s)?://([A-Za-z0-9._-]+(/)?)*)";
@@ -122,7 +135,7 @@
         
         
         if (replacing!=nil) {
-            text=[text stringByReplacingOccurrencesOfString:linkString withString:replacing];
+            text=[[text stringByReplacingOccurrencesOfString:linkString withString:replacing] mutableCopy];
         }
     }
     
@@ -210,7 +223,18 @@
     }else{
         textLabel.width=kWeibo_Width_List;
     }
-    textLabel.text=weiboModel.text;
+    if (isRepost) {
+        textLabel.width -= 20;
+    }
+    
+    NSMutableString *textMut=[[[NSMutableString alloc] initWithString:weiboModel.text] autorelease];
+    if (isRepost) {
+        //将微博作者拼接上去
+        NSString *userName=weiboModel.user.name;
+        [textMut insertString:[NSString stringWithFormat:@"@%@: ",userName] atIndex:0];
+    }
+    textLabel.text=[[[NSString alloc] initWithString:textMut] autorelease];
+    
     height += textLabel.optimumSize.height;
 
     //----计算微博图片的高度----

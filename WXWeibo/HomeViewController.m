@@ -119,7 +119,7 @@
     WeiboModel *weibo=self.data[indexPath.row];
     float height=[WeiboView getWeiboViewHeight:weibo isRepost:NO isDetail:NO];
     //留出昵称、创建时间、来源的高度
-    height += 50;
+    height += 60;
     
     return height;
 }
