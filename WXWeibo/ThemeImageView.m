@@ -58,6 +58,7 @@
         return;
     }
     UIImage *image=[[ThemeManager shareInstance] getThemeImage:self.imageName];
+    image=[image stretchableImageWithLeftCapWidth:self.leftCapWidth topCapHeight:self.topCapHeight];
     self.image=image;
 }
 

@@ -529,6 +529,12 @@
 		2D51B8BB17BDC171004EFA82 /* UIFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B8BA17BDC171004EFA82 /* UIFactory.m */; };
 		2D51B8BE17BE02EA004EFA82 /* ThemeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B8BD17BE02E9004EFA82 /* ThemeImageView.m */; };
 		2D51B8C117BE1A08004EFA82 /* ThemeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B8C017BE1A07004EFA82 /* ThemeLabel.m */; };
+		2D51B8C417C1E420004EFA82 /* WeiboModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B8C317C1E420004EFA82 /* WeiboModel.m */; };
+		2D51B8C717C1E6C9004EFA82 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B8C617C1E6C9004EFA82 /* UserModel.m */; };
+		2D51B8CA17C20156004EFA82 /* WeiboCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B8C917C20155004EFA82 /* WeiboCell.m */; };
+		2D51B8CD17C2016F004EFA82 /* WeiboView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B8CC17C2016E004EFA82 /* WeiboView.m */; };
+		2DD4D47117C33D41006EC74C /* RegexKitLite.html in Resources */ = {isa = PBXBuildFile; fileRef = 2DD4D46F17C33D41006EC74C /* RegexKitLite.html */; };
+		2DD4D47217C33D41006EC74C /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D47017C33D41006EC74C /* RegexKitLite.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1096,6 +1102,17 @@
 		2D51B8BD17BE02E9004EFA82 /* ThemeImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeImageView.m; sourceTree = "<group>"; };
 		2D51B8BF17BE1A07004EFA82 /* ThemeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeLabel.h; sourceTree = "<group>"; };
 		2D51B8C017BE1A07004EFA82 /* ThemeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeLabel.m; sourceTree = "<group>"; };
+		2D51B8C217C1E420004EFA82 /* WeiboModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboModel.h; sourceTree = "<group>"; };
+		2D51B8C317C1E420004EFA82 /* WeiboModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboModel.m; sourceTree = "<group>"; };
+		2D51B8C517C1E6C9004EFA82 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		2D51B8C617C1E6C9004EFA82 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		2D51B8C817C20155004EFA82 /* WeiboCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboCell.h; sourceTree = "<group>"; };
+		2D51B8C917C20155004EFA82 /* WeiboCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboCell.m; sourceTree = "<group>"; };
+		2D51B8CB17C2016E004EFA82 /* WeiboView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboView.h; sourceTree = "<group>"; };
+		2D51B8CC17C2016E004EFA82 /* WeiboView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboView.m; sourceTree = "<group>"; };
+		2DD4D46E17C33D41006EC74C /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		2DD4D46F17C33D41006EC74C /* RegexKitLite.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = RegexKitLite.html; sourceTree = "<group>"; };
+		2DD4D47017C33D41006EC74C /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1201,6 +1218,10 @@
 			children = (
 				2D39D3B217BC6BAA00AA40EB /* WXBaseModel.h */,
 				2D39D3B317BC6BAA00AA40EB /* WXBaseModel.m */,
+				2D51B8C217C1E420004EFA82 /* WeiboModel.h */,
+				2D51B8C317C1E420004EFA82 /* WeiboModel.m */,
+				2D51B8C517C1E6C9004EFA82 /* UserModel.h */,
+				2D51B8C617C1E6C9004EFA82 /* UserModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1208,6 +1229,7 @@
 		2D39D3B817BC6D1400AA40EB /* operSource */ = {
 			isa = PBXGroup;
 			children = (
+				2DD4D46D17C33D41006EC74C /* RegexKitLite */,
 				2D51B89617BCDAA5004EFA82 /* sinaweibo_ios_sdk */,
 				2D39D3D117BC72B400AA40EB /* DDMenu */,
 				2D39D3CD17BC728E00AA40EB /* FontLabel */,
@@ -1278,6 +1300,10 @@
 				2D51B89117BCA59C004EFA82 /* RightViewController.h */,
 				2D51B89217BCA59C004EFA82 /* RightViewController.m */,
 				2D51B89317BCA59C004EFA82 /* RightViewController.xib */,
+				2D51B8C817C20155004EFA82 /* WeiboCell.h */,
+				2D51B8C917C20155004EFA82 /* WeiboCell.m */,
+				2D51B8CB17C2016E004EFA82 /* WeiboView.h */,
+				2D51B8CC17C2016E004EFA82 /* WeiboView.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -1860,6 +1886,16 @@
 			name = ThemeManager;
 			sourceTree = "<group>";
 		};
+		2DD4D46D17C33D41006EC74C /* RegexKitLite */ = {
+			isa = PBXGroup;
+			children = (
+				2DD4D46E17C33D41006EC74C /* RegexKitLite.h */,
+				2DD4D46F17C33D41006EC74C /* RegexKitLite.html */,
+				2DD4D47017C33D41006EC74C /* RegexKitLite.m */,
+			);
+			path = RegexKitLite;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2394,6 +2430,7 @@
 				2D51B8AA17BD1802004EFA82 /* Skins in Resources */,
 				2D51B8B017BD2329004EFA82 /* theme.plist in Resources */,
 				2D51B8B817BDBC26004EFA82 /* ThemeViewController.xib in Resources */,
+				2DD4D47117C33D41006EC74C /* RegexKitLite.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2438,6 +2475,11 @@
 				2D51B8BB17BDC171004EFA82 /* UIFactory.m in Sources */,
 				2D51B8BE17BE02EA004EFA82 /* ThemeImageView.m in Sources */,
 				2D51B8C117BE1A08004EFA82 /* ThemeLabel.m in Sources */,
+				2D51B8C417C1E420004EFA82 /* WeiboModel.m in Sources */,
+				2D51B8C717C1E6C9004EFA82 /* UserModel.m in Sources */,
+				2D51B8CA17C20156004EFA82 /* WeiboCell.m in Sources */,
+				2D51B8CD17C2016F004EFA82 /* WeiboView.m in Sources */,
+				2DD4D47217C33D41006EC74C /* RegexKitLite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

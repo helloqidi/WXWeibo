@@ -10,6 +10,9 @@
 
 #import "BaseViewController.h"
 
-@interface HomeViewController : BaseViewController<SinaWeiboRequestDelegate>
+@interface HomeViewController : BaseViewController<SinaWeiboRequestDelegate,UITableViewDataSource,UITableViewDelegate>
+
+@property(nonatomic,retain)UITableView *tableView;
+@property(nonatomic,retain)NSArray *data;
 
 @end

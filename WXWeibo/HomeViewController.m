@@ -7,6 +7,9 @@
 //
 
 #import "HomeViewController.h"
+#import "WeiboModel.h"
+#import "WeiboCell.h"
+#import "WeiboView.h"
 
 @interface HomeViewController ()
 
@@ -40,11 +43,19 @@
     }
     
     
+    //talbeview
+    //self.tableView=[[[UITableView alloc] initWithFrame:self.view.bounds] autorelease];
+    self.tableView=[[[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain] autorelease];
+    self.tableView.dataSource=self;
+    self.tableView.delegate=self;
+    [self.view addSubview:self.tableView];
+    
+    
 }
 #pragma mark - Load Data
 - (void)loadWeiboData
 {
-    NSMutableDictionary *params=[NSMutableDictionary dictionaryWithObject:@"5" forKey:@"count"];
+    NSMutableDictionary *params=[NSMutableDictionary dictionaryWithObject:@"20" forKey:@"count"];
     [self.sinaweibo requestWithURL:@"statuses/home_timeline.json"
                             params:params
                         httpMethod:@"GET"
@@ -52,13 +63,64 @@
 }
 
 #pragma mark -Sinaweibo Request Delegate
+//加载失败
 - (void)request:(SinaWeiboRequest *)request didFailWithError:(NSError *)error
 {
     NSLog(@"网络加载失败：%@",error);
 }
+//加载完成
 - (void)request:(SinaWeiboRequest *)request didFinishLoadingWithResult:(id)result
 {
-    NSLog(@"%@",result);
+    //NSLog(@"%@",result);
+    
+    NSArray *statuses=[result objectForKey:@"statuses"];
+    NSMutableArray *weibos=[NSMutableArray arrayWithCapacity:statuses.count];
+    
+    for (NSDictionary *statuesDic in statuses) {
+        WeiboModel *weibo=[[[WeiboModel alloc] initWithDataDic:statuesDic] autorelease];
+        [weibos addObject:weibo];
+    }
+    self.data=weibos;
+    
+    //刷新talbeView
+    [self.tableView reloadData];
+}
+
+#pragma mark - UITableView Datasource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.data.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
+    //WeiboCell *cell=[[[WeiboCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil] autorelease];
+    static NSString *identifier=@"WeiboCell";
+    WeiboCell *cell=[tableView dequeueReusableCellWithIdentifier:identifier];
+    if (cell==nil) {
+        cell=[[[WeiboCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
+    }
+    
+    WeiboModel *weibo=self.data[indexPath.row];
+    //WeiboModel *weiboModel=[self.data objectAtIndex:indexPath.row];
+    cell.weiboModel=weibo;
+    
+    return cell;
+}
+
+
+- (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //此方法中不能得到cell,如下语句会报错,形成死循环
+    //UITableViewCell *cell=[tableView cellForRowAtIndexPath:indexPath];
+    
+    WeiboModel *weibo=self.data[indexPath.row];
+    float height=[WeiboView getWeiboViewHeight:weibo isRepost:NO isDetail:NO];
+    //留出昵称、创建时间、来源的高度
+    height += 50;
+    
+    return height;
 }
 
 
@@ -76,6 +138,9 @@
 #pragma mark - dealloc/memoryWarning
 - (void)dealloc
 {
+    self.tableView=nil;
+    self.data=nil;
+    [_tableView release];
     [super dealloc];
 }
 

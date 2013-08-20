@@ -28,7 +28,7 @@
 
 + (ThemeImageView *)createImageView:(NSString *)imageName
 {
-    ThemeImageView *imageView=[[[ThemeImageView alloc] initwithImageName:imageName] autorelease];
+    ThemeImageView *imageView=[[ThemeImageView alloc] initwithImageName:imageName];
     return imageView;
 }
 

@@ -199,8 +199,8 @@
 	}
     
     //--------------debug---------------
-    NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"json:%@",string);
+    //NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    //NSLog(@"json:%@",string);
     
 }
 
@@ -354,7 +354,7 @@
     connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
     
     //--------------debug-----------------
-    NSLog(@"url:%@",urlString);
+    //NSLog(@"url:%@",urlString);
 }
 
 - (void)disconnect
