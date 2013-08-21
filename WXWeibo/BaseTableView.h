@@ -19,7 +19,7 @@
 //上拉
 - (void)pullUp:(BaseTableView *)tableView;
 //选中
-- (void)tableView:(BaseTableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)tableView:(BaseTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
 

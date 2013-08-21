@@ -64,10 +64,10 @@
 }
 
 //选中单元格
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self.eventDelegate respondsToSelector:@selector(tableView:didDeselectRowAtIndexPath:)]) {
-        [self.eventDelegate tableView:self didDeselectRowAtIndexPath:indexPath];
+    if ([self.eventDelegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
+        [self.eventDelegate tableView:self didSelectRowAtIndexPath:indexPath];
     }
 }
 

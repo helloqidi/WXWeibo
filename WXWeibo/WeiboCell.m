@@ -35,7 +35,7 @@
     self.userImage.layer.cornerRadius=5;
     self.userImage.layer.borderWidth=.5;
     self.userImage.layer.borderColor=[UIColor grayColor].CGColor;
-    //超出部分裁减掉
+    //超出部分裁减掉(子layer是否被当前layer的边界剪切)
     self.userImage.layer.masksToBounds=YES;
     [self.contentView addSubview:self.userImage];
 

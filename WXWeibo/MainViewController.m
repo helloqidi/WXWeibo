@@ -92,6 +92,8 @@
         //UIButton *btn=[UIButton buttonWithType:UIButtonTypeCustom];
         //ThemeButton *btn=[[[ThemeButton alloc] initWithImage:imageName highlighted:highlightImageName] autorelease];
         UIButton *btn=[UIFactory createButton:imageName highlighted:highlightImageName];
+        //点击后的高亮效果
+        btn.showsTouchWhenHighlighted=YES;
         btn.frame=CGRectMake((64-30)/2+i*64, 49/2-30/2, 30, 30);
         btn.tag=i;
         //[btn setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];

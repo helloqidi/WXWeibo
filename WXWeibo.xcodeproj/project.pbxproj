@@ -34,15 +34,10 @@
 		2D39D3E217BC78EB00AA40EB /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D39D3E117BC78EB00AA40EB /* BaseViewController.m */; };
 		2D39D3E517BC7A5D00AA40EB /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D39D3E417BC7A5D00AA40EB /* BaseNavigationController.m */; };
 		2D39D3EE17BC7B4900AA40EB /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D39D3EC17BC7B4900AA40EB /* HomeViewController.m */; };
-		2D39D3EF17BC7B4900AA40EB /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D39D3ED17BC7B4900AA40EB /* HomeViewController.xib */; };
 		2D39D3F317BC7BCB00AA40EB /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D39D3F117BC7BCB00AA40EB /* MessageViewController.m */; };
-		2D39D3F417BC7BCB00AA40EB /* MessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D39D3F217BC7BCB00AA40EB /* MessageViewController.xib */; };
 		2D39D3F817BC7BF800AA40EB /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D39D3F617BC7BF800AA40EB /* ProfileViewController.m */; };
-		2D39D3F917BC7BF800AA40EB /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D39D3F717BC7BF800AA40EB /* ProfileViewController.xib */; };
 		2D39D3FD17BC7C7900AA40EB /* DiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D39D3FB17BC7C7900AA40EB /* DiscoverViewController.m */; };
-		2D39D3FE17BC7C7900AA40EB /* DiscoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D39D3FC17BC7C7900AA40EB /* DiscoverViewController.xib */; };
 		2D39D40217BC7CA700AA40EB /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D39D40017BC7CA700AA40EB /* MoreViewController.m */; };
-		2D39D40317BC7CA700AA40EB /* MoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D39D40117BC7CA700AA40EB /* MoreViewController.xib */; };
 		2D39D5DA17BC862100AA40EB /* btn_map_location.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D39D40517BC861E00AA40EB /* btn_map_location.png */; };
 		2D39D5DB17BC862100AA40EB /* btn_map_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D39D40617BC861E00AA40EB /* btn_map_location@2x.png */; };
 		2D39D5DC17BC862100AA40EB /* compose_camerabutton_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D39D40717BC861E00AA40EB /* compose_camerabutton_background.png */; };
@@ -512,9 +507,7 @@
 		2D39D7AC17BC862200AA40EB /* 附近微博.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D39D5D817BC862100AA40EB /* 附近微博.jpg */; };
 		2D39D7AD17BC862200AA40EB /* 附近的人.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D39D5D917BC862100AA40EB /* 附近的人.jpg */; };
 		2D51B88F17BCA58D004EFA82 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B88D17BCA58D004EFA82 /* LeftViewController.m */; };
-		2D51B89017BCA58D004EFA82 /* LeftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D51B88E17BCA58D004EFA82 /* LeftViewController.xib */; };
 		2D51B89417BCA59C004EFA82 /* RightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B89217BCA59C004EFA82 /* RightViewController.m */; };
-		2D51B89517BCA59C004EFA82 /* RightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D51B89317BCA59C004EFA82 /* RightViewController.xib */; };
 		2D51B8A317BCDAA5004EFA82 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B89917BCDAA5004EFA82 /* JSONKit.m */; };
 		2D51B8A417BCDAA5004EFA82 /* SinaWeibo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2D51B89B17BCDAA5004EFA82 /* SinaWeibo.bundle */; };
 		2D51B8A517BCDAA5004EFA82 /* SinaWeibo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B89D17BCDAA5004EFA82 /* SinaWeibo.m */; };
@@ -525,7 +518,6 @@
 		2D51B8B017BD2329004EFA82 /* theme.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D51B8AF17BD2329004EFA82 /* theme.plist */; };
 		2D51B8B317BD3860004EFA82 /* ThemeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B8B217BD3860004EFA82 /* ThemeButton.m */; };
 		2D51B8B717BDBC26004EFA82 /* ThemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B8B517BDBC26004EFA82 /* ThemeViewController.m */; };
-		2D51B8B817BDBC26004EFA82 /* ThemeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D51B8B617BDBC26004EFA82 /* ThemeViewController.xib */; };
 		2D51B8BB17BDC171004EFA82 /* UIFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B8BA17BDC171004EFA82 /* UIFactory.m */; };
 		2D51B8BE17BE02EA004EFA82 /* ThemeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B8BD17BE02E9004EFA82 /* ThemeImageView.m */; };
 		2D51B8C117BE1A08004EFA82 /* ThemeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B8C017BE1A07004EFA82 /* ThemeLabel.m */; };
@@ -549,6 +541,7 @@
 		2DD4D48F17C49158006EC74C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DD4D48E17C49157006EC74C /* AudioToolbox.framework */; };
 		2DD4D49417C4C453006EC74C /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DD4D49117C4C453006EC74C /* 37x-Checkmark.png */; };
 		2DD4D49517C4C453006EC74C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D49317C4C453006EC74C /* MBProgressHUD.m */; };
+		2DD4D49917C4CC73006EC74C /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D49717C4CC72006EC74C /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -603,19 +596,14 @@
 		2D39D3E417BC7A5D00AA40EB /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
 		2D39D3EB17BC7B4900AA40EB /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		2D39D3EC17BC7B4900AA40EB /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		2D39D3ED17BC7B4900AA40EB /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		2D39D3F017BC7BCB00AA40EB /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
 		2D39D3F117BC7BCB00AA40EB /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
-		2D39D3F217BC7BCB00AA40EB /* MessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageViewController.xib; sourceTree = "<group>"; };
 		2D39D3F517BC7BF800AA40EB /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		2D39D3F617BC7BF800AA40EB /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
-		2D39D3F717BC7BF800AA40EB /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		2D39D3FA17BC7C7900AA40EB /* DiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverViewController.h; sourceTree = "<group>"; };
 		2D39D3FB17BC7C7900AA40EB /* DiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverViewController.m; sourceTree = "<group>"; };
-		2D39D3FC17BC7C7900AA40EB /* DiscoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscoverViewController.xib; sourceTree = "<group>"; };
 		2D39D3FF17BC7CA700AA40EB /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
 		2D39D40017BC7CA700AA40EB /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
-		2D39D40117BC7CA700AA40EB /* MoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreViewController.xib; sourceTree = "<group>"; };
 		2D39D40517BC861E00AA40EB /* btn_map_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_map_location.png; sourceTree = "<group>"; };
 		2D39D40617BC861E00AA40EB /* btn_map_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_map_location@2x.png"; sourceTree = "<group>"; };
 		2D39D40717BC861E00AA40EB /* compose_camerabutton_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compose_camerabutton_background.png; sourceTree = "<group>"; };
@@ -1086,10 +1074,8 @@
 		2D39D5D917BC862100AA40EB /* 附近的人.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "附近的人.jpg"; sourceTree = "<group>"; };
 		2D51B88C17BCA58D004EFA82 /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
 		2D51B88D17BCA58D004EFA82 /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
-		2D51B88E17BCA58D004EFA82 /* LeftViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftViewController.xib; sourceTree = "<group>"; };
 		2D51B89117BCA59C004EFA82 /* RightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightViewController.h; sourceTree = "<group>"; };
 		2D51B89217BCA59C004EFA82 /* RightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightViewController.m; sourceTree = "<group>"; };
-		2D51B89317BCA59C004EFA82 /* RightViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RightViewController.xib; sourceTree = "<group>"; };
 		2D51B89817BCDAA5004EFA82 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		2D51B89917BCDAA5004EFA82 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		2D51B89B17BCDAA5004EFA82 /* SinaWeibo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SinaWeibo.bundle; sourceTree = "<group>"; };
@@ -1109,7 +1095,6 @@
 		2D51B8B217BD3860004EFA82 /* ThemeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeButton.m; sourceTree = "<group>"; };
 		2D51B8B417BDBC26004EFA82 /* ThemeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeViewController.h; sourceTree = "<group>"; };
 		2D51B8B517BDBC26004EFA82 /* ThemeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeViewController.m; sourceTree = "<group>"; };
-		2D51B8B617BDBC26004EFA82 /* ThemeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemeViewController.xib; sourceTree = "<group>"; };
 		2D51B8B917BDC171004EFA82 /* UIFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFactory.h; sourceTree = "<group>"; };
 		2D51B8BA17BDC171004EFA82 /* UIFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFactory.m; sourceTree = "<group>"; };
 		2D51B8BC17BE02E9004EFA82 /* ThemeImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeImageView.h; sourceTree = "<group>"; };
@@ -1146,6 +1131,8 @@
 		2DD4D49117C4C453006EC74C /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
 		2DD4D49217C4C453006EC74C /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		2DD4D49317C4C453006EC74C /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		2DD4D49617C4CC72006EC74C /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		2DD4D49717C4CC72006EC74C /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1336,19 +1323,18 @@
 			children = (
 				2D39D3EB17BC7B4900AA40EB /* HomeViewController.h */,
 				2D39D3EC17BC7B4900AA40EB /* HomeViewController.m */,
-				2D39D3ED17BC7B4900AA40EB /* HomeViewController.xib */,
 				2D51B88C17BCA58D004EFA82 /* LeftViewController.h */,
 				2D51B88D17BCA58D004EFA82 /* LeftViewController.m */,
-				2D51B88E17BCA58D004EFA82 /* LeftViewController.xib */,
 				2D51B89117BCA59C004EFA82 /* RightViewController.h */,
 				2D51B89217BCA59C004EFA82 /* RightViewController.m */,
-				2D51B89317BCA59C004EFA82 /* RightViewController.xib */,
 				2D51B8C817C20155004EFA82 /* WeiboCell.h */,
 				2D51B8C917C20155004EFA82 /* WeiboCell.m */,
 				2D51B8CB17C2016E004EFA82 /* WeiboView.h */,
 				2D51B8CC17C2016E004EFA82 /* WeiboView.m */,
 				2DD4D48B17C3B1E8006EC74C /* WeiboTableView.h */,
 				2DD4D48C17C3B1E9006EC74C /* WeiboTableView.m */,
+				2DD4D49617C4CC72006EC74C /* DetailViewController.h */,
+				2DD4D49717C4CC72006EC74C /* DetailViewController.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -1358,7 +1344,6 @@
 			children = (
 				2D39D3F017BC7BCB00AA40EB /* MessageViewController.h */,
 				2D39D3F117BC7BCB00AA40EB /* MessageViewController.m */,
-				2D39D3F217BC7BCB00AA40EB /* MessageViewController.xib */,
 			);
 			name = Message;
 			sourceTree = "<group>";
@@ -1368,7 +1353,6 @@
 			children = (
 				2D39D3F517BC7BF800AA40EB /* ProfileViewController.h */,
 				2D39D3F617BC7BF800AA40EB /* ProfileViewController.m */,
-				2D39D3F717BC7BF800AA40EB /* ProfileViewController.xib */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -1378,7 +1362,6 @@
 			children = (
 				2D39D3FA17BC7C7900AA40EB /* DiscoverViewController.h */,
 				2D39D3FB17BC7C7900AA40EB /* DiscoverViewController.m */,
-				2D39D3FC17BC7C7900AA40EB /* DiscoverViewController.xib */,
 			);
 			name = Discover;
 			sourceTree = "<group>";
@@ -1388,10 +1371,8 @@
 			children = (
 				2D39D3FF17BC7CA700AA40EB /* MoreViewController.h */,
 				2D39D40017BC7CA700AA40EB /* MoreViewController.m */,
-				2D39D40117BC7CA700AA40EB /* MoreViewController.xib */,
 				2D51B8B417BDBC26004EFA82 /* ThemeViewController.h */,
 				2D51B8B517BDBC26004EFA82 /* ThemeViewController.m */,
-				2D51B8B617BDBC26004EFA82 /* ThemeViewController.xib */,
 			);
 			name = More;
 			sourceTree = "<group>";
@@ -2021,11 +2002,6 @@
 				2D39D3A017BC69A300AA40EB /* Default.png in Resources */,
 				2D39D3A217BC69A300AA40EB /* Default@2x.png in Resources */,
 				2D39D3A417BC69A300AA40EB /* Default-568h@2x.png in Resources */,
-				2D39D3EF17BC7B4900AA40EB /* HomeViewController.xib in Resources */,
-				2D39D3F417BC7BCB00AA40EB /* MessageViewController.xib in Resources */,
-				2D39D3F917BC7BF800AA40EB /* ProfileViewController.xib in Resources */,
-				2D39D3FE17BC7C7900AA40EB /* DiscoverViewController.xib in Resources */,
-				2D39D40317BC7CA700AA40EB /* MoreViewController.xib in Resources */,
 				2D39D5DA17BC862100AA40EB /* btn_map_location.png in Resources */,
 				2D39D5DB17BC862100AA40EB /* btn_map_location@2x.png in Resources */,
 				2D39D5DC17BC862100AA40EB /* compose_camerabutton_background.png in Resources */,
@@ -2494,12 +2470,9 @@
 				2D39D7AB17BC862200AA40EB /* 后退.png in Resources */,
 				2D39D7AC17BC862200AA40EB /* 附近微博.jpg in Resources */,
 				2D39D7AD17BC862200AA40EB /* 附近的人.jpg in Resources */,
-				2D51B89017BCA58D004EFA82 /* LeftViewController.xib in Resources */,
-				2D51B89517BCA59C004EFA82 /* RightViewController.xib in Resources */,
 				2D51B8A417BCDAA5004EFA82 /* SinaWeibo.bundle in Resources */,
 				2D51B8AA17BD1802004EFA82 /* Skins in Resources */,
 				2D51B8B017BD2329004EFA82 /* theme.plist in Resources */,
-				2D51B8B817BDBC26004EFA82 /* ThemeViewController.xib in Resources */,
 				2DD4D47117C33D41006EC74C /* RegexKitLite.html in Resources */,
 				2DD4D48417C38788006EC74C /* blackArrow.png in Resources */,
 				2DD4D48517C38788006EC74C /* blackArrow@2x.png in Resources */,
@@ -2562,6 +2535,7 @@
 				2DD4D48817C38788006EC74C /* EGORefreshTableHeaderView.m in Sources */,
 				2DD4D48D17C3B1E9006EC74C /* WeiboTableView.m in Sources */,
 				2DD4D49517C4C453006EC74C /* MBProgressHUD.m in Sources */,
+				2DD4D49917C4CC73006EC74C /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
