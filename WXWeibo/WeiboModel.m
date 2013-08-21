@@ -16,7 +16,7 @@
 {
     NSDictionary *mapAtt=@{
                            @"createDate":@"created_at",
-                           @"weiboID":@"id",
+                           @"weiboId":@"id",
                            @"text":@"text",
                            @"source":@"source",
                            @"favorited":@"favorited",
@@ -54,7 +54,7 @@
 - (void)dealloc
 {
     self.createDate=nil;
-    self.weiboID=nil;
+    self.weiboId=nil;
     self.text=nil;
     self.source=nil;
     self.favorited=nil;

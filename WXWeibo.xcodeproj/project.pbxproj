@@ -537,6 +537,18 @@
 		2DD4D47217C33D41006EC74C /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D47017C33D41006EC74C /* RegexKitLite.m */; };
 		2DD4D47417C347BB006EC74C /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DD4D47317C347BB006EC74C /* libicucore.dylib */; };
 		2DD4D47717C35ACA006EC74C /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D47617C35ACA006EC74C /* NSString+URLEncoding.m */; };
+		2DD4D47A17C3871C006EC74C /* BaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D47917C3871C006EC74C /* BaseTableView.m */; };
+		2DD4D48417C38788006EC74C /* blackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DD4D47C17C38788006EC74C /* blackArrow.png */; };
+		2DD4D48517C38788006EC74C /* blackArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DD4D47D17C38788006EC74C /* blackArrow@2x.png */; };
+		2DD4D48617C38788006EC74C /* blueArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DD4D47E17C38788006EC74C /* blueArrow.png */; };
+		2DD4D48717C38788006EC74C /* blueArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DD4D47F17C38788006EC74C /* blueArrow@2x.png */; };
+		2DD4D48817C38788006EC74C /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D48117C38788006EC74C /* EGORefreshTableHeaderView.m */; };
+		2DD4D48917C38788006EC74C /* grayArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DD4D48217C38788006EC74C /* grayArrow.png */; };
+		2DD4D48A17C38788006EC74C /* grayArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DD4D48317C38788006EC74C /* grayArrow@2x.png */; };
+		2DD4D48D17C3B1E9006EC74C /* WeiboTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D48C17C3B1E9006EC74C /* WeiboTableView.m */; };
+		2DD4D48F17C49158006EC74C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DD4D48E17C49157006EC74C /* AudioToolbox.framework */; };
+		2DD4D49417C4C453006EC74C /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DD4D49117C4C453006EC74C /* 37x-Checkmark.png */; };
+		2DD4D49517C4C453006EC74C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D49317C4C453006EC74C /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1118,6 +1130,22 @@
 		2DD4D47317C347BB006EC74C /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		2DD4D47517C35ACA006EC74C /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
 		2DD4D47617C35ACA006EC74C /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
+		2DD4D47817C3871C006EC74C /* BaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableView.h; sourceTree = "<group>"; };
+		2DD4D47917C3871C006EC74C /* BaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableView.m; sourceTree = "<group>"; };
+		2DD4D47C17C38788006EC74C /* blackArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackArrow.png; sourceTree = "<group>"; };
+		2DD4D47D17C38788006EC74C /* blackArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blackArrow@2x.png"; sourceTree = "<group>"; };
+		2DD4D47E17C38788006EC74C /* blueArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueArrow.png; sourceTree = "<group>"; };
+		2DD4D47F17C38788006EC74C /* blueArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueArrow@2x.png"; sourceTree = "<group>"; };
+		2DD4D48017C38788006EC74C /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
+		2DD4D48117C38788006EC74C /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
+		2DD4D48217C38788006EC74C /* grayArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grayArrow.png; sourceTree = "<group>"; };
+		2DD4D48317C38788006EC74C /* grayArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grayArrow@2x.png"; sourceTree = "<group>"; };
+		2DD4D48B17C3B1E8006EC74C /* WeiboTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboTableView.h; sourceTree = "<group>"; };
+		2DD4D48C17C3B1E9006EC74C /* WeiboTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboTableView.m; sourceTree = "<group>"; };
+		2DD4D48E17C49157006EC74C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		2DD4D49117C4C453006EC74C /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
+		2DD4D49217C4C453006EC74C /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		2DD4D49317C4C453006EC74C /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1125,6 +1153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DD4D48F17C49158006EC74C /* AudioToolbox.framework in Frameworks */,
 				2DD4D47417C347BB006EC74C /* libicucore.dylib in Frameworks */,
 				2D39D3DB17BC75B500AA40EB /* CoreText.framework in Frameworks */,
 				2D39D3D917BC751000AA40EB /* QuartzCore.framework in Frameworks */,
@@ -1157,6 +1186,7 @@
 		2D39D38C17BC69A300AA40EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2DD4D48E17C49157006EC74C /* AudioToolbox.framework */,
 				2DD4D47317C347BB006EC74C /* libicucore.dylib */,
 				2D39D3DA17BC75B500AA40EB /* CoreText.framework */,
 				2D39D3D817BC751000AA40EB /* QuartzCore.framework */,
@@ -1238,6 +1268,8 @@
 		2D39D3B817BC6D1400AA40EB /* operSource */ = {
 			isa = PBXGroup;
 			children = (
+				2DD4D49017C4C453006EC74C /* MBProgressHUD */,
+				2DD4D47B17C38788006EC74C /* EGOTableViewPullRefresh */,
 				2DD4D46D17C33D41006EC74C /* RegexKitLite */,
 				2D51B89617BCDAA5004EFA82 /* sinaweibo_ios_sdk */,
 				2D39D3D117BC72B400AA40EB /* DDMenu */,
@@ -1293,6 +1325,8 @@
 				2D39D3E117BC78EB00AA40EB /* BaseViewController.m */,
 				2D39D3E317BC7A5D00AA40EB /* BaseNavigationController.h */,
 				2D39D3E417BC7A5D00AA40EB /* BaseNavigationController.m */,
+				2DD4D47817C3871C006EC74C /* BaseTableView.h */,
+				2DD4D47917C3871C006EC74C /* BaseTableView.m */,
 			);
 			name = BaseView;
 			sourceTree = "<group>";
@@ -1313,6 +1347,8 @@
 				2D51B8C917C20155004EFA82 /* WeiboCell.m */,
 				2D51B8CB17C2016E004EFA82 /* WeiboView.h */,
 				2D51B8CC17C2016E004EFA82 /* WeiboView.m */,
+				2DD4D48B17C3B1E8006EC74C /* WeiboTableView.h */,
+				2DD4D48C17C3B1E9006EC74C /* WeiboTableView.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -1905,6 +1941,31 @@
 			path = RegexKitLite;
 			sourceTree = "<group>";
 		};
+		2DD4D47B17C38788006EC74C /* EGOTableViewPullRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				2DD4D47C17C38788006EC74C /* blackArrow.png */,
+				2DD4D47D17C38788006EC74C /* blackArrow@2x.png */,
+				2DD4D47E17C38788006EC74C /* blueArrow.png */,
+				2DD4D47F17C38788006EC74C /* blueArrow@2x.png */,
+				2DD4D48017C38788006EC74C /* EGORefreshTableHeaderView.h */,
+				2DD4D48117C38788006EC74C /* EGORefreshTableHeaderView.m */,
+				2DD4D48217C38788006EC74C /* grayArrow.png */,
+				2DD4D48317C38788006EC74C /* grayArrow@2x.png */,
+			);
+			path = EGOTableViewPullRefresh;
+			sourceTree = "<group>";
+		};
+		2DD4D49017C4C453006EC74C /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				2DD4D49117C4C453006EC74C /* 37x-Checkmark.png */,
+				2DD4D49217C4C453006EC74C /* MBProgressHUD.h */,
+				2DD4D49317C4C453006EC74C /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2440,6 +2501,13 @@
 				2D51B8B017BD2329004EFA82 /* theme.plist in Resources */,
 				2D51B8B817BDBC26004EFA82 /* ThemeViewController.xib in Resources */,
 				2DD4D47117C33D41006EC74C /* RegexKitLite.html in Resources */,
+				2DD4D48417C38788006EC74C /* blackArrow.png in Resources */,
+				2DD4D48517C38788006EC74C /* blackArrow@2x.png in Resources */,
+				2DD4D48617C38788006EC74C /* blueArrow.png in Resources */,
+				2DD4D48717C38788006EC74C /* blueArrow@2x.png in Resources */,
+				2DD4D48917C38788006EC74C /* grayArrow.png in Resources */,
+				2DD4D48A17C38788006EC74C /* grayArrow@2x.png in Resources */,
+				2DD4D49417C4C453006EC74C /* 37x-Checkmark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2490,6 +2558,10 @@
 				2D51B8CD17C2016F004EFA82 /* WeiboView.m in Sources */,
 				2DD4D47217C33D41006EC74C /* RegexKitLite.m in Sources */,
 				2DD4D47717C35ACA006EC74C /* NSString+URLEncoding.m in Sources */,
+				2DD4D47A17C3871C006EC74C /* BaseTableView.m in Sources */,
+				2DD4D48817C38788006EC74C /* EGORefreshTableHeaderView.m in Sources */,
+				2DD4D48D17C3B1E9006EC74C /* WeiboTableView.m in Sources */,
+				2DD4D49517C4C453006EC74C /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

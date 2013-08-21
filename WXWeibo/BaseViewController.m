@@ -77,5 +77,66 @@
     self.navigationItem.titleView=titleLabel;
 }
 
+#pragma mark - loading
+- (void)showLoading:(BOOL)show
+{
+    if (self.loadingView==nil) {
+        self.loadingView=[[[UIView alloc] initWithFrame:CGRectMake(0, ScreenHeight/2-40, ScreenWidth, 20)] autorelease];
+        
+        //风火轮视图
+        UIActivityIndicatorView *activityView=[[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray] autorelease];
+        [activityView startAnimating];
+        
+        //label
+        UILabel *loadLabel=[[[UILabel alloc] initWithFrame:CGRectZero] autorelease];
+        loadLabel.backgroundColor=[UIColor clearColor];
+        loadLabel.text=@"正在加载......";
+        loadLabel.font=[UIFont boldSystemFontOfSize:16.0f];
+        loadLabel.textColor=[UIColor blackColor];
+        [loadLabel sizeToFit];
+        
+        loadLabel.left=(320-loadLabel.width)/2;
+        activityView.right=loadLabel.left-5;
+        
+        [self.loadingView addSubview:loadLabel];
+        [self.loadingView addSubview:activityView];
+    }
+    if (show) {
+        //NSLog(@"----%@",[self.loadingView superview]);
+        if (![self.loadingView superview]) {
+            [self.view addSubview:self.loadingView];
+        }
+    }else{
+        [self.loadingView removeFromSuperview];
+    }
+}
+
+
+- (void)showHUD:(NSString *)title isDim:(BOOL)isDim
+{
+    self.hud=[MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    if (isDim) {
+        //黑色背景遮罩
+        self.hud.dimBackground=YES;
+    }
+    if (title.length>0) {
+        self.hud.labelText=title;
+    }
+}
+
+- (void)hideHUD{
+    [self.hud hide:YES];
+}
+
+- (void)showHUDComplete:(NSString *)title
+{
+    self.hud.customView=[[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease] ;
+    self.hud.mode=MBProgressHUDModeCustomView;
+    if (title.length>0) {
+        self.hud.labelText=title;
+    }
+    //2秒后隐藏
+    [self.hud hide:YES afterDelay:2];
+}
 
 @end

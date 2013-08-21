@@ -17,6 +17,10 @@
 
 #import <Foundation/Foundation.h>
 
+//----helloqidi----
+//定义block
+typedef void (^RequestFinishBlock)(id result);
+
 @class SinaWeiboRequest;
 @class SinaWeibo;
 
@@ -52,6 +56,10 @@
 @property (nonatomic, retain) NSDictionary *params;
 @property (nonatomic, assign) id<SinaWeiboRequestDelegate> delegate;
 
+
+//----helloqidi----
+@property(nonatomic,copy)RequestFinishBlock block;
+
 + (SinaWeiboRequest *)requestWithURL:(NSString *)url 
                           httpMethod:(NSString *)httpMethod 
                               params:(NSDictionary *)params
@@ -68,5 +76,14 @@
 
 - (void)connect;
 - (void)disconnect;
+
+
+//----helloqidi----
++ (SinaWeiboRequest *)requestWithURL:(NSString *)url
+                          httpMethod:(NSString *)httpMethod
+                              params:(NSDictionary *)params
+                            block:(RequestFinishBlock)block;
+
+
 
 @end

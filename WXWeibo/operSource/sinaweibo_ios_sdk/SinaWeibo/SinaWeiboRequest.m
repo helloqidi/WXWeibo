@@ -195,6 +195,14 @@
             {
                 [delegate request:self didFinishLoadingWithResult:(result == nil ? data : result)];
             }
+            
+            //----helloqiid----
+            if (self.block) {
+                self.block(result == nil ? data : result);
+                //注：block要release，防止循环引用发生
+                Block_release(_block);
+            }
+            
         }
 	}
     
@@ -415,6 +423,17 @@
 	connection = nil;
     
     [sinaweibo requestDidFinish:self];
+}
+
+//----helloqidi----
++ (SinaWeiboRequest *)requestWithURL:(NSString *)url
+                          httpMethod:(NSString *)httpMethod
+                              params:(NSDictionary *)params
+                            block:(RequestFinishBlock)block
+{
+    SinaWeiboRequest *request=[self requestWithURL:url httpMethod:httpMethod params:params delegate:nil];
+    request.block=block;
+    return request;
 }
 
 @end

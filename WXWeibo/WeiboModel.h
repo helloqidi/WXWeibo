@@ -40,7 +40,7 @@
 @interface WeiboModel : WXBaseModel
 
 @property(nonatomic,copy)NSString *createDate;      //微博的创建时间
-@property(nonatomic,retain)NSNumber *weiboID;       //微博id
+@property(nonatomic,retain)NSNumber *weiboId;       //微博id
 @property(nonatomic,copy)NSString *text;            //内容
 @property(nonatomic,copy)NSString *source;          //来源
 @property(nonatomic,retain)NSNumber *favorited;     //是否已收藏

@@ -9,10 +9,20 @@
 //
 
 #import "BaseViewController.h"
+#import "WeiboTableView.h"
+#import "ThemeImageView.h"
 
-@interface HomeViewController : BaseViewController<SinaWeiboRequestDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface HomeViewController : BaseViewController<SinaWeiboRequestDelegate,UITableViewEventDelegate>
 
-@property(nonatomic,retain)UITableView *tableView;
-@property(nonatomic,retain)NSArray *data;
+@property(nonatomic,retain)WeiboTableView *tableView;
 
+@property(nonatomic,copy)NSString *topWeiboId;
+
+@property(nonatomic,retain)NSMutableArray *weibos;
+
+//显示微博数量的横条
+@property(nonatomic,retain)ThemeImageView *barView;
+
+//自动刷新微博
+- (void)autorefreshWeibo;
 @end
