@@ -122,8 +122,10 @@
         CommentModel *comment=[[[CommentModel alloc] initWithDataDic:commentDic] autorelease];
         [array addObject:comment];
     }
-    
     self.tableView.data=array;
+    
+    //将字典传过去，可用于获得评论总数量等信息
+    self.tableView.commentDic=result;
     
     //刷新
     [self.tableView reloadData];
