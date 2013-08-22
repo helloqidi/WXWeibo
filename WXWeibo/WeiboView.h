@@ -12,9 +12,9 @@
 #import "ThemeImageView.h"
 
 //微博在列表中的宽度
-#define kWeibo_Width_List   (320-60)
+#define kWeibo_Width_List   (ScreenWidth-60)
 //微博在详情中的宽度
-#define kWeibo_Width_Detail   (320-20)
+#define kWeibo_Width_Detail   (ScreenWidth-20)
 
 
 @interface WeiboView : UIView<RTLabelDelegate>

@@ -37,7 +37,7 @@
     
     //昵称
     self.nickLabel=[[[UILabel alloc] initWithFrame:CGRectZero] autorelease];
-    self.nickLabel.font=[UIFont systemFontOfSize:17.0f];
+    self.nickLabel.font=[UIFont systemFontOfSize:15.0f];
     self.nickLabel.tag=101;
     [self.nickLabel sizeToFit];
     [self.contentView addSubview:self.nickLabel];
@@ -66,7 +66,7 @@
     [super layoutSubviews];
     
     //头像
-    self.userImage.frame=CGRectMake(2, 2, 40, 40);
+    self.userImage.frame=CGRectMake(10, 2, 40, 40);
     NSString *userImageUrl=self.commentModel.user.profile_image_url;
     //加载网络图片
     [self.userImage setImageWithURL:[NSURL URLWithString:userImageUrl]];
@@ -77,13 +77,13 @@
     self.nickLabel.text=self.commentModel.user.screen_name;
     
     //时间 01-25 22:22
-    self.timeLabel.frame=CGRectMake(self.contentView.right-82,2, 80, 20);
+    self.timeLabel.frame=CGRectMake(self.contentView.right-80-10,2, 80, 20);
     self.timeLabel.text=[UIUtils fomateString:self.commentModel.created_at];
     
     //内容
     self.contentLabel.frame=CGRectMake(self.userImage.right+10, self.nickLabel.bottom+5, 240, 20);
     NSString *commentText=self.commentModel.text;
-    self.contentLabel.text=commentText;
+    self.contentLabel.text=[UIUtils parseLink:commentText];
     self.contentLabel.height=self.contentLabel.optimumSize.height;
 }
 

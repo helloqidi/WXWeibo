@@ -50,7 +50,38 @@
 {
     self.badgeView.hidden=!show;
 }
+- (void)showTabbar:(BOOL)show
+{
+    [UIView animateWithDuration:0.35 animations:^{
+        if (show) {
+            self.tabBarView.left= 0;
+        }else{
+            self.tabBarView.left= -ScreenWidth;
+        }
+    }];
+    
+    [self _resizeView:show];
+}
+
+
 #pragma mark - UI
+
+//调整子视图高度
+- (void)_resizeView:(BOOL)showTabbar
+{
+    for (UIView *subview in self.view.subviews) {
+        
+        if ([subview isKindOfClass:NSClassFromString(@"UITransitionView")]) {
+            if (showTabbar) {
+                subview.height=ScreenHeight-49-20;
+            }else{
+                subview.height=ScreenHeight-20;
+            }
+        }
+    }
+}
+
+
 //初始化子控制器
 - (void)_initViewController
 {
@@ -66,6 +97,7 @@
     for (UIViewController *viewController in views) {
         BaseNavigationController *nav=[[[BaseNavigationController alloc] initWithRootViewController:viewController] autorelease];
         [viewControllers addObject:nav];
+        nav.delegate=self;
     }
     self.viewControllers=viewControllers;
 }
@@ -73,7 +105,7 @@
 //初始化TabBar工具栏
 - (void)_initTabBarView
 {
-    self.tabBarView=[[[UIView alloc] initWithFrame:CGRectMake(0, ScreenHeight-49-20, 320, 49)] autorelease];
+    self.tabBarView=[[[UIView alloc] initWithFrame:CGRectMake(0, ScreenHeight-49-20, ScreenWidth, 49)] autorelease];
     //self.tabBarView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"tabbar_background.png"]];
     [self.view addSubview:self.tabBarView];
     
@@ -211,6 +243,19 @@
     NSLog(@"sinaweiboLogInDidCancel");
 }
 
+
+#pragma mark - UINavigationContoller Delegate
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    //导航控制器的子控制器个数
+    int count=navigationController.viewControllers.count;
+    if (count==1) {
+        [self showTabbar:YES];
+    }else if (count==2){
+        [self showTabbar:NO];
+    }
+    
+}
 
 #pragma mark - dealloc/memoryWarning
 - (void)dealloc

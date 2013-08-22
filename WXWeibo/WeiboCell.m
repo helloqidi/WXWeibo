@@ -79,7 +79,7 @@
     
     //单元格选中的背景
     //宽度和高度其实会自己调整
-    UIView *selectedBackgroundView=[[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 0)] autorelease];
+    UIView *selectedBackgroundView=[[[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 0)] autorelease];
     selectedBackgroundView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"statusdetail_cell_sepatator.png"]];
     self.selectedBackgroundView=selectedBackgroundView;
 }

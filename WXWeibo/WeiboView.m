@@ -11,7 +11,7 @@
 #import "UIImageView+WebCache.h"
 #import "RegexKitLite.h"
 #import "NSString+URLEncoding.h"
-
+#import "UIUtils.h"
 
 //列表中微博内容字体
 #define LIST_FONT   14.0f
@@ -87,6 +87,7 @@
     if(self.repostView==nil){
         self.repostView=[[[WeiboView alloc] initWithFrame:CGRectZero] autorelease];
         self.repostView.isRepost=YES;
+        self.repostView.isDetail=self.isDetail;
         [self addSubview:self.repostView];
     }
     
@@ -113,31 +114,7 @@
     //由NSMutableString转换回NSString，以方面使用stringByReplacingOccurrencesOfString方法
     NSString *text=[[[NSString alloc] initWithString:textMut] autorelease];
     
-    //正则表达式
-    //注：OC里面的'\'是转义符
-    NSString *regex=@"(@\\w+)|(#\\w+#)|(http(s)?://([A-Za-z0-9._-]+(/)?)*)";
-
-    NSArray *matchArray=[text componentsMatchedByRegex:regex];
-    
-    for (NSString *linkString in matchArray) {
-        //<a href='user://@用户' ></a>
-        //<a href='http://www.baidu.com'>http://www.baidu.com</a>
-        //<a href='topic://#话题#'>#话题#</a>
-        
-        NSString *replacing=nil;
-        if ([linkString hasPrefix:@"@"]) {
-            replacing=[NSString stringWithFormat:@"<a href='user://%@'>%@</a>",[linkString URLEncodedString],linkString];
-        }else if ([linkString hasPrefix:@"http"]){
-            replacing=[NSString stringWithFormat:@"<a href='%@'>%@</a>",linkString,linkString];
-        }else if ([linkString hasPrefix:@"#"]){
-            replacing=[NSString stringWithFormat:@"<a href='topic://%@'>%@</a>",[linkString URLEncodedString],linkString];
-        }
-        
-        
-        if (replacing!=nil) {
-            text=[[text stringByReplacingOccurrencesOfString:linkString withString:replacing] mutableCopy];
-        }
-    }
+    text=[UIUtils parseLink:text];
     
     [self.parseText appendString:text];
 

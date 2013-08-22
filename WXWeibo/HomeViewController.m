@@ -45,7 +45,7 @@
     //talbeview
     //NSLog(@"----%@",NSStringFromCGRect(self.view.bounds));
     //NSLog(@"++++%@",NSStringFromCGRect(self.navigationController.navigationBar.bounds));
-    self.tableView=[[[WeiboTableView alloc] initWithFrame:CGRectMake(0, 0, 320, ScreenHeight-49-20-44) style:UITableViewStylePlain] autorelease];
+    self.tableView=[[[WeiboTableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight-49-20-44) style:UITableViewStylePlain] autorelease];
     //self.tableView.dataSource=self;
     //self.tableView.delegate=self;
     

@@ -95,7 +95,7 @@
         loadLabel.textColor=[UIColor blackColor];
         [loadLabel sizeToFit];
         
-        loadLabel.left=(320-loadLabel.width)/2;
+        loadLabel.left=(ScreenWidth-loadLabel.width)/2;
         activityView.right=loadLabel.left-5;
         
         [self.loadingView addSubview:loadLabel];

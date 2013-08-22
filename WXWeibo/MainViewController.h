@@ -13,7 +13,7 @@
 #import "HomeViewController.h"
 
 
-@interface MainViewController : UITabBarController<SinaWeiboDelegate>
+@interface MainViewController : UITabBarController<SinaWeiboDelegate,UINavigationControllerDelegate>
 
 @property(nonatomic,retain)UIView *tabBarView;
 @property(nonatomic,retain)UIImageView *sliderView;
@@ -26,5 +26,8 @@
 
 //是否显示badge
 - (void)showBadge:(BOOL)show;
+
+//是否显示tabbar
+- (void)showTabbar:(BOOL)show;
 
 @end

@@ -30,7 +30,9 @@
 {
     [super viewDidLoad];
     
-    self.tableView=[[[CommentTableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight-49-40-44) style:UITableViewStylePlain] autorelease];
+    self.tableView=[[[CommentTableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight-20-44) style:UITableViewStylePlain] autorelease];
+    //self.tableView.autoresizingMask=UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    //NSLog(@"=====%f",self.tableView.height);
     //self.tableView.dataSource=self;
     //self.tableView.delegate=self;
 
@@ -79,7 +81,7 @@
     [userBarView addSubview:iconImage];
    
     //间隔横线
-    UIImageView *separatorImage=[[[UIImageView alloc] initWithFrame:CGRectMake(0, 60-1, 320, 1)] autorelease];
+    UIImageView *separatorImage=[[[UIImageView alloc] initWithFrame:CGRectMake(0, 60-1, ScreenWidth, 1)] autorelease];
     separatorImage.image=[UIImage imageNamed:@"userinfo_header_separator.png"];
     [userBarView addSubview:separatorImage];
 

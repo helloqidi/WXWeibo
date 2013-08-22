@@ -20,4 +20,7 @@
 //格式化这样的日期：Sat Jan 12 11:50:16 +0800 2013 形成新的日期： 08-01 12:30
 + (NSString *)fomateString:(NSString *)datestring;
 
+//解析微博内容中的链接等
++ (NSString *)parseLink:(NSString *)text;
+
 @end
