@@ -9,6 +9,7 @@
 #import "DetailViewController.h"
 #import "UIImageView+WebCache.h"
 #import <QuartzCore/QuartzCore.h>
+#import "CommentModel.h"
 
 @interface DetailViewController ()
 
@@ -29,13 +30,15 @@
 {
     [super viewDidLoad];
     
-    self.tableView=[[[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight-49-40-44) style:UITableViewStylePlain] autorelease];
-    self.tableView.dataSource=self;
-    self.tableView.delegate=self;
+    self.tableView=[[[CommentTableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight-49-40-44) style:UITableViewStylePlain] autorelease];
+    //self.tableView.dataSource=self;
+    //self.tableView.delegate=self;
 
     [self.view addSubview:self.tableView];
     
     [self _initView];
+    
+    [self loadData];
     
 }
 
@@ -93,16 +96,35 @@
     
 }
 
-
-#pragma mark - UITalbeView Datasource/Delegate
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (void)loadData
 {
-    return 0;
+    NSString *weiboId=[self.weiboModel.weiboId stringValue];
+    if (weiboId.length==0) {
+        return;
+    }
+    
+    NSMutableDictionary *params=[NSMutableDictionary dictionaryWithObject:weiboId forKey:@"id"];
+    
+    [self.sinaweibo requestWithURL:@"comments/show.json" params:params httpMethod:@"GET" block:^(NSDictionary *result) {
+        [self loadDataFinish:result];
+    }];
+
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)loadDataFinish:(NSDictionary *)result
 {
-    return nil;
+    NSArray *comments=[result objectForKey:@"comments"];
+    NSMutableArray *array=[NSMutableArray arrayWithCapacity:comments.count];
+    
+    for (NSDictionary *commentDic in comments) {
+        CommentModel *comment=[[[CommentModel alloc] initWithDataDic:commentDic] autorelease];
+        [array addObject:comment];
+    }
+    
+    self.tableView.data=array;
+    
+    //刷新
+    [self.tableView reloadData];
 }
 
 #pragma mark -dealloc/memoryWarning

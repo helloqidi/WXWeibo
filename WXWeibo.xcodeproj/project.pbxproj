@@ -542,6 +542,9 @@
 		2DD4D49417C4C453006EC74C /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DD4D49117C4C453006EC74C /* 37x-Checkmark.png */; };
 		2DD4D49517C4C453006EC74C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D49317C4C453006EC74C /* MBProgressHUD.m */; };
 		2DD4D49917C4CC73006EC74C /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D49717C4CC72006EC74C /* DetailViewController.m */; };
+		2DD4D49D17C5A238006EC74C /* CommentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D49C17C5A236006EC74C /* CommentTableView.m */; };
+		2DD4D4A017C5A6FB006EC74C /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D49F17C5A6F9006EC74C /* CommentCell.m */; };
+		2DD4D4A317C5ACE4006EC74C /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D4A217C5ACE4006EC74C /* CommentModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1133,6 +1136,12 @@
 		2DD4D49317C4C453006EC74C /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		2DD4D49617C4CC72006EC74C /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		2DD4D49717C4CC72006EC74C /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		2DD4D49B17C5A235006EC74C /* CommentTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableView.h; sourceTree = "<group>"; };
+		2DD4D49C17C5A236006EC74C /* CommentTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableView.m; sourceTree = "<group>"; };
+		2DD4D49E17C5A6F8006EC74C /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
+		2DD4D49F17C5A6F9006EC74C /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
+		2DD4D4A117C5ACE4006EC74C /* CommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
+		2DD4D4A217C5ACE4006EC74C /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1248,6 +1257,8 @@
 				2D51B8C317C1E420004EFA82 /* WeiboModel.m */,
 				2D51B8C517C1E6C9004EFA82 /* UserModel.h */,
 				2D51B8C617C1E6C9004EFA82 /* UserModel.m */,
+				2DD4D4A117C5ACE4006EC74C /* CommentModel.h */,
+				2DD4D4A217C5ACE4006EC74C /* CommentModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1335,6 +1346,10 @@
 				2DD4D48C17C3B1E9006EC74C /* WeiboTableView.m */,
 				2DD4D49617C4CC72006EC74C /* DetailViewController.h */,
 				2DD4D49717C4CC72006EC74C /* DetailViewController.m */,
+				2DD4D49B17C5A235006EC74C /* CommentTableView.h */,
+				2DD4D49C17C5A236006EC74C /* CommentTableView.m */,
+				2DD4D49E17C5A6F8006EC74C /* CommentCell.h */,
+				2DD4D49F17C5A6F9006EC74C /* CommentCell.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -2536,6 +2551,9 @@
 				2DD4D48D17C3B1E9006EC74C /* WeiboTableView.m in Sources */,
 				2DD4D49517C4C453006EC74C /* MBProgressHUD.m in Sources */,
 				2DD4D49917C4CC73006EC74C /* DetailViewController.m in Sources */,
+				2DD4D49D17C5A238006EC74C /* CommentTableView.m in Sources */,
+				2DD4D4A017C5A6FB006EC74C /* CommentCell.m in Sources */,
+				2DD4D4A317C5ACE4006EC74C /* CommentModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
