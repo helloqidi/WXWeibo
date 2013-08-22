@@ -37,6 +37,8 @@
 //代理
 @property(nonatomic,assign)id<UITableViewEventDelegate> eventDelegate;
 
+@property(nonatomic,retain)UIButton *moreButton;
+
 //下拉弹回去
 - (void)doneLoadingTableViewData;
 

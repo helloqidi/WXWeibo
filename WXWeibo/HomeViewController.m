@@ -134,7 +134,7 @@
 //上拉
 - (void)pullUp:(BaseTableView *)tableView
 {
-
+    [self pullUpData];
 }
 
 //选中
@@ -184,6 +184,24 @@
                              }];
 }
 
+//上拉请求数据
+- (void)pullUpData
+{
+    if (self.lastWeiboId.length==0) {
+        NSLog(@"微博id为空");
+        return;
+    }
+    NSMutableDictionary *params=[NSMutableDictionary dictionaryWithObjectsAndKeys:@"20",@"count",self.lastWeiboId,@"max_id",nil];
+    [self.sinaweibo requestWithURL:@"statuses/home_timeline.json"
+                            params:params
+                        httpMethod:@"GET"
+                             block:^(id result){
+                                 [self pullUpDataFinish:result];
+                             }];
+
+}
+
+//下拉加载完成
 - (void)pullDownDataFinish:(id)result
 {
     NSArray *statuses=[result objectForKey:@"statuses"];
@@ -214,6 +232,32 @@
     //显示刷新了多少条微博
     //NSLog(@"更新条数：%d",[statuses count]);
     [self showNewWeiboCount:[statuses count]];
+}
+
+//上拉加载完成
+- (void)pullUpDataFinish:(id)result
+{
+    NSArray *statuses=[result objectForKey:@"statuses"];
+    NSMutableArray *array=[NSMutableArray arrayWithCapacity:statuses.count];
+    
+    for (NSDictionary *statuesDic in statuses) {
+        WeiboModel *weibo=[[[WeiboModel alloc] initWithDataDic:statuesDic] autorelease];
+        [array addObject:weibo];
+    }
+    
+    //更新最后一个id
+    if (array.count>0) {
+        WeiboModel *weibo=[array lastObject];
+        self.lastWeiboId=[weibo.weiboId stringValue];
+    }
+    
+    //追加数组
+    [self.weibos addObjectsFromArray:array];
+    self.tableView.data=self.weibos;
+    
+    //刷新
+    [self.tableView reloadData];
+
 }
 
 - (void)autorefreshWeibo
@@ -255,6 +299,9 @@
         WeiboModel *topWeibo=[weibos objectAtIndex:0];
         //NSNumber转换为字符串
         self.topWeiboId=[topWeibo.weiboId stringValue];
+        
+        WeiboModel *lastWeibo=[weibos lastObject];
+        self.lastWeiboId=[lastWeibo.weiboId stringValue];
     }
     
     

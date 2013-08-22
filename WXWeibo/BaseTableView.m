@@ -35,6 +35,25 @@
     self.dataSource=self;
     self.delegate=self;
     self.refreshHeader=YES;
+    
+    
+    //尾部视图
+    self.moreButton=[UIButton buttonWithType:UIButtonTypeCustom];
+    self.moreButton.backgroundColor=[UIColor clearColor];
+    self.moreButton.frame=CGRectMake(0, 0, ScreenWidth, 40);
+    self.moreButton.titleLabel.font=[UIFont systemFontOfSize:16.0f];
+    [self.moreButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [self.moreButton setTitle:@"上拉加载更多..." forState:UIControlStateNormal];
+    [self.moreButton addTarget:self action:@selector(loadMoreAction) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.tableFooterView=self.moreButton;
+    
+    UIActivityIndicatorView *activityView=[[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray] autorelease];
+    activityView.frame=CGRectMake(100, 10, 20, 20);
+    activityView.tag=2013;
+    [activityView stopAnimating];
+    [self.moreButton addSubview:activityView];
+    
 }
 
 - (void)setRefreshHeader:(BOOL)refreshHeader
@@ -51,7 +70,15 @@
 
 }
 
-#pragma mark - UITableView Datasource
+
+- (void)reloadData
+{
+    [super reloadData];
+    //停止加载更多
+    [self _stopLoadMore];
+}
+
+#pragma mark - UITableView Delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.data.count;
@@ -89,6 +116,36 @@
 - (void)autoRefreshData
 {
     [_refreshHeaderView initLoading:self];
+}
+
+
+- (void)_startLoadMore
+{
+    [self.moreButton setTitle:@"正在加载..." forState:UIControlStateNormal];
+    UIActivityIndicatorView *activityView=(UIActivityIndicatorView *)[self.moreButton viewWithTag:2013];
+    [activityView startAnimating];
+    
+    //按钮禁用
+    self.moreButton.enabled=NO;
+}
+
+- (void)_stopLoadMore
+{
+    [self.moreButton setTitle:@"上拉加载更多..." forState:UIControlStateNormal];
+    UIActivityIndicatorView *activityView=(UIActivityIndicatorView *)[self.moreButton viewWithTag:2013];
+    [activityView stopAnimating];
+    
+    //按钮启用
+    self.moreButton.enabled=YES;
+}
+
+#pragma mark - Action
+- (void)loadMoreAction
+{
+    if ([self.eventDelegate respondsToSelector:@selector(pullUp:)]) {
+        [self _startLoadMore];
+        [self.eventDelegate pullUp:self];
+    }
 }
 
 #pragma mark -
@@ -137,7 +194,5 @@
 	return [NSDate date];
 	
 }
-
-
 
 @end

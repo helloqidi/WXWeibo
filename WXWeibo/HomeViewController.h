@@ -16,7 +16,10 @@
 
 @property(nonatomic,retain)WeiboTableView *tableView;
 
+//第一条微博id
 @property(nonatomic,copy)NSString *topWeiboId;
+//最后一条微博id
+@property(nonatomic,copy)NSString *lastWeiboId;
 
 @property(nonatomic,retain)NSMutableArray *weibos;
 
