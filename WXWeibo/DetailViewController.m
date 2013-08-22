@@ -81,8 +81,14 @@
     [userBarView addSubview:separatorImage];
 
     
-    tableHeaderView.height+=60;
+    //----创建微博视图----
+    float h=[WeiboView getWeiboViewHeight:self.weiboModel isRepost:NO isDetail:YES];
+    self.weiboView=[[WeiboView alloc] initWithFrame:CGRectMake(10, userBarView.bottom+10,ScreenWidth-20, h)];
+    self.weiboView.isDetail=YES;
+    self.weiboView.weiboModel=self.weiboModel;
+    [tableHeaderView addSubview:self.weiboView];
     
+    tableHeaderView.height+=userBarView.height+h+10;
     self.tableView.tableHeaderView=tableHeaderView;
     
 }
