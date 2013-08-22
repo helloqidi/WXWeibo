@@ -11,11 +11,14 @@
 #import "WeiboView.h"
 #import "CommentTableView.h"
 
-@interface DetailViewController : BaseViewController
+@interface DetailViewController : BaseViewController<UITableViewEventDelegate>
 
 @property(nonatomic,retain)WeiboModel *weiboModel;
 @property(nonatomic,retain)WeiboView *weiboView;
 
 @property(nonatomic,retain)CommentTableView *tableView;
+
+@property(nonatomic,retain)NSString *lastCommentId;
+@property(nonatomic,retain)NSMutableArray *comments;
 
 @end

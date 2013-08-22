@@ -39,6 +39,9 @@
 
 @property(nonatomic,retain)UIButton *moreButton;
 
+//是否还有更多
+@property(nonatomic,assign)BOOL isMore;
+
 //下拉弹回去
 - (void)doneLoadingTableViewData;
 

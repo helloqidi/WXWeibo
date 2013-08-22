@@ -35,6 +35,8 @@
     //NSLog(@"=====%f",self.tableView.height);
     //self.tableView.dataSource=self;
     //self.tableView.delegate=self;
+    self.tableView.eventDelegate=self;
+    //self.tableView.refreshHeader=NO;
 
     [self.view addSubview:self.tableView];
     
@@ -115,20 +117,107 @@
 
 - (void)loadDataFinish:(NSDictionary *)result
 {
-    NSArray *comments=[result objectForKey:@"comments"];
-    NSMutableArray *array=[NSMutableArray arrayWithCapacity:comments.count];
+    NSArray *commentList=[result objectForKey:@"comments"];
+    NSMutableArray *comments=[NSMutableArray arrayWithCapacity:commentList.count];
     
-    for (NSDictionary *commentDic in comments) {
+    for (NSDictionary *commentDic in commentList) {
         CommentModel *comment=[[[CommentModel alloc] initWithDataDic:commentDic] autorelease];
-        [array addObject:comment];
+        [comments addObject:comment];
     }
-    self.tableView.data=array;
+    
+    if (commentList.count>=20) {
+        self.tableView.isMore=YES;
+    }else{
+        self.tableView.isMore=NO;
+    }
+    
+    if (commentList.count>0) {
+        CommentModel *lastComment=[comments lastObject];
+        self.lastCommentId=[lastComment.id stringValue];
+    }
+    
+    self.tableView.data=comments;
+    self.comments=comments;
     
     //将字典传过去，可用于获得评论总数量等信息
     self.tableView.commentDic=result;
     
     //刷新
     [self.tableView reloadData];
+}
+
+
+
+//上拉请求数据
+- (void)pullUpData
+{
+    if (self.lastCommentId.length==0) {
+        NSLog(@"评论id为空");
+        return;
+    }
+    
+    NSString *weiboId=[self.weiboModel.weiboId stringValue];
+    if (weiboId.length==0) {
+        return;
+    }
+    
+    NSMutableDictionary *params=[NSMutableDictionary dictionaryWithObjectsAndKeys:@"20",@"count",weiboId,@"id",self.lastCommentId,@"max_id",nil];
+    [self.sinaweibo requestWithURL:@"comments/show.json"
+                            params:params
+                        httpMethod:@"GET"
+                             block:^(id result){
+                                 [self pullUpDataFinish:result];
+                             }];
+    
+}
+
+- (void)pullUpDataFinish:(id)result
+{
+    NSArray *commentList=[result objectForKey:@"comments"];
+    NSMutableArray *comments=[NSMutableArray arrayWithCapacity:commentList.count];
+    
+    for (NSDictionary *commentDic in commentList) {
+        CommentModel *comment=[[[CommentModel alloc] initWithDataDic:commentDic] autorelease];
+        [comments addObject:comment];
+    }
+    
+    if (commentList.count>=20) {
+        self.tableView.isMore=YES;
+    }else{
+        self.tableView.isMore=NO;
+    }
+    
+    if (commentList.count>0) {
+        CommentModel *lastComment=[comments lastObject];
+        self.lastCommentId=[lastComment.id stringValue];
+    }
+    
+    //追加数组
+    [self.comments addObjectsFromArray:comments];
+    self.tableView.data=self.comments;
+    
+
+    //刷新
+    [self.tableView reloadData];
+}
+
+#pragma mark - BaseTablViewEventDelegate
+//下拉
+- (void)pullDown:(BaseTableView *)tableView
+{
+    [tableView performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:2];
+}
+
+//上拉
+- (void)pullUp:(BaseTableView *)tableView
+{
+    [self pullUpData];
+}
+
+//选中
+- (void)tableView:(BaseTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
 }
 
 #pragma mark -dealloc/memoryWarning

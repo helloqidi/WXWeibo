@@ -251,6 +251,12 @@
         self.lastWeiboId=[weibo.weiboId stringValue];
     }
     
+    if (statuses.count>=20) {
+        self.tableView.isMore=YES;
+    }else{
+        self.tableView.isMore=NO;
+    }
+    
     //追加数组
     [self.weibos addObjectsFromArray:array];
     self.tableView.data=self.weibos;
@@ -303,7 +309,12 @@
         WeiboModel *lastWeibo=[weibos lastObject];
         self.lastWeiboId=[lastWeibo.weiboId stringValue];
     }
-    
+ 
+    if (weibos.count>=20) {
+        self.tableView.isMore=YES;
+    }else{
+        self.tableView.isMore=NO;
+    }
     
     //刷新talbeView
     [self.tableView reloadData];
