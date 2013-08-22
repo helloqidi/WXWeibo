@@ -28,8 +28,25 @@
 {
     [super viewDidLoad];
     [self loadThemeImage];
+    
+    
+    //监听滑动手势
+    UISwipeGestureRecognizer *swipGesture=[[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipAction:)] autorelease];
+    //一个手势类智只监听一个方向
+    swipGesture.direction=UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:swipGesture];
 }
 
+
+- (void)swipAction:(UISwipeGestureRecognizer *)gesture
+{
+    if (self.viewControllers.count>1){
+        if (gesture.direction==UISwipeGestureRecognizerDirectionRight){
+            //返回上一级
+            [self popViewControllerAnimated:YES];
+        }
+    }
+}
 
 
 - (void)themeNotification

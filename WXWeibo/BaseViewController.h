@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SinaWeibo.h"
 #import "MBProgressHUD.h"
+#import "AppDelegate.h"
 
 @interface BaseViewController : UIViewController
 
@@ -21,6 +22,8 @@
 
 
 - (SinaWeibo *) sinaweibo;
+- (AppDelegate *)appDelegate;
+
 
 //网络加载提示
 - (void)showLoading:(BOOL)show;

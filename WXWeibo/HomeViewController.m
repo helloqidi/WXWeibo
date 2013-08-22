@@ -62,6 +62,26 @@
     
 }
 
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    //开启左、右滑动菜单
+    AppDelegate *appDelegate=self.appDelegate;
+    [appDelegate.ddMenuController setEnableGesture:YES];
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    //关闭左、右滑动菜单
+    AppDelegate *appDelegate=self.appDelegate;
+    [appDelegate.ddMenuController setEnableGesture:NO];
+}
+
 #pragma mark - UI
 //显示新微博的数量
 - (void)showNewWeiboCount:(int)count

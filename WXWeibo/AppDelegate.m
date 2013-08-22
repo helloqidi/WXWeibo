@@ -46,13 +46,13 @@
     LeftViewController *leftViewController=[[LeftViewController alloc] init];
     RightViewController *rightViewController=[[RightViewController alloc] init];
     
-    DDMenuController *ddMenuController=[[[DDMenuController alloc] initWithRootViewController:self.mainViewController] autorelease];
-    ddMenuController.leftViewController=leftViewController;
-    ddMenuController.rightViewController=rightViewController;
+    self.ddMenuController=[[[DDMenuController alloc] initWithRootViewController:self.mainViewController] autorelease];
+    self.ddMenuController.leftViewController=leftViewController;
+    self.ddMenuController.rightViewController=rightViewController;
     
     [self _initSinaWeibo];
     
-    self.window.rootViewController=ddMenuController;
+    self.window.rootViewController=self.ddMenuController;
     return YES;
 }
 
@@ -68,6 +68,7 @@
     [_window release];
     self.sinaweibo=nil;
     self.mainViewController=nil;
+    self.ddMenuController=nil;
     [super dealloc];
 }
 @end

@@ -54,9 +54,15 @@
 
 - (SinaWeibo *) sinaweibo
 {
-    AppDelegate *appDelegate=(AppDelegate *)[UIApplication sharedApplication].delegate;
+    AppDelegate *appDelegate=self.appDelegate;
     SinaWeibo *sinaweibo=appDelegate.sinaweibo;
     return sinaweibo;
+}
+
+- (AppDelegate *)appDelegate
+{
+    AppDelegate *appDelegate=[UIApplication sharedApplication].delegate;
+    return appDelegate;
 }
 
 //覆写setTitle方法 override
