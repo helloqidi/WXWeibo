@@ -30,6 +30,8 @@
 {
     [super viewDidLoad];
     
+    self.title=@"详情";
+    
     self.tableView=[[[CommentTableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight-20-44) style:UITableViewStylePlain] autorelease];
     //self.tableView.autoresizingMask=UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     //NSLog(@"=====%f",self.tableView.height);

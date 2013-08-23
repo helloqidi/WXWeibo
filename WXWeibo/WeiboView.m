@@ -12,6 +12,7 @@
 #import "RegexKitLite.h"
 #import "NSString+URLEncoding.h"
 #import "UIUtils.h"
+#import "UserViewController.h"
 
 //列表中微博内容字体
 #define LIST_FONT   14.0f
@@ -330,8 +331,8 @@
         urlString=[urlString URLDecodedString];
         NSLog(@"用户:%@",urlString);
         
-        UIViewController *viewCtrl=[[UIViewController alloc] init];
-        [self.viewController.navigationController pushViewController:viewCtrl animated:YES];
+        UserViewController *userCtrl=[[UserViewController alloc] init];
+        [self.viewController.navigationController pushViewController:userCtrl animated:YES];
         
         
     }else if ([absoluteString hasPrefix:@"http"]){

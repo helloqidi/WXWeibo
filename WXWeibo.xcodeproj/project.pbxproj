@@ -547,6 +547,9 @@
 		2DD4D4A317C5ACE4006EC74C /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D4A217C5ACE4006EC74C /* CommentModel.m */; };
 		2DD4D4A617C670F9006EC74C /* BrowModeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D4A517C670F9006EC74C /* BrowModeController.m */; };
 		2DD4D4A917C714DE006EC74C /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D4A817C714DD006EC74C /* UIView+Additions.m */; };
+		2DD4D4AC17C727A4006EC74C /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D4AB17C727A4006EC74C /* UserViewController.m */; };
+		2DD4D4AF17C729DB006EC74C /* UserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D4AE17C729DB006EC74C /* UserInfoView.m */; };
+		2DD4D4B217C737ED006EC74C /* RectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D4B117C737EC006EC74C /* RectButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1148,6 +1151,12 @@
 		2DD4D4A517C670F9006EC74C /* BrowModeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowModeController.m; sourceTree = "<group>"; };
 		2DD4D4A717C714DC006EC74C /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
 		2DD4D4A817C714DD006EC74C /* UIView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Additions.m"; sourceTree = "<group>"; };
+		2DD4D4AA17C727A4006EC74C /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
+		2DD4D4AB17C727A4006EC74C /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
+		2DD4D4AD17C729DB006EC74C /* UserInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoView.h; sourceTree = "<group>"; };
+		2DD4D4AE17C729DB006EC74C /* UserInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoView.m; sourceTree = "<group>"; };
+		2DD4D4B017C737EC006EC74C /* RectButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectButton.h; sourceTree = "<group>"; };
+		2DD4D4B117C737EC006EC74C /* RectButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RectButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1376,6 +1385,12 @@
 			children = (
 				2D39D3F517BC7BF800AA40EB /* ProfileViewController.h */,
 				2D39D3F617BC7BF800AA40EB /* ProfileViewController.m */,
+				2DD4D4AA17C727A4006EC74C /* UserViewController.h */,
+				2DD4D4AB17C727A4006EC74C /* UserViewController.m */,
+				2DD4D4AD17C729DB006EC74C /* UserInfoView.h */,
+				2DD4D4AE17C729DB006EC74C /* UserInfoView.m */,
+				2DD4D4B017C737EC006EC74C /* RectButton.h */,
+				2DD4D4B117C737EC006EC74C /* RectButton.m */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -2566,6 +2581,9 @@
 				2DD4D4A317C5ACE4006EC74C /* CommentModel.m in Sources */,
 				2DD4D4A617C670F9006EC74C /* BrowModeController.m in Sources */,
 				2DD4D4A917C714DE006EC74C /* UIView+Additions.m in Sources */,
+				2DD4D4AC17C727A4006EC74C /* UserViewController.m in Sources */,
+				2DD4D4AF17C729DB006EC74C /* UserInfoView.m in Sources */,
+				2DD4D4B217C737ED006EC74C /* RectButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

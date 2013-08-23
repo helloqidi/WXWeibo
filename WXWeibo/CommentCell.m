@@ -28,7 +28,7 @@
     //用户头像
     self.userImage=[[[UIImageView alloc] initWithFrame:CGRectZero] autorelease];
     self.userImage.backgroundColor=[UIColor clearColor];
-    self.userImage.tag=100;
+    //self.userImage.tag=100;
     //圆角
     self.userImage.layer.cornerRadius=5;
     //裁剪掉超出部分
@@ -38,14 +38,14 @@
     //昵称
     self.nickLabel=[[[UILabel alloc] initWithFrame:CGRectZero] autorelease];
     self.nickLabel.font=[UIFont systemFontOfSize:15.0f];
-    self.nickLabel.tag=101;
+    //self.nickLabel.tag=101;
     [self.nickLabel sizeToFit];
     [self.contentView addSubview:self.nickLabel];
     
     //时间
     self.timeLabel=[[[UILabel alloc] initWithFrame:CGRectZero] autorelease];
     self.timeLabel.font=[UIFont systemFontOfSize:14.0f];
-    self.timeLabel.tag=102;
+    //self.timeLabel.tag=102;
     [self.timeLabel sizeToFit];
     self.timeLabel.textAlignment=NSTextAlignmentRight;
     [self.contentView addSubview:self.timeLabel];
