@@ -55,4 +55,10 @@
     return height;
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kReloadWeiboTableNotification object:nil];
+    [super dealloc];
+}
+
 @end

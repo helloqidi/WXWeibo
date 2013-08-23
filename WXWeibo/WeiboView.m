@@ -329,12 +329,22 @@
         NSString *urlString=[url host];
         urlString=[urlString URLDecodedString];
         NSLog(@"用户:%@",urlString);
+        
+        UIViewController *viewCtrl=[[UIViewController alloc] init];
+        [self.viewController.navigationController pushViewController:viewCtrl animated:YES];
+        
+        
     }else if ([absoluteString hasPrefix:@"http"]){
         NSLog(@"链接:%@",absoluteString);
+        
+        
+        
     }else if ([absoluteString hasPrefix:@"topic"]){
         NSString *urlString=[url host];
         urlString=[urlString URLDecodedString];
         NSLog(@"话题:%@",urlString);
+        
+        
     }
     
     

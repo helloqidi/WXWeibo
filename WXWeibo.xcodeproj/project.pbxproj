@@ -546,6 +546,7 @@
 		2DD4D4A017C5A6FB006EC74C /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D49F17C5A6F9006EC74C /* CommentCell.m */; };
 		2DD4D4A317C5ACE4006EC74C /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D4A217C5ACE4006EC74C /* CommentModel.m */; };
 		2DD4D4A617C670F9006EC74C /* BrowModeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D4A517C670F9006EC74C /* BrowModeController.m */; };
+		2DD4D4A917C714DE006EC74C /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D4A817C714DD006EC74C /* UIView+Additions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1117,8 +1118,8 @@
 		2DD4D46F17C33D41006EC74C /* RegexKitLite.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = RegexKitLite.html; sourceTree = "<group>"; };
 		2DD4D47017C33D41006EC74C /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		2DD4D47317C347BB006EC74C /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
-		2DD4D47517C35ACA006EC74C /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
-		2DD4D47617C35ACA006EC74C /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
+		2DD4D47517C35ACA006EC74C /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+URLEncoding.h"; path = "../NSString+URLEncoding.h"; sourceTree = "<group>"; };
+		2DD4D47617C35ACA006EC74C /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+URLEncoding.m"; path = "../NSString+URLEncoding.m"; sourceTree = "<group>"; };
 		2DD4D47817C3871C006EC74C /* BaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableView.h; sourceTree = "<group>"; };
 		2DD4D47917C3871C006EC74C /* BaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableView.m; sourceTree = "<group>"; };
 		2DD4D47C17C38788006EC74C /* blackArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackArrow.png; sourceTree = "<group>"; };
@@ -1145,6 +1146,8 @@
 		2DD4D4A217C5ACE4006EC74C /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
 		2DD4D4A417C670F8006EC74C /* BrowModeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowModeController.h; sourceTree = "<group>"; };
 		2DD4D4A517C670F9006EC74C /* BrowModeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowModeController.m; sourceTree = "<group>"; };
+		2DD4D4A717C714DC006EC74C /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
+		2DD4D4A817C714DD006EC74C /* UIView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Additions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1236,8 +1239,6 @@
 		2D39D3AA17BC6A4500AA40EB /* Uitils */ = {
 			isa = PBXGroup;
 			children = (
-				2DD4D47517C35ACA006EC74C /* NSString+URLEncoding.h */,
-				2DD4D47617C35ACA006EC74C /* NSString+URLEncoding.m */,
 				2D39D3D517BC72FA00AA40EB /* CustomCatagory.h */,
 				2D39D3D617BC72FA00AA40EB /* CustomCatagory.m */,
 				2D39D3B517BC6C0000AA40EB /* WXHLGlobalUICommon.h */,
@@ -1247,6 +1248,8 @@
 				2D39D3AB17BC6AFC00AA40EB /* UIViewExt.h */,
 				2D39D3AC17BC6AFC00AA40EB /* UIViewExt.m */,
 				2D51B8A817BCDBEB004EFA82 /* CONSTS.h */,
+				2DD4D4A717C714DC006EC74C /* UIView+Additions.h */,
+				2DD4D4A817C714DD006EC74C /* UIView+Additions.m */,
 			);
 			name = Uitils;
 			sourceTree = "<group>";
@@ -1269,6 +1272,8 @@
 		2D39D3B817BC6D1400AA40EB /* operSource */ = {
 			isa = PBXGroup;
 			children = (
+				2DD4D47517C35ACA006EC74C /* NSString+URLEncoding.h */,
+				2DD4D47617C35ACA006EC74C /* NSString+URLEncoding.m */,
 				2DD4D49017C4C453006EC74C /* MBProgressHUD */,
 				2DD4D47B17C38788006EC74C /* EGOTableViewPullRefresh */,
 				2DD4D46D17C33D41006EC74C /* RegexKitLite */,
@@ -2560,6 +2565,7 @@
 				2DD4D4A017C5A6FB006EC74C /* CommentCell.m in Sources */,
 				2DD4D4A317C5ACE4006EC74C /* CommentModel.m in Sources */,
 				2DD4D4A617C670F9006EC74C /* BrowModeController.m in Sources */,
+				2DD4D4A917C714DE006EC74C /* UIView+Additions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
