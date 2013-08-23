@@ -13,6 +13,15 @@
 
 @implementation WeiboTableView
 
+- (id)initWithFrame:(CGRect)frame style:(UITableViewStyle)style
+{
+    self=[super initWithFrame:frame style:style];
+    if (self!=nil) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:kReloadWeiboTableNotification object:nil];
+    }
+    return self;
+}
+
 
 #pragma mark - UITableView Datasource
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -8,6 +8,7 @@
 
 #import "MoreViewController.h"
 #import "ThemeViewController.h"
+#import "BrowModeController.h"
 
 @interface MoreViewController ()
 
@@ -32,6 +33,8 @@
     self.tableView.dataSource=self;
     self.tableView.delegate=self;
     [self.view addSubview:self.tableView];
+    
+    self.moreData=[NSArray arrayWithObjects:@"主题",@"图片浏览模式",nil];
 }
 
 #pragma mark - UITableView Degelate
@@ -42,15 +45,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return self.moreData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell=[[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil] autorelease];
-    if (indexPath.row==0) {
-        cell.textLabel.text=@"主题";
-    }
+    cell.textLabel.text=self.moreData[indexPath.row];
     return cell;
 }
 
@@ -60,7 +61,10 @@
         ThemeViewController *themeViewController=[[[ThemeViewController alloc] init] autorelease];
         [self.navigationController pushViewController:themeViewController animated:YES];        
     }
-
+    if (indexPath.row==1) {
+        BrowModeController *modeViewController=[[[BrowModeController alloc] init] autorelease];
+        [self.navigationController pushViewController:modeViewController animated:YES];
+    }
 }
 
 

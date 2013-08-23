@@ -25,6 +25,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title=@"微博";
+        
+        //[[NSNotificationCenter defaultCenter] addObserver:self selector:<#(SEL)#> name:kReloadWeiboTableNotification object:nil];
     }
     return self;
 }
@@ -267,6 +269,8 @@
     
     //更新最后一个id
     if (array.count>0) {
+        //移除第一个重复的（这是新浪微博接口的问题）
+        [array removeObjectAtIndex:0];
         WeiboModel *weibo=[array lastObject];
         self.lastWeiboId=[weibo.weiboId stringValue];
     }

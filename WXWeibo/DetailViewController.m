@@ -188,6 +188,8 @@
     }
     
     if (commentList.count>0) {
+        //移除第一个重复的（这是新浪微博接口的问题）
+        [comments removeObjectAtIndex:0];
         CommentModel *lastComment=[comments lastObject];
         self.lastCommentId=[lastComment.id stringValue];
     }

@@ -148,6 +148,10 @@
         self.repostCountLabel.hidden=YES;
     }
     
+    
+    //5.1模拟器下，复用WeiboCell时会调用自己的layoutSubviews，但是不调用WeiboView的layoutSubviews。所以，会有错位。
+    //注：6.1模拟器下没有这个问题
+    [self.weiboView setNeedsLayout];
 
 }
 

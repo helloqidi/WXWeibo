@@ -545,6 +545,7 @@
 		2DD4D49D17C5A238006EC74C /* CommentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D49C17C5A236006EC74C /* CommentTableView.m */; };
 		2DD4D4A017C5A6FB006EC74C /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D49F17C5A6F9006EC74C /* CommentCell.m */; };
 		2DD4D4A317C5ACE4006EC74C /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D4A217C5ACE4006EC74C /* CommentModel.m */; };
+		2DD4D4A617C670F9006EC74C /* BrowModeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D4A517C670F9006EC74C /* BrowModeController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1142,6 +1143,8 @@
 		2DD4D49F17C5A6F9006EC74C /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
 		2DD4D4A117C5ACE4006EC74C /* CommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
 		2DD4D4A217C5ACE4006EC74C /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
+		2DD4D4A417C670F8006EC74C /* BrowModeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowModeController.h; sourceTree = "<group>"; };
+		2DD4D4A517C670F9006EC74C /* BrowModeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowModeController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1388,6 +1391,8 @@
 				2D39D40017BC7CA700AA40EB /* MoreViewController.m */,
 				2D51B8B417BDBC26004EFA82 /* ThemeViewController.h */,
 				2D51B8B517BDBC26004EFA82 /* ThemeViewController.m */,
+				2DD4D4A417C670F8006EC74C /* BrowModeController.h */,
+				2DD4D4A517C670F9006EC74C /* BrowModeController.m */,
 			);
 			name = More;
 			sourceTree = "<group>";
@@ -2554,6 +2559,7 @@
 				2DD4D49D17C5A238006EC74C /* CommentTableView.m in Sources */,
 				2DD4D4A017C5A6FB006EC74C /* CommentCell.m in Sources */,
 				2DD4D4A317C5ACE4006EC74C /* CommentModel.m in Sources */,
+				2DD4D4A617C670F9006EC74C /* BrowModeController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2631,6 +2637,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WXWeibo/WXWeibo-Prefix.pch";
 				INFOPLIST_FILE = "WXWeibo/WXWeibo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -2642,6 +2649,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WXWeibo/WXWeibo-Prefix.pch";
 				INFOPLIST_FILE = "WXWeibo/WXWeibo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

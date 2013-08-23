@@ -24,5 +24,17 @@
 #define kNavigationBarTitleLabel @"kNavigationBarTitleLabel"
 #define kThemeListLabel @"kThemeListLabel"
 
+
+//----用于存储的keys----
 //主题存储在NSUserDefaults中的key
 #define kThemeName @"kThemeName"
+//图片浏览模式存储在NSUserDefaults中的key
+#define kModeName @"kModeName"
+//小图浏览模式
+#define SmallBrowMode 1
+//大图浏览模式
+#define LargeBrowMode 2
+
+
+//----通知----
+#define kReloadWeiboTableNotification @"kReloadWeiboTableNotification"

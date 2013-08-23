@@ -13,5 +13,6 @@
 @interface MoreViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
 
 @property(nonatomic,retain)UITableView *tableView;
+@property(nonatomic,retain)NSArray *moreData;
 
 @end

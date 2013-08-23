@@ -128,6 +128,26 @@
     [super layoutSubviews];
     
     //----微博内容----
+    [self _renderLabel];
+    
+    //----转发的微博内容----
+    [self _renderSourceWeiboView];
+    
+    //----微博图片视图----
+    [self _renderImage];
+    
+    
+    //----转发的微博视图背景----
+    if (self.isRepost) {
+        self.repostBackgroundView.frame=self.bounds;
+        self.repostBackgroundView.hidden=NO;
+    }else{
+        self.repostBackgroundView.hidden=YES;
+    }
+}
+
+- (void)_renderLabel
+{
     //获取字体大小
     float fontSize=[WeiboView getFontSize:self.isDetail isRepost:self.isRepost];
     //判断是否为转发视图
@@ -143,8 +163,10 @@
     //内容的size
     CGSize textsize=self.textLabel.optimumSize;
     self.textLabel.height=textsize.height;
-    
-    //----转发的微博内容----
+}
+
+- (void)_renderSourceWeiboView
+{
     WeiboModel *repostWeibo=self.weiboModel.relWeibo;
     if (repostWeibo!=nil) {
         self.repostView.weiboModel=repostWeibo;
@@ -155,8 +177,10 @@
     }else{
         self.repostView.hidden=YES;
     }
-    
-    //----微博图片视图----
+}
+
+- (void)_renderImage
+{
     if (self.isDetail) {
         //中等图
         NSString *bmiddleImage=self.weiboModel.bmiddleImage;
@@ -170,27 +194,36 @@
             self.image.hidden=YES;
         }
     }else{
-        //缩略图
-        NSString *thumbnailImage=self.weiboModel.thumbnailImage;
-        if (thumbnailImage!=nil && ![thumbnailImage isEqualToString:@"" ]) {
-            self.image.hidden=NO;
-            self.image.frame=CGRectMake(10, self.textLabel.bottom+10, 70, 80);
-            
-            //加载网络图片
-            [self.image setImageWithURL:[NSURL URLWithString:thumbnailImage]];
-        }else{
-            self.image.hidden=YES;
+        //获取图片浏览模式 
+        int mode=[[NSUserDefaults standardUserDefaults] integerForKey:kModeName];
+        if (mode==SmallBrowMode || mode==0) {
+            //缩略图
+            NSString *thumbnailImage=self.weiboModel.thumbnailImage;
+            if (thumbnailImage!=nil && ![thumbnailImage isEqualToString:@"" ]) {
+                self.image.hidden=NO;
+                self.image.frame=CGRectMake(10, self.textLabel.bottom+10, 70, 80);
+                
+                //加载网络图片
+                [self.image setImageWithURL:[NSURL URLWithString:thumbnailImage]];
+            }else{
+                self.image.hidden=YES;
+            }
+        }else if(mode==LargeBrowMode){
+            //大图
+            NSString *bmiddleImage=self.weiboModel.bmiddleImage;
+            if (bmiddleImage!=nil && ![bmiddleImage isEqualToString:@"" ]) {
+                self.image.hidden=NO;
+                self.image.frame=CGRectMake(10, self.textLabel.bottom+10, self.width-20, 180);
+                
+                //加载网络图片
+                [self.image setImageWithURL:[NSURL URLWithString:bmiddleImage]];
+            }else{
+                self.image.hidden=YES;
+            }
         }
+        
 
-    }
-    
-    
-    //----转发的微博视图背景----
-    if (self.isRepost) {
-        self.repostBackgroundView.frame=self.bounds;
-        self.repostBackgroundView.hidden=NO;
-    }else{
-        self.repostBackgroundView.hidden=YES;
+        
     }
 }
 
@@ -229,6 +262,7 @@
     
     height += textLabel.optimumSize.height;
 
+    
     //----计算微博图片的高度----
     if (isDetail) {
         NSString *bmiddleImage=weiboModel.bmiddleImage;
@@ -236,10 +270,20 @@
             height += (200+10);
         }
     }else{
-        NSString *thumbnailImage=weiboModel.thumbnailImage;
-        if (thumbnailImage!=nil && ![thumbnailImage isEqualToString:@"" ]) {
-            height += (80+10);
-        }    
+        //获取图片浏览模式
+        int mode=[[NSUserDefaults standardUserDefaults] integerForKey:kModeName];
+        if (mode==SmallBrowMode || mode==0) {
+            NSString *thumbnailImage=weiboModel.thumbnailImage;
+            if (thumbnailImage!=nil && ![thumbnailImage isEqualToString:@"" ]) {
+                height += (80+10);
+            }
+        }else if (mode==LargeBrowMode){
+            NSString *bmiddleImage=weiboModel.bmiddleImage;
+            if (bmiddleImage!=nil && ![bmiddleImage isEqualToString:@"" ]) {
+                height += (180+10);
+            }
+        }
+ 
     }
 
     
