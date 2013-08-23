@@ -60,6 +60,8 @@
     if (self.sinaweibo.isAuthValid) {
         //加载数据
         [self loadWeiboData];
+    }else{
+        [self.sinaweibo logIn];
     }
     
 }
@@ -294,7 +296,6 @@
 {
     //下拉
     [self.tableView autoRefreshData];
-    
      //取数据
      [self pullDownData];
 }

@@ -22,7 +22,7 @@
 @property(nonatomic,retain)UIImageView *badgeView;
 
 //可通过该属性操作HomeViewController中的事件
-//@property(nonatomic,retain)HomeViewController *home;
+@property(nonatomic,retain)HomeViewController *home;
 
 //是否显示badge
 - (void)showBadge:(BOOL)show;

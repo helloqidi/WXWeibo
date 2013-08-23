@@ -85,13 +85,13 @@
 //初始化子控制器
 - (void)_initViewController
 {
-    HomeViewController *home=[[[HomeViewController alloc] init] autorelease];
+    self.home=[[[HomeViewController alloc] init] autorelease];
     MessageViewController *message=[[[MessageViewController alloc] init] autorelease];
     ProfileViewController *profile=[[[ProfileViewController alloc] init] autorelease];
     DiscoverViewController *discover=[[[DiscoverViewController alloc] init] autorelease];
     MoreViewController *more=[[[MoreViewController alloc] init] autorelease];
     
-    NSArray *views=@[home,message,profile,discover,more];
+    NSArray *views=@[self.home,message,profile,discover,more];
     NSMutableArray *viewControllers=[NSMutableArray arrayWithCapacity:5];
     
     for (UIViewController *viewController in views) {
@@ -181,14 +181,19 @@
 #pragma mark - data
 - (void)loadUnReadData
 {
-    AppDelegate *appDelegate=(AppDelegate *)[UIApplication sharedApplication].delegate;
-    SinaWeibo *sinaweibo=appDelegate.sinaweibo;
-
+    SinaWeibo *sinaweibo=[self sinaweibo];
     [sinaweibo requestWithURL:@"remind/unread_count.json" params:nil httpMethod:@"GET" block:^(NSDictionary *result) {
         [self refreshUnReadView:result];
     }];
+    
 }
 
+- (SinaWeibo *)sinaweibo
+{
+    AppDelegate *appDelegate=(AppDelegate *)[UIApplication sharedApplication].delegate;
+    SinaWeibo *sinaweibo=appDelegate.sinaweibo;
+    return sinaweibo;
+}
 
 #pragma mark - Action
 //TabBar的切换Action
@@ -232,11 +237,21 @@
                               sinaweibo.refreshToken, @"refresh_token", nil];
     [[NSUserDefaults standardUserDefaults] setObject:authData forKey:@"SinaWeiboAuthData"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    //刷新微博列表
+    [self.home loadWeiboData];
 }
 - (void)sinaweiboDidLogOut:(SinaWeibo *)sinaweibo
 {
     //删除本地的认证数据
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"SinaWeiboAuthData"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    self.home.tableView.hidden=YES;
+    
+    SinaWeibo *sinaweibo_second=[self sinaweibo];
+    [sinaweibo_second logIn];
+    
 }
 - (void)sinaweiboLogInDidCancel:(SinaWeibo *)sinaweibo
 {
@@ -263,6 +278,7 @@
     self.tabBarView=nil;
     self.sliderView=nil;
     self.badgeView=nil;
+    self.home=nil;
     [super dealloc];
 }
 

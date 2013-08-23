@@ -28,4 +28,6 @@
 
 //自动刷新微博
 - (void)autorefreshWeibo;
+//初始加载微博
+- (void)loadWeiboData;
 @end
