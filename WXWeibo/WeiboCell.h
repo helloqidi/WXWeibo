@@ -11,6 +11,7 @@
 #import <UIKit/UIKit.h>
 #import "WeiboView.h"
 #import "WeiboModel.h"
+#import "InterfaceImageView.h"
 
 @interface WeiboCell : UITableViewCell
 
@@ -21,7 +22,7 @@
 
 
 //用户头像视图
-@property(nonatomic,retain)UIImageView *userImage;
+@property(nonatomic,retain)InterfaceImageView *userImage;
 //昵称
 @property(nonatomic,retain)UILabel *nickLabel;
 //转发数

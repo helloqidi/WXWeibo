@@ -14,6 +14,7 @@
 #import "UIUtils.h"
 #import "RegexKitLite.h"
 #import "UIFactory.h"
+#import "UserViewController.h"
 
 @implementation WeiboCell
 
@@ -29,7 +30,7 @@
 //初始化子视图
 - (void)_initView{
     //用户头像
-    self.userImage=[[[UIImageView alloc] initWithFrame:CGRectZero] autorelease];
+    self.userImage=[[[InterfaceImageView alloc] initWithFrame:CGRectZero] autorelease];
     self.userImage.backgroundColor=[UIColor clearColor];
     //圆角
     self.userImage.layer.cornerRadius=5;
@@ -169,6 +170,22 @@
         return resultstring;
     }
     return  nil;
+}
+
+//复写这个方法，是为了给图片增加点击事件
+- (void)setWeiboModel:(WeiboModel *)weiboModel {
+    if (_weiboModel != weiboModel) {
+        [_weiboModel release];
+        _weiboModel = [weiboModel retain];
+    }
+    
+    __block WeiboCell *this = self;
+    self.userImage.touchBlock = ^{
+        NSString *nickName = this.weiboModel.user.screen_name;
+        UserViewController *userCtrl = [[[UserViewController alloc] init] autorelease];
+        userCtrl.userName = nickName;
+        [this.viewController.navigationController pushViewController:userCtrl animated:YES];
+    };
 }
 
 #pragma mark - dealloc/memoryWarning

@@ -10,8 +10,11 @@
 #import "WeiboModel.h"
 #import "WeiboView.h"
 #import "CommentTableView.h"
+#import "InterfaceImageView.h"
 
 @interface DetailViewController : BaseViewController<UITableViewEventDelegate>
+
+@property(nonatomic,retain)InterfaceImageView *userImageView;
 
 @property(nonatomic,retain)WeiboModel *weiboModel;
 @property(nonatomic,retain)WeiboView *weiboView;

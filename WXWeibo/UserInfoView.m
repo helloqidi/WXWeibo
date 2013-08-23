@@ -47,45 +47,53 @@
     [self addSubview:self.addressLabel];
     
     //简介
-    self.briefLabel=[[[UILabel alloc] initWithFrame:CGRectZero] autorelease];
-    self.briefLabel.font=[UIFont systemFontOfSize:16.0f];
-    [self addSubview:self.briefLabel];
+    self.infoLabel=[[[UILabel alloc] initWithFrame:CGRectZero] autorelease];
+    self.infoLabel.font=[UIFont systemFontOfSize:16.0f];
+    [self addSubview:self.infoLabel];
     
     //关注按钮
-    self.followBtn=[RectButton buttonWithType:UIButtonTypeCustom];
-    [self.followBtn setBackgroundImage:[UIImage imageNamed:@"userinfo_apps_background.png"] forState:UIControlStateNormal];
-    [self.followBtn setBackgroundImage:[UIImage imageNamed:@"userinfo_apps_background_highlighted.png"] forState:UIControlStateHighlighted];
-    [self addSubview:self.followBtn];
+    self.attButton=[RectButton buttonWithType:UIButtonTypeCustom];
+    [self.attButton setBackgroundImage:[UIImage imageNamed:@"userinfo_apps_background.png"] forState:UIControlStateNormal];
+    [self.attButton setBackgroundImage:[UIImage imageNamed:@"userinfo_apps_background_highlighted.png"] forState:UIControlStateHighlighted];
+    [self addSubview:self.attButton];
     
     //粉丝按钮
-    self.fansBtn=[RectButton buttonWithType:UIButtonTypeCustom];
-    [self.fansBtn setBackgroundImage:[UIImage imageNamed:@"userinfo_apps_background.png"] forState:UIControlStateNormal];
-    [self.fansBtn setBackgroundImage:[UIImage imageNamed:@"userinfo_apps_background_highlighted.png"] forState:UIControlStateHighlighted];
-    [self addSubview:self.fansBtn];
+    self.fansButton=[RectButton buttonWithType:UIButtonTypeCustom];
+    [self.fansButton setBackgroundImage:[UIImage imageNamed:@"userinfo_apps_background.png"] forState:UIControlStateNormal];
+    [self.fansButton setBackgroundImage:[UIImage imageNamed:@"userinfo_apps_background_highlighted.png"] forState:UIControlStateHighlighted];
+    [self addSubview:self.fansButton];
     
     //资料按钮
-    self.profileBtn=[RectButton buttonWithType:UIButtonTypeCustom];
-    [self.profileBtn setBackgroundImage:[UIImage imageNamed:@"userinfo_apps_background.png"] forState:UIControlStateNormal];
-    [self.profileBtn setBackgroundImage:[UIImage imageNamed:@"userinfo_apps_background_highlighted.png"] forState:UIControlStateHighlighted];
-    [self addSubview:self.profileBtn];
+    self.profileButton=[RectButton buttonWithType:UIButtonTypeCustom];
+    [self.profileButton setBackgroundImage:[UIImage imageNamed:@"userinfo_apps_background.png"] forState:UIControlStateNormal];
+    [self.profileButton setBackgroundImage:[UIImage imageNamed:@"userinfo_apps_background_highlighted.png"] forState:UIControlStateHighlighted];
+    [self addSubview:self.profileButton];
     
     //更多按钮
-    self.moreBtn=[RectButton buttonWithType:UIButtonTypeCustom];
-    [self.moreBtn setBackgroundImage:[UIImage imageNamed:@"userinfo_apps_background.png"] forState:UIControlStateNormal];
-    [self.moreBtn setBackgroundImage:[UIImage imageNamed:@"userinfo_apps_background_highlighted.png"] forState:UIControlStateHighlighted];
-    [self addSubview:self.moreBtn];
+    self.moreButton=[RectButton buttonWithType:UIButtonTypeCustom];
+    [self.moreButton setBackgroundImage:[UIImage imageNamed:@"userinfo_apps_background.png"] forState:UIControlStateNormal];
+    [self.moreButton setBackgroundImage:[UIImage imageNamed:@"userinfo_apps_background_highlighted.png"] forState:UIControlStateHighlighted];
+    [self addSubview:self.moreButton];
     
     //微博总数量
-    self.weiboCntLabel=[[[UILabel alloc] initWithFrame:CGRectZero] autorelease];
-    self.weiboCntLabel.font=[UIFont systemFontOfSize:16.0f];
-    [self addSubview:self.weiboCntLabel];
-    
+    self.contentLabel=[[[UILabel alloc] initWithFrame:CGRectZero] autorelease];
+    self.contentLabel.font=[UIFont systemFontOfSize:16.0f];
+    [self addSubview:self.contentLabel];
+   
+    //间隔横线
+    UIImageView *separatorImage=[[[UIImageView alloc] initWithFrame:CGRectMake(0, 200-1, ScreenWidth, 1)] autorelease];
+    separatorImage.image=[UIImage imageNamed:@"userinfo_header_separator.png"];
+    [self addSubview:separatorImage];
     
 }
 
 
 - (void)layoutSubviews
 {
+    [super layoutSubviews];
+    
+    //总体高度
+    self.height=200;
     
     //头像
     self.userImage.frame=CGRectMake(10, 10, 80, 80);
@@ -99,38 +107,69 @@
     self.nickLabel.text=self.userModel.screen_name;
     
     
-    //地址
+    //地址性别相关信息
+    NSString *gender=self.userModel.gender;
+    NSString *sexName=@"未知";
+    if ([gender isEqualToString:@"f"]) {
+        sexName=@"女";
+    }else if ([gender isEqualToString:@"m"]){
+        sexName=@"男";
+    }
+    NSString *location=self.userModel.location;
+    //如果不判空，当没有简介时，会在界面上显示null
+    if (location==nil) {
+        location=@"";
+    }
     self.addressLabel.frame=CGRectMake(self.userImage.right+5, self.nickLabel.bottom+5, 200, 20);
-    self.addressLabel.text=self.userModel.location;
+    self.addressLabel.text=[NSString stringWithFormat:@"%@ %@",sexName,location];
     
     //简介
-    self.briefLabel.frame=CGRectMake(self.userImage.right+5, self.addressLabel.bottom+5, 200, 20);
-    NSString *briefString=[NSString stringWithFormat:@"简介:%@",self.userModel.description];
-    self.briefLabel.text=briefString;
+    self.infoLabel.frame=CGRectMake(self.userImage.right+5, self.addressLabel.bottom+5, 200, 20);
+    NSString *desc=self.userModel.description;
+    if (desc==nil) {
+        desc=@"";
+    }
+    NSString *infoString=[NSString stringWithFormat:@"简介:%@",desc];
+    self.infoLabel.text=infoString;
     
     //关注按钮
-    self.followBtn.frame=CGRectMake(10, self.userImage.bottom+10, 70, 70);
-    [self.followBtn setTitle:@"关注" forState:UIControlStateNormal];
+    long followL=[self.userModel.friends_count longValue];
+    NSString *follows=[NSString stringWithFormat:@"%ld",followL];
+    if (followL>=1000) {
+        followL=followL/1000.0;
+        follows=[NSString stringWithFormat:@"%ld千",followL];
+    }
+    self.attButton.frame=CGRectMake(self.userImage.left, self.userImage.bottom+10, 70, 70);
+    self.attButton.title=@"关注";
+    self.attButton.subtitle=follows;
     
     //粉丝按钮
-    self.fansBtn.frame=CGRectMake(self.followBtn.right+10, self.userImage.bottom+10, 70, 70);
-    [self.fansBtn setTitle:@"粉丝" forState:UIControlStateNormal];
+    long fansL=[self.userModel.followers_count longValue];
+    NSString *fans=[NSString stringWithFormat:@"%ld",fansL];
+    if (fansL>=10000) {
+        fansL=fansL/10000.0;
+        fans=[NSString stringWithFormat:@"%ld万",fansL];
+    }
+    self.fansButton.frame=CGRectMake(self.attButton.right+10, self.userImage.bottom+10, 70, 70);
+    self.fansButton.title=@"粉丝";
+    self.fansButton.subtitle=fans;
     
     //资料按钮
-    self.profileBtn.frame=CGRectMake(self.fansBtn.right+10, self.userImage.bottom+10, 70, 70);
-    [self.profileBtn setTitle:@"资料" forState:UIControlStateNormal];
+    self.profileButton.frame=CGRectMake(self.fansButton.right+10, self.userImage.bottom+10, 70, 70);
+    [self.profileButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.profileButton setTitle:@"资料" forState:UIControlStateNormal];
     
     //更多按钮
-    self.moreBtn.frame=CGRectMake(self.profileBtn.right+10, self.userImage.bottom+10, 70, 70);
-    [self.moreBtn setTitle:@"更多" forState:UIControlStateNormal];
+    self.moreButton.frame=CGRectMake(self.profileButton.right+10, self.userImage.bottom+10, 70, 70);
+    [self.moreButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.moreButton setTitle:@"更多" forState:UIControlStateNormal];
     
     //微博总数量
-    self.weiboCntLabel.frame=CGRectMake(self.userImage.right+5, self.bottom+25, 200, 20);
-    NSString *weiboCnt=[NSString stringWithFormat:@"共%@条微博",self.userModel.statuses_count];
-    self.weiboCntLabel.text=weiboCnt;
+    self.contentLabel.frame=CGRectMake(self.userImage.left, self.height-25, 200, 20);
+    NSString *content=[NSString stringWithFormat:@"共%@条微博",self.userModel.statuses_count];
+    self.contentLabel.text=content;
 
-    //总体高度
-    self.height=200;
+
 }
 
 

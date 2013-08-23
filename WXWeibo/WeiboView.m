@@ -331,10 +331,15 @@
         urlString=[urlString URLDecodedString];
         NSLog(@"用户:%@",urlString);
         
+        //去掉@
+        if ([urlString hasPrefix:@"@"]) {
+            urlString = [urlString substringFromIndex:1];
+        }
+        
         UserViewController *userCtrl=[[UserViewController alloc] init];
+        userCtrl.userName=urlString;
         [self.viewController.navigationController pushViewController:userCtrl animated:YES];
-        
-        
+
     }else if ([absoluteString hasPrefix:@"http"]){
         NSLog(@"链接:%@",absoluteString);
         

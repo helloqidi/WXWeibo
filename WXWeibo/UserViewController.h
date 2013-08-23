@@ -8,12 +8,13 @@
 
 #import "BaseViewController.h"
 #import "WeiboTableView.h"
-#import "UserModel.h"
+#import "UserInfoView.h"
 
 @interface UserViewController : BaseViewController
 
-
-@property(nonatomic,retain)UserModel *userModel;
+@property(nonatomic,retain)NSString *userName;
 @property(nonatomic,retain)WeiboTableView *tableView;
+
+@property(nonatomic,retain)UserInfoView *userInfo;
 
 @end

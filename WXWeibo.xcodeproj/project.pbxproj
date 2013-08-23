@@ -550,6 +550,7 @@
 		2DD4D4AC17C727A4006EC74C /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D4AB17C727A4006EC74C /* UserViewController.m */; };
 		2DD4D4AF17C729DB006EC74C /* UserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D4AE17C729DB006EC74C /* UserInfoView.m */; };
 		2DD4D4B217C737ED006EC74C /* RectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D4B117C737EC006EC74C /* RectButton.m */; };
+		2DD4D4B917C762C4006EC74C /* InterfaceImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D4B817C762C4006EC74C /* InterfaceImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1157,6 +1158,8 @@
 		2DD4D4AE17C729DB006EC74C /* UserInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoView.m; sourceTree = "<group>"; };
 		2DD4D4B017C737EC006EC74C /* RectButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectButton.h; sourceTree = "<group>"; };
 		2DD4D4B117C737EC006EC74C /* RectButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RectButton.m; sourceTree = "<group>"; };
+		2DD4D4B717C762C4006EC74C /* InterfaceImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceImageView.h; sourceTree = "<group>"; };
+		2DD4D4B817C762C4006EC74C /* InterfaceImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterfaceImageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1220,6 +1223,7 @@
 				2D39D3E817BC7AE400AA40EB /* Profile */,
 				2D39D3E917BC7B1700AA40EB /* Discover */,
 				2D39D3EA17BC7B1F00AA40EB /* More */,
+				2DD4D4B317C7616E006EC74C /* CommonViews */,
 				2D39D3DF17BC78CA00AA40EB /* BaseView */,
 				2D39D3B117BC6B9B00AA40EB /* Models */,
 				2D39D39417BC69A300AA40EB /* Supporting Files */,
@@ -1987,6 +1991,15 @@
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
+		2DD4D4B317C7616E006EC74C /* CommonViews */ = {
+			isa = PBXGroup;
+			children = (
+				2DD4D4B717C762C4006EC74C /* InterfaceImageView.h */,
+				2DD4D4B817C762C4006EC74C /* InterfaceImageView.m */,
+			);
+			name = CommonViews;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2584,6 +2597,7 @@
 				2DD4D4AC17C727A4006EC74C /* UserViewController.m in Sources */,
 				2DD4D4AF17C729DB006EC74C /* UserInfoView.m in Sources */,
 				2DD4D4B217C737ED006EC74C /* RectButton.m in Sources */,
+				2DD4D4B917C762C4006EC74C /* InterfaceImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

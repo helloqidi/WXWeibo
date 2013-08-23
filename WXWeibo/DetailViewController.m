@@ -10,6 +10,7 @@
 #import "UIImageView+WebCache.h"
 #import <QuartzCore/QuartzCore.h>
 #import "CommentModel.h"
+#import "UserViewController.h"
 
 @interface DetailViewController ()
 
@@ -30,7 +31,7 @@
 {
     [super viewDidLoad];
     
-    self.title=@"详情";
+    self.title=@"微博详情";
     
     self.tableView=[[[CommentTableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight-20-44) style:UITableViewStylePlain] autorelease];
     //self.tableView.autoresizingMask=UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -62,18 +63,18 @@
     
     
     //用户头像
-    UIImageView *userImageView=[[[UIImageView alloc] initWithFrame:CGRectMake(10, (60-40)/2, 40, 40)] autorelease];
-    userImageView.backgroundColor=[UIColor clearColor];
+    self.userImageView=[[[InterfaceImageView alloc] initWithFrame:CGRectMake(10, (60-40)/2, 40, 40)] autorelease];
+    self.userImageView.backgroundColor=[UIColor clearColor];
     //圆角
-    userImageView.layer.cornerRadius=5;
+    self.userImageView.layer.cornerRadius=5;
     //裁剪掉超出部分
-    userImageView.layer.masksToBounds=YES;
+    self.userImageView.layer.masksToBounds=YES;
     //加载网络图片
-    [userImageView setImageWithURL:[NSURL URLWithString:self.weiboModel.user.profile_image_url]];
-    [userBarView addSubview:userImageView];
+    [self.userImageView setImageWithURL:[NSURL URLWithString:self.weiboModel.user.profile_image_url]];
+    [userBarView addSubview:self.userImageView];
     
     //昵称
-    UILabel *nickLabel=[[[UILabel alloc] initWithFrame:CGRectMake(userImageView.right+10, (60-20)/2, 200, 20)] autorelease];
+    UILabel *nickLabel=[[[UILabel alloc] initWithFrame:CGRectMake(self.userImageView.right+10, (60-20)/2, 200, 20)] autorelease];
     nickLabel.font=[UIFont systemFontOfSize:17.0f];
     nickLabel.text=self.weiboModel.user.name;
     [nickLabel sizeToFit];
@@ -144,8 +145,22 @@
     //将字典传过去，可用于获得评论总数量等信息
     self.tableView.commentDic=result;
     
+    //更新图片
+    [self reloadUserImage];
+    
     //刷新
     [self.tableView reloadData];
+}
+
+- (void)reloadUserImage
+{
+    __block DetailViewController *this = self;
+    self.userImageView.touchBlock = ^{
+        NSString *nickName = this.weiboModel.user.screen_name;
+        UserViewController *userCtrl = [[[UserViewController alloc] init] autorelease];
+        userCtrl.userName = nickName;
+        [this.navigationController pushViewController:userCtrl animated:YES];
+    };
 }
 
 

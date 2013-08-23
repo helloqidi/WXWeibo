@@ -10,4 +10,10 @@
 
 @interface RectButton : UIButton
 
+@property(nonatomic,retain)UILabel *rectTitleLabel;
+@property(nonatomic,retain)UILabel *subtitleLabel;
+
+@property(nonatomic,copy)NSString *title;
+@property(nonatomic,copy)NSString *subtitle;
+
 @end
