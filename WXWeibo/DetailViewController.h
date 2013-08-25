@@ -24,4 +24,6 @@
 @property(nonatomic,retain)NSString *lastCommentId;
 @property(nonatomic,retain)NSMutableArray *comments;
 
+@property(nonatomic,retain)NSMutableArray *requests;
+
 @end

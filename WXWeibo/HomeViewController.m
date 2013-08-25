@@ -161,16 +161,6 @@
     [self pullUpData];
 }
 
-//选中
-- (void)tableView:(BaseTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    WeiboModel *weibo=[self.weibos objectAtIndex:indexPath.row];
-    DetailViewController *detail=[[[DetailViewController alloc] init] autorelease];
-    detail.weiboModel=weibo;
-    [self.navigationController pushViewController:detail animated:YES];
-    
-}
-
 
 #pragma mark - Load Data
 //默认加载微博

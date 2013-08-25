@@ -10,6 +10,7 @@
 #import "WeiboCell.h"
 #import "WeiboModel.h"
 #import "WeiboView.h"
+#import "DetailViewController.h"
 
 @implementation WeiboTableView
 
@@ -53,6 +54,16 @@
     height += 60;
     
     return height;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    WeiboModel *weibo=[self.data objectAtIndex:indexPath.row];
+    DetailViewController *detail=[[[DetailViewController alloc] init] autorelease];
+    detail.weiboModel=weibo;
+    //利用自定义的类方法viewController获得视图的上级控制器
+    [self.viewController.navigationController pushViewController:detail animated:YES];
+
 }
 
 - (void)dealloc

@@ -103,6 +103,16 @@
     
 }
 
+//取消网络请求
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    for (SinaWeiboRequest *request in self.requests) {
+        [request disconnect];
+    }
+}
+
+#pragma mark - Data
 - (void)loadData
 {
     NSString *weiboId=[self.weiboModel.weiboId stringValue];
@@ -112,10 +122,10 @@
     
     NSMutableDictionary *params=[NSMutableDictionary dictionaryWithObject:weiboId forKey:@"id"];
     
-    [self.sinaweibo requestWithURL:@"comments/show.json" params:params httpMethod:@"GET" block:^(NSDictionary *result) {
+    SinaWeiboRequest *request=[self.sinaweibo requestWithURL:@"comments/show.json" params:params httpMethod:@"GET" block:^(NSDictionary *result) {
         [self loadDataFinish:result];
     }];
-
+    [self.requests addObject:request];
 }
 
 - (void)loadDataFinish:(NSDictionary *)result
@@ -179,13 +189,13 @@
     }
     
     NSMutableDictionary *params=[NSMutableDictionary dictionaryWithObjectsAndKeys:@"20",@"count",weiboId,@"id",self.lastCommentId,@"max_id",nil];
-    [self.sinaweibo requestWithURL:@"comments/show.json"
+    SinaWeiboRequest *request=[self.sinaweibo requestWithURL:@"comments/show.json"
                             params:params
                         httpMethod:@"GET"
                              block:^(id result){
                                  [self pullUpDataFinish:result];
                              }];
-    
+    [self.requests addObject:request];
 }
 
 - (void)pullUpDataFinish:(id)result

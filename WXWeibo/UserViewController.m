@@ -9,6 +9,7 @@
 #import "UserViewController.h"
 #import "UserInfoView.h"
 #import "UIFactory.h"
+#import "WeiboModel.h"
 
 @interface UserViewController ()
 
@@ -28,18 +29,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.requests=[[[NSMutableArray alloc] init] autorelease];
 	
     self.title=@"个人资料";
     
     [self _initView];
     
     [self loadUserData];
+    [self loadWeiboData];
 }
 
 - (void)_initView
 {
     self.tableView=[[[WeiboTableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight-20-44) style:UITableViewStylePlain] autorelease];
     [self.view addSubview:self.tableView];
+    self.tableView.eventDelegate=self;
     
     self.userInfo=[[[UserInfoView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 0)] autorelease];
     self.tableView.tableHeaderView=self.userInfo;
@@ -53,7 +57,18 @@
     
 }
 
+
+//取消网络请求
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    for (SinaWeiboRequest *request in self.requests) {
+        [request disconnect];
+    }
+}
+
 #pragma mark - Data
+//获得用户资料信息
 - (void)loadUserData
 {
     if (self.userName.length==0) {
@@ -62,9 +77,10 @@
     }
     
     NSMutableDictionary *params=[NSMutableDictionary dictionaryWithObject:self.userName forKey:@"screen_name"];
-    [self.sinaweibo requestWithURL:@"users/show.json" params:params httpMethod:@"GET" block:^(id result) {
+    SinaWeiboRequest *request=[self.sinaweibo requestWithURL:@"users/show.json" params:params httpMethod:@"GET" block:^(id result) {
         [self loadUserDataFinish:result];
     }];
+    [self.requests addObject:request];
     
 }
 
@@ -79,6 +95,53 @@
     //self.tableView.tableHeaderView=self.userInfo;
     //2，重新刷新UserInfoView
     [self.userInfo setNeedsLayout];
+}
+
+//加载用户的微博
+- (void)loadWeiboData
+{
+    if (self.userName.length==0) {
+        NSLog(@"用户名空");
+        return;
+    }
+    
+    NSMutableDictionary *params=[NSMutableDictionary dictionaryWithObject:self.userName forKey:@"screen_name"];
+    SinaWeiboRequest *request=[self.sinaweibo requestWithURL:@"statuses/user_timeline.json" params:params httpMethod:@"GET" block:^(id result) {
+        [self loadWeiboDataFinish:result];
+    }];
+    [self.requests addObject:request];
+}
+
+- (void)loadWeiboDataFinish:(NSDictionary *)result
+{
+    NSArray *statuses=[result objectForKey:@"statuses"];
+    NSMutableArray *weibos=[NSMutableArray arrayWithCapacity:statuses.count];
+    for (NSDictionary *weibo in statuses) {
+        WeiboModel *weiboModel=[[[WeiboModel alloc] initWithDataDic:weibo] autorelease];
+        [weibos addObject:weiboModel];
+    }
+    
+    self.tableView.data=weibos;
+    if (weibos.count>=20) {
+        self.tableView.isMore=YES;
+    }else{
+        self.tableView.isMore=NO;
+    }
+    [self.tableView reloadData];
+    
+}
+
+#pragma mark - EventDelegate
+//下拉
+- (void)pullDown:(BaseTableView *)tableView
+{
+    [self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:2];
+}
+
+//上拉
+- (void)pullUp:(BaseTableView *)tableView
+{
+    [self performSelector:@selector(reloadData) withObject:nil afterDelay:2];
 }
 
 

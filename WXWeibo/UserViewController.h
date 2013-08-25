@@ -10,11 +10,13 @@
 #import "WeiboTableView.h"
 #import "UserInfoView.h"
 
-@interface UserViewController : BaseViewController
+@interface UserViewController : BaseViewController<UITableViewEventDelegate>
 
 @property(nonatomic,retain)NSString *userName;
 @property(nonatomic,retain)WeiboTableView *tableView;
 
 @property(nonatomic,retain)UserInfoView *userInfo;
+
+@property(nonatomic,retain)NSMutableArray *requests;
 
 @end
