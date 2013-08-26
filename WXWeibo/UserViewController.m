@@ -46,6 +46,8 @@
     self.tableView.eventDelegate=self;
     
     self.userInfo=[[[UserInfoView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 0)] autorelease];
+    //必须声明高度
+    self.userInfo.height=200;
     self.tableView.tableHeaderView=self.userInfo;
     
     //导航栏右侧按钮
@@ -105,6 +107,7 @@
         return;
     }
     
+    //注：这个接口，新浪微博改变为：只有授权的才能读取，所以，在这不能读取所有用户的微博了。
     NSMutableDictionary *params=[NSMutableDictionary dictionaryWithObject:self.userName forKey:@"screen_name"];
     SinaWeiboRequest *request=[self.sinaweibo requestWithURL:@"statuses/user_timeline.json" params:params httpMethod:@"GET" block:^(id result) {
         [self loadWeiboDataFinish:result];
@@ -141,7 +144,7 @@
 //上拉
 - (void)pullUp:(BaseTableView *)tableView
 {
-    [self performSelector:@selector(reloadData) withObject:nil afterDelay:2];
+    //[self performSelector:@selector(reloadData) withObject:nil afterDelay:2];
 }
 
 

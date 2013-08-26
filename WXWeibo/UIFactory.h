@@ -23,4 +23,7 @@
 
 + (ThemeLabel *)createLabel:(NSString *)colorName;
 
+//创建导航栏的按钮
++ (UIButton *)createNavigationButton:(CGRect)frame title:(NSString *)title target:(id)target action:(SEL)action;
+
 @end

@@ -525,6 +525,8 @@
 		2D51B8C717C1E6C9004EFA82 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B8C617C1E6C9004EFA82 /* UserModel.m */; };
 		2D51B8CA17C20156004EFA82 /* WeiboCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B8C917C20155004EFA82 /* WeiboCell.m */; };
 		2D51B8CD17C2016F004EFA82 /* WeiboView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B8CC17C2016E004EFA82 /* WeiboView.m */; };
+		2D8D2BBF17CA62A40092070B /* SendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8D2BBE17CA62A40092070B /* SendViewController.m */; };
+		2D8D2BC217CA7EE40092070B /* NearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8D2BC117CA7EE30092070B /* NearbyViewController.m */; };
 		2DD4D47117C33D41006EC74C /* RegexKitLite.html in Resources */ = {isa = PBXBuildFile; fileRef = 2DD4D46F17C33D41006EC74C /* RegexKitLite.html */; };
 		2DD4D47217C33D41006EC74C /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D47017C33D41006EC74C /* RegexKitLite.m */; };
 		2DD4D47417C347BB006EC74C /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DD4D47317C347BB006EC74C /* libicucore.dylib */; };
@@ -551,6 +553,7 @@
 		2DD4D4AF17C729DB006EC74C /* UserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D4AE17C729DB006EC74C /* UserInfoView.m */; };
 		2DD4D4B217C737ED006EC74C /* RectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D4B117C737EC006EC74C /* RectButton.m */; };
 		2DD4D4B917C762C4006EC74C /* InterfaceImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D4B817C762C4006EC74C /* InterfaceImageView.m */; };
+		2DD4D4BC17CA46F1006EC74C /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D4BB17CA46EF006EC74C /* WebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1118,6 +1121,10 @@
 		2D51B8C917C20155004EFA82 /* WeiboCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboCell.m; sourceTree = "<group>"; };
 		2D51B8CB17C2016E004EFA82 /* WeiboView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboView.h; sourceTree = "<group>"; };
 		2D51B8CC17C2016E004EFA82 /* WeiboView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboView.m; sourceTree = "<group>"; };
+		2D8D2BBD17CA62A40092070B /* SendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendViewController.h; sourceTree = "<group>"; };
+		2D8D2BBE17CA62A40092070B /* SendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendViewController.m; sourceTree = "<group>"; };
+		2D8D2BC017CA7EE20092070B /* NearbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyViewController.h; sourceTree = "<group>"; };
+		2D8D2BC117CA7EE30092070B /* NearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyViewController.m; sourceTree = "<group>"; };
 		2DD4D46E17C33D41006EC74C /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		2DD4D46F17C33D41006EC74C /* RegexKitLite.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = RegexKitLite.html; sourceTree = "<group>"; };
 		2DD4D47017C33D41006EC74C /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
@@ -1160,6 +1167,8 @@
 		2DD4D4B117C737EC006EC74C /* RectButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RectButton.m; sourceTree = "<group>"; };
 		2DD4D4B717C762C4006EC74C /* InterfaceImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceImageView.h; sourceTree = "<group>"; };
 		2DD4D4B817C762C4006EC74C /* InterfaceImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterfaceImageView.m; sourceTree = "<group>"; };
+		2DD4D4BA17CA46EC006EC74C /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		2DD4D4BB17CA46EF006EC74C /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1371,6 +1380,12 @@
 				2DD4D49C17C5A236006EC74C /* CommentTableView.m */,
 				2DD4D49E17C5A6F8006EC74C /* CommentCell.h */,
 				2DD4D49F17C5A6F9006EC74C /* CommentCell.m */,
+				2DD4D4BA17CA46EC006EC74C /* WebViewController.h */,
+				2DD4D4BB17CA46EF006EC74C /* WebViewController.m */,
+				2D8D2BBD17CA62A40092070B /* SendViewController.h */,
+				2D8D2BBE17CA62A40092070B /* SendViewController.m */,
+				2D8D2BC017CA7EE20092070B /* NearbyViewController.h */,
+				2D8D2BC117CA7EE30092070B /* NearbyViewController.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -2598,6 +2613,9 @@
 				2DD4D4AF17C729DB006EC74C /* UserInfoView.m in Sources */,
 				2DD4D4B217C737ED006EC74C /* RectButton.m in Sources */,
 				2DD4D4B917C762C4006EC74C /* InterfaceImageView.m in Sources */,
+				2DD4D4BC17CA46F1006EC74C /* WebViewController.m in Sources */,
+				2D8D2BBF17CA62A40092070B /* SendViewController.m in Sources */,
+				2D8D2BC217CA7EE40092070B /* NearbyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

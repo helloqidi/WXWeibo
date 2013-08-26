@@ -13,6 +13,7 @@
 #import "NSString+URLEncoding.h"
 #import "UIUtils.h"
 #import "UserViewController.h"
+#import "WebViewController.h"
 
 //列表中微博内容字体
 #define LIST_FONT   14.0f
@@ -343,6 +344,9 @@
     }else if ([absoluteString hasPrefix:@"http"]){
         NSLog(@"链接:%@",absoluteString);
         
+        WebViewController *webView=[[[WebViewController alloc] init] autorelease];
+        webView.webUrl=absoluteString;
+        [self.viewController.navigationController pushViewController:webView animated:YES];
         
         
     }else if ([absoluteString hasPrefix:@"topic"]){

@@ -7,6 +7,9 @@
 //
 
 #import "RightViewController.h"
+#import "SendViewController.h"
+#import "BaseNavigationController.h"
+#import "MainViewController.h"
 
 @interface RightViewController ()
 
@@ -26,7 +29,31 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor=[UIColor purpleColor];
+    self.view.backgroundColor=[UIColor darkGrayColor];
+    
+    //按钮
+    NSArray *buttonNames=[NSArray arrayWithObjects:@"newbar_icon_1.png",@"newbar_icon_2.png",@"newbar_icon_3.png",@"newbar_icon_4.png",@"newbar_icon_5.png", nil];
+    
+    for (int i=0; i<buttonNames.count; i++) {
+        UIButton *button=[UIButton buttonWithType:UIButtonTypeCustom];
+        [button setImage:[UIImage imageNamed:[buttonNames objectAtIndex:i]] forState:UIControlStateNormal];
+        
+        button.frame=CGRectMake(ScreenWidth-40-10, 20+i*40, 40, 40);
+        button.tag=i+1;
+        [button addTarget:self action:@selector(sendAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:button];
+    }
+    
+}
+
+- (void)sendAction:(UIButton *)button
+{
+    if (button.tag==1) {
+        //发微博
+        SendViewController *sendCtrl=[[[SendViewController alloc] init] autorelease];
+        BaseNavigationController *sendNav=[[[BaseNavigationController alloc] initWithRootViewController:sendCtrl] autorelease];
+        [self.appDelegate.ddMenuController presentModalViewController:sendNav animated:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning

@@ -64,6 +64,8 @@
     //利用自定义的类方法viewController获得视图的上级控制器
     [self.viewController.navigationController pushViewController:detail animated:YES];
 
+    //取消选中
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 - (void)dealloc

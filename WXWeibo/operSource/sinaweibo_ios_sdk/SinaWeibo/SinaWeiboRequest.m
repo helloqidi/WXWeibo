@@ -432,7 +432,7 @@
                             block:(RequestFinishBlock)block
 {
     SinaWeiboRequest *request=[self requestWithURL:url httpMethod:httpMethod params:params delegate:nil];
-    request.block=block;
+    request.block=block;//需要同时修改handleResponseData方法，进行block的调用
     return request;
 }
 

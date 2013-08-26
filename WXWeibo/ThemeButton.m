@@ -57,13 +57,19 @@
     
     UIImage *image=[themeManager getThemeImage:self.imageName];
     UIImage *highlightImage=[themeManager getThemeImage:self.highlightImageName];
+    image=[image stretchableImageWithLeftCapWidth:self.leftCapWidth topCapHeight:self.topCapHeight];
+    highlightImage=[highlightImage stretchableImageWithLeftCapWidth:self.leftCapWidth topCapHeight:self.topCapHeight];
     [self setImage:image forState:UIControlStateNormal];
     [self setImage:highlightImage forState:UIControlStateHighlighted];
+
     
     UIImage *backgroundImage=[themeManager getThemeImage:self.backgroundImageName];
     UIImage *backgroundHighlightImage=[themeManager getThemeImage:self.backgroundHighlightImageName];
+    backgroundImage=[backgroundImage stretchableImageWithLeftCapWidth:self.leftCapWidth topCapHeight:self.topCapHeight];
+    backgroundHighlightImage=[backgroundHighlightImage stretchableImageWithLeftCapWidth:self.leftCapWidth topCapHeight:self.topCapHeight];
     [self setBackgroundImage:backgroundImage forState:UIControlStateNormal];
     [self setBackgroundImage:backgroundHighlightImage forState:UIControlStateHighlighted];
+
 }
 
 #pragma mark - Setter
@@ -104,4 +110,21 @@
     [self loadThemeImage];
 
 }
+
+
+
+- (void)setLeftCapWidth:(int)leftCapWidth
+{
+    _leftCapWidth=leftCapWidth;
+    
+    [self loadThemeImage];
+}
+
+- (void)setTopCapHeight:(int)topCapHeight
+{
+    _topCapHeight=topCapHeight;
+    
+    [self loadThemeImage];
+}
+
 @end
