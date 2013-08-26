@@ -21,6 +21,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.isBackButton=YES;
+        self.isCancelButton=NO;
     }
     return self;
 }
@@ -36,6 +37,13 @@
         [btn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem *backItem=[[[UIBarButtonItem alloc] initWithCustomView:btn] autorelease];
         self.navigationItem.leftBarButtonItem=backItem;
+    }
+    
+    if (self.isCancelButton) {
+        //取消按钮
+        UIButton *cancelbutton=[UIFactory createNavigationButton:CGRectMake(0, 0, 45, 30) title:@"取消" target:self action:@selector(cancelAction)];
+        UIBarButtonItem *cancelButtonItem=[[[UIBarButtonItem alloc] initWithCustomView:cancelbutton] autorelease];
+        self.navigationItem.leftBarButtonItem=cancelButtonItem;
     }
     
 }
@@ -143,6 +151,66 @@
     }
     //2秒后隐藏
     [self.hud hide:YES afterDelay:2];
+}
+
+- (void)cancelAction
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+
+- (void)showStatusTip:(BOOL)show title:(NSString *)title
+{
+    if (self.tipWindow==nil) {
+        self.tipWindow=[[[UIWindow alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 20)] autorelease];
+        //设置同状态栏一样的级别
+        self.tipWindow.windowLevel=UIWindowLevelStatusBar;
+        self.tipWindow.backgroundColor=[UIColor blackColor];
+        
+        UILabel *tipLabel=[[[UILabel alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 20)] autorelease];
+        tipLabel.textAlignment=UITextAlignmentCenter;
+        tipLabel.font=[UIFont systemFontOfSize:13.0f];
+        tipLabel.textColor=[UIColor whiteColor];
+        tipLabel.backgroundColor=[UIColor clearColor];
+        tipLabel.tag=2013;
+        [self.tipWindow addSubview:tipLabel];
+        
+        UIImageView *progress=[[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"queue_statusbar_progress.png"]] autorelease];
+        progress.frame=CGRectMake(0, 20-6, 100, 6);
+        progress.tag=2012;
+        [self.tipWindow addSubview:progress];
+        
+    }
+    
+    UILabel *tipLabel=(UILabel *)[self.tipWindow viewWithTag:2013];
+    UIImageView *progress=(UIImageView *)[self.tipWindow viewWithTag:2012];
+    if (show) {
+        tipLabel.text=title;
+        self.tipWindow.hidden=NO;
+        //动画效果
+        progress.left=0;
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:2];
+        //不断循环
+        [UIView setAnimationRepeatCount:1000];
+        //匀速运动
+        [UIView setAnimationCurve:UIViewAnimationCurveLinear];
+        progress.left=ScreenWidth;
+        [UIView commitAnimations];
+        
+    }else{
+        tipLabel.text=title;
+        //延迟消失
+        [self performSelector:@selector(removeTipWindow) withObject:nil afterDelay:1.5];
+    }
+    
+}
+
+- (void)removeTipWindow
+{
+    self.tipWindow.hidden=YES;
+    //释放销毁tipwindow
+    self.tipWindow=nil;
 }
 
 @end

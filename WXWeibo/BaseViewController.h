@@ -21,6 +21,10 @@
 
 @property(nonatomic,retain)MBProgressHUD *hud;
 
+//是否显示取消按钮(主要用于模态视图)
+@property(nonatomic,assign)BOOL isCancelButton;
+
+@property(nonatomic,retain)UIWindow *tipWindow;
 
 - (SinaWeibo *) sinaweibo;
 - (AppDelegate *)appDelegate;
@@ -34,5 +38,8 @@
 - (void)hideHUD;
 //HUD提示完成
 - (void)showHUDComplete:(NSString *)title;
+
+//状态栏上的提示
+- (void)showStatusTip:(BOOL)show title:(NSString *)title;
 
 @end

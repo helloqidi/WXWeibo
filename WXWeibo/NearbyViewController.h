@@ -7,7 +7,14 @@
 //
 
 #import "BaseViewController.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface NearbyViewController : BaseViewController
+typedef void(^SelectDoneBlock)(NSDictionary *);
+@interface NearbyViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource,CLLocationManagerDelegate>
+
+@property(nonatomic,retain)UITableView *tableView;
+@property(nonatomic,retain)NSArray *data;
+
+@property(nonatomic,copy)SelectDoneBlock selectBlock;
 
 @end

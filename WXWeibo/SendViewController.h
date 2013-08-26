@@ -15,4 +15,12 @@
 
 @property(nonatomic,retain)NSMutableArray *buttons;
 
+//经度
+@property(nonatomic,copy)NSString *longitude;
+//维度
+@property(nonatomic,copy)NSString *latitude;
+
+@property(nonatomic,retain)UIView *placeView;
+@property(nonatomic,retain)UILabel *placeLabel;
+
 @end

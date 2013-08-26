@@ -527,6 +527,7 @@
 		2D51B8CD17C2016F004EFA82 /* WeiboView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B8CC17C2016E004EFA82 /* WeiboView.m */; };
 		2D8D2BBF17CA62A40092070B /* SendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8D2BBE17CA62A40092070B /* SendViewController.m */; };
 		2D8D2BC217CA7EE40092070B /* NearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8D2BC117CA7EE30092070B /* NearbyViewController.m */; };
+		2D8D2BC417CAFAAB0092070B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8D2BC317CAFAA80092070B /* CoreLocation.framework */; };
 		2DD4D47117C33D41006EC74C /* RegexKitLite.html in Resources */ = {isa = PBXBuildFile; fileRef = 2DD4D46F17C33D41006EC74C /* RegexKitLite.html */; };
 		2DD4D47217C33D41006EC74C /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D47017C33D41006EC74C /* RegexKitLite.m */; };
 		2DD4D47417C347BB006EC74C /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DD4D47317C347BB006EC74C /* libicucore.dylib */; };
@@ -1125,6 +1126,7 @@
 		2D8D2BBE17CA62A40092070B /* SendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendViewController.m; sourceTree = "<group>"; };
 		2D8D2BC017CA7EE20092070B /* NearbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyViewController.h; sourceTree = "<group>"; };
 		2D8D2BC117CA7EE30092070B /* NearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyViewController.m; sourceTree = "<group>"; };
+		2D8D2BC317CAFAA80092070B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2DD4D46E17C33D41006EC74C /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		2DD4D46F17C33D41006EC74C /* RegexKitLite.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = RegexKitLite.html; sourceTree = "<group>"; };
 		2DD4D47017C33D41006EC74C /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
@@ -1176,6 +1178,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D8D2BC417CAFAAB0092070B /* CoreLocation.framework in Frameworks */,
 				2DD4D48F17C49158006EC74C /* AudioToolbox.framework in Frameworks */,
 				2DD4D47417C347BB006EC74C /* libicucore.dylib in Frameworks */,
 				2D39D3DB17BC75B500AA40EB /* CoreText.framework in Frameworks */,
@@ -1209,6 +1212,7 @@
 		2D39D38C17BC69A300AA40EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D8D2BC317CAFAA80092070B /* CoreLocation.framework */,
 				2DD4D48E17C49157006EC74C /* AudioToolbox.framework */,
 				2DD4D47317C347BB006EC74C /* libicucore.dylib */,
 				2D39D3DA17BC75B500AA40EB /* CoreText.framework */,

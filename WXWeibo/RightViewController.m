@@ -52,6 +52,7 @@
         //发微博
         SendViewController *sendCtrl=[[[SendViewController alloc] init] autorelease];
         BaseNavigationController *sendNav=[[[BaseNavigationController alloc] initWithRootViewController:sendCtrl] autorelease];
+        //[self.appDelegate.ddMenuController presentViewController:sendNav animated:YES completion:NULL];
         [self.appDelegate.ddMenuController presentModalViewController:sendNav animated:YES];
     }
 }
