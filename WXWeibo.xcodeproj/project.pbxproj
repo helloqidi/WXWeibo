@@ -525,6 +525,8 @@
 		2D51B8C717C1E6C9004EFA82 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B8C617C1E6C9004EFA82 /* UserModel.m */; };
 		2D51B8CA17C20156004EFA82 /* WeiboCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B8C917C20155004EFA82 /* WeiboCell.m */; };
 		2D51B8CD17C2016F004EFA82 /* WeiboView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D51B8CC17C2016E004EFA82 /* WeiboView.m */; };
+		2D8AA24517CC29420007A251 /* FaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8AA24417CC29420007A251 /* FaceView.m */; };
+		2D8AA24B17CC414A0007A251 /* FaceScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8AA24A17CC414A0007A251 /* FaceScrollView.m */; };
 		2D8D2BBF17CA62A40092070B /* SendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8D2BBE17CA62A40092070B /* SendViewController.m */; };
 		2D8D2BC217CA7EE40092070B /* NearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8D2BC117CA7EE30092070B /* NearbyViewController.m */; };
 		2D8D2BC417CAFAAB0092070B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8D2BC317CAFAA80092070B /* CoreLocation.framework */; };
@@ -1122,6 +1124,10 @@
 		2D51B8C917C20155004EFA82 /* WeiboCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboCell.m; sourceTree = "<group>"; };
 		2D51B8CB17C2016E004EFA82 /* WeiboView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboView.h; sourceTree = "<group>"; };
 		2D51B8CC17C2016E004EFA82 /* WeiboView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboView.m; sourceTree = "<group>"; };
+		2D8AA24317CC29420007A251 /* FaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceView.h; sourceTree = "<group>"; };
+		2D8AA24417CC29420007A251 /* FaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceView.m; sourceTree = "<group>"; };
+		2D8AA24917CC414A0007A251 /* FaceScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceScrollView.h; sourceTree = "<group>"; };
+		2D8AA24A17CC414A0007A251 /* FaceScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceScrollView.m; sourceTree = "<group>"; };
 		2D8D2BBD17CA62A40092070B /* SendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendViewController.h; sourceTree = "<group>"; };
 		2D8D2BBE17CA62A40092070B /* SendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendViewController.m; sourceTree = "<group>"; };
 		2D8D2BC017CA7EE20092070B /* NearbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyViewController.h; sourceTree = "<group>"; };
@@ -2015,6 +2021,10 @@
 			children = (
 				2DD4D4B717C762C4006EC74C /* InterfaceImageView.h */,
 				2DD4D4B817C762C4006EC74C /* InterfaceImageView.m */,
+				2D8AA24317CC29420007A251 /* FaceView.h */,
+				2D8AA24417CC29420007A251 /* FaceView.m */,
+				2D8AA24917CC414A0007A251 /* FaceScrollView.h */,
+				2D8AA24A17CC414A0007A251 /* FaceScrollView.m */,
 			);
 			name = CommonViews;
 			sourceTree = "<group>";
@@ -2620,6 +2630,8 @@
 				2DD4D4BC17CA46F1006EC74C /* WebViewController.m in Sources */,
 				2D8D2BBF17CA62A40092070B /* SendViewController.m in Sources */,
 				2D8D2BC217CA7EE40092070B /* NearbyViewController.m in Sources */,
+				2D8AA24517CC29420007A251 /* FaceView.m in Sources */,
+				2D8AA24B17CC414A0007A251 /* FaceScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

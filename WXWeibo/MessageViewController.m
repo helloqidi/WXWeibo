@@ -7,6 +7,7 @@
 //
 
 #import "MessageViewController.h"
+#import "FaceScrollView.h"
 
 @interface MessageViewController ()
 
@@ -26,7 +27,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    FaceScrollView *scrollView=[[[FaceScrollView alloc] initWithFrame:CGRectMake(0, 100, 0, 0)] autorelease];
+    
+    [self.view addSubview:scrollView];
+    
 }
 
 - (void)didReceiveMemoryWarning

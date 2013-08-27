@@ -56,6 +56,7 @@
     //输入框
     self.textView=[[[UITextView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight-20-44-80)] autorelease];
     self.textView.backgroundColor=[UIColor whiteColor];
+    self.textView.delegate=self;
     [self.view addSubview:self.textView];
     
     //工具栏
@@ -109,20 +110,27 @@
 #pragma mark - Action
 - (void)buttonAction:(UIButton *)button
 {
-    //定位
     if (button.tag==10) {
+        //定位
         [self location];
     }
     else if (button.tag==11)
     {
+        //相册、摄像头
         [self selectImage];
-    }/*else if (button.tag==12){
+    }else if (button.tag==12){
+        //显示话题
     
     }else if (button.tag==13){
+        //显示AT用户
     
     }else if (button.tag==14){
-    
-    }*/
+        //显示表情
+        [self showFaceView];
+    }else if (button.tag==15){
+        //显示键盘
+        [self showKeyboard];
+    }
 
 }
 
@@ -295,6 +303,78 @@
     [actionSheet showInView:self.view];
 }
 
+
+//显示表情
+- (void)showFaceView
+{
+    //收起键盘
+    [self.textView resignFirstResponder];
+    
+    if (self.faceView==nil) {
+        
+        __block SendViewController *this=self;
+        self.faceView=[[[FaceScrollView alloc] initWithSelectBlock:^(NSString *faceName) {
+            //追加表情到输入框
+            //注：此处用到了self，需要避免循环引用。
+            NSString *text=this.textView.text;
+            text=[text stringByAppendingString:faceName];
+            this.textView.text=text;
+            
+        }] autorelease];
+        //创建完后才知道faceView的高度
+        self.faceView.top=ScreenHeight-20-44-self.faceView.height;
+        //x坐标不用移动,y坐标移出屏幕,为了点击后出现显示的动画效果
+        self.faceView.transform=CGAffineTransformTranslate(self.faceView.transform, 0, ScreenHeight);
+        [self.view addSubview:self.faceView];
+    }
+    
+    //动画效果
+    UIButton *faceButton=[self.buttons objectAtIndex:4];
+    UIButton *keyboard=[self.buttons objectAtIndex:5];
+    faceButton.alpha=1;
+    keyboard.alpha=0;
+    keyboard.hidden=NO;
+    [UIView animateWithDuration:0.3 animations:^{
+        //faceView恢复原始状态
+        self.faceView.transform=CGAffineTransformIdentity;
+        //表情按钮消失
+        faceButton.alpha=0;
+        
+        //调整textView,editorBar的Y坐标
+        float height=self.faceView.height;
+        self.editorBar.bottom=ScreenHeight-height-20-44;
+        self.textView.height=self.editorBar.top;
+        
+    } completion:^(BOOL finished) {
+        //键盘按钮显示
+        [UIView animateWithDuration:0.3 animations:^{
+            keyboard.alpha=1;
+        }];
+    }];
+}
+
+//显示键盘
+- (void)showKeyboard
+{
+    [self.textView becomeFirstResponder];
+    
+    
+    //动画
+    UIButton *faceButton=[self.buttons objectAtIndex:4];
+    UIButton *keyboard=[self.buttons objectAtIndex:5];
+    faceButton.alpha=0;
+    keyboard.alpha=1;
+    [UIView animateWithDuration:0.3 animations:^{
+        self.faceView.transform=CGAffineTransformTranslate(self.faceView.transform, 0, ScreenHeight);
+        keyboard.alpha=0;
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.3 animations:^{
+            faceButton.alpha=1;
+        }];
+    }];
+
+}
+
 #pragma mark - UIActionSheet Deletage
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -375,10 +455,32 @@
     self.textView.height=self.editorBar.top;
 }
 
+#pragma mark - UITextView Delegate
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    //显示键盘
+    [self showKeyboard];
+    
+    return YES;
+}
+
 #pragma mark - dealloc
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    
+    self.textView=nil;
+    self.editorBar=nil;
+    self.buttons=nil;
+    self.longitude=nil;
+    self.latitude=nil;
+    self.placeView=nil;
+    self.placeLabel=nil;
+    self.sendImage=nil;
+    self.sendImageButton=nil;
+    self.fullImageView=nil;
+    self.faceView=nil;
+
     [super dealloc];
 }
 
