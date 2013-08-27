@@ -8,6 +8,7 @@
 
 #import "UserInfoView.h"
 #import "UIImageView+WebCache.h"
+#import "FriendshipsViewController.h"
 
 @implementation UserInfoView
 
@@ -142,6 +143,7 @@
     self.attButton.frame=CGRectMake(self.userImage.left, self.userImage.bottom+10, 70, 70);
     self.attButton.title=@"关注";
     self.attButton.subtitle=follows;
+    [self.attButton addTarget:self action:@selector(attAction) forControlEvents:UIControlEventTouchUpInside];
     
     //粉丝按钮
     long fansL=[self.userModel.followers_count longValue];
@@ -153,6 +155,7 @@
     self.fansButton.frame=CGRectMake(self.attButton.right+10, self.userImage.bottom+10, 70, 70);
     self.fansButton.title=@"粉丝";
     self.fansButton.subtitle=fans;
+    [self.fansButton addTarget:self action:@selector(fansAction) forControlEvents:UIControlEventTouchUpInside];
     
     //资料按钮
     self.profileButton.frame=CGRectMake(self.fansButton.right+10, self.userImage.bottom+10, 70, 70);
@@ -172,5 +175,18 @@
 
 }
 
+
+- (void)attAction
+{
+    FriendshipsViewController *friendCtrl=[[[FriendshipsViewController alloc] init] autorelease];
+    friendCtrl.userId=self.userModel.idstr;
+    [self.viewController.navigationController pushViewController:friendCtrl animated:YES];
+}
+
+
+- (void)fansAction
+{
+    
+}
 
 @end
