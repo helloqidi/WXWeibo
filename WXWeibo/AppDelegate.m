@@ -38,6 +38,9 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
+    //状态栏的背景色不随导航的背景色改变,固定为不透明黑色
+    [UIApplication sharedApplication].statusBarStyle=UIStatusBarStyleBlackOpaque;
+    
     //读取主题
     [self setTheme];
     
