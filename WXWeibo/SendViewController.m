@@ -10,6 +10,7 @@
 #import "UIFactory.h"
 #import "NearbyViewController.h"
 #import "BaseNavigationController.h"
+#import "DataService.h"
 
 @interface SendViewController ()
 
@@ -256,7 +257,13 @@
         //将图片转换为data,并压缩质量
         NSData *data=UIImageJPEGRepresentation(self.sendImage, 0.3);
         [params setObject:data forKey:@"pic"];
+        /*
         [self.sinaweibo requestWithURL:@"statuses/upload.json" params:params httpMethod:@"POST" block:^(id result) {
+            //在状态栏（其实是一个单独的window）显示label
+            [super showStatusTip:NO title:@"发送成功"];
+            [self dismissModalViewControllerAnimated:YES];
+        }];*/
+        [DataService requestWithURL:@"statuses/upload.json" params:params httpMethod:@"POST" completeBlock:^(id result) {
             //在状态栏（其实是一个单独的window）显示label
             [super showStatusTip:NO title:@"发送成功"];
             [self dismissModalViewControllerAnimated:YES];

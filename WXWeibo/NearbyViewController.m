@@ -8,6 +8,7 @@
 
 #import "NearbyViewController.h"
 #import "UIImageView+WebCache.h"
+#import "DataService.h"
 
 @interface NearbyViewController ()
 
@@ -92,7 +93,11 @@
         
         
         NSMutableDictionary *params=[NSMutableDictionary dictionaryWithObjectsAndKeys:longitudeString,@"long",latitudeString,@"lat", nil];
+        /*
         [self.sinaweibo requestWithURL:@"place/nearby/pois.json" params:params httpMethod:@"GET" block:^(id result) {
+            [self loadNearbyDataFinish:result];
+        }];*/
+        [DataService requestWithURL:@"place/nearby/pois.json" params:params httpMethod:@"GET" completeBlock:^(id result) {
             [self loadNearbyDataFinish:result];
         }];
         

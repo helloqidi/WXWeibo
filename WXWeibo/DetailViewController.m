@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "CommentModel.h"
 #import "UserViewController.h"
+#import "DataService.h"
 
 @interface DetailViewController ()
 
@@ -107,9 +108,15 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    /*
     for (SinaWeiboRequest *request in self.requests) {
         [request disconnect];
     }
+     */
+    for (ASIHTTPRequest *request in self.requests) {
+        [request cancel];
+    }
+    
 }
 
 #pragma mark - Data
@@ -122,10 +129,16 @@
     
     NSMutableDictionary *params=[NSMutableDictionary dictionaryWithObject:weiboId forKey:@"id"];
     
+    /*
     SinaWeiboRequest *request=[self.sinaweibo requestWithURL:@"comments/show.json" params:params httpMethod:@"GET" block:^(NSDictionary *result) {
         [self loadDataFinish:result];
     }];
+    [self.requests addObject:request];*/
+    ASIHTTPRequest *request=[DataService requestWithURL:@"comments/show.json" params:params httpMethod:@"GET" completeBlock:^(id result) {
+        [self loadDataFinish:result];
+    }];
     [self.requests addObject:request];
+    
 }
 
 - (void)loadDataFinish:(NSDictionary *)result
@@ -189,12 +202,18 @@
     }
     
     NSMutableDictionary *params=[NSMutableDictionary dictionaryWithObjectsAndKeys:@"20",@"count",weiboId,@"id",self.lastCommentId,@"max_id",nil];
+    /*
     SinaWeiboRequest *request=[self.sinaweibo requestWithURL:@"comments/show.json"
                             params:params
                         httpMethod:@"GET"
                              block:^(id result){
                                  [self pullUpDataFinish:result];
                              }];
+    [self.requests addObject:request];
+     */
+    ASIHTTPRequest *request=[DataService requestWithURL:@"comments/show.json" params:params httpMethod:@"GET" completeBlock:^(id result) {
+        [self pullUpDataFinish:result];
+    }];
     [self.requests addObject:request];
 }
 
