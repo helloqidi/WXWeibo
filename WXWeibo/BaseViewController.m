@@ -187,7 +187,7 @@
     if (show) {
         tipLabel.text=title;
         self.tipWindow.hidden=NO;
-        //动画效果
+        //进度条动画效果
         progress.left=0;
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:2];
@@ -199,6 +199,8 @@
         [UIView commitAnimations];
         
     }else{
+        //进度条隐藏
+        progress.hidden=YES;
         tipLabel.text=title;
         //延迟消失
         [self performSelector:@selector(removeTipWindow) withObject:nil afterDelay:1.5];

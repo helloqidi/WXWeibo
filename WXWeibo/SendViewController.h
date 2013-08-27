@@ -8,11 +8,13 @@
 
 #import "BaseViewController.h"
 
-@interface SendViewController : BaseViewController
+@interface SendViewController : BaseViewController<UIActionSheetDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property(nonatomic,retain)UITextView *textView;
+//键盘上方的工具栏
 @property(nonatomic,retain)UIView *editorBar;
 
+//工具栏中的按钮数组
 @property(nonatomic,retain)NSMutableArray *buttons;
 
 //经度
@@ -22,5 +24,11 @@
 
 @property(nonatomic,retain)UIView *placeView;
 @property(nonatomic,retain)UILabel *placeLabel;
+
+@property(nonatomic,retain)UIImage *sendImage;
+
+@property(nonatomic,retain)UIButton *sendImageButton;
+
+@property(nonatomic,retain)UIImageView *fullImageView;
 
 @end
