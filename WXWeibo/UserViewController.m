@@ -158,7 +158,7 @@
 //下拉
 - (void)pullDown:(BaseTableView *)tableView
 {
-    [self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:2];
+    [self performSelector:@selector(doneLoading) withObject:nil afterDelay:2];
 }
 
 //上拉
@@ -180,4 +180,8 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)doneLoading
+{
+    [self.tableView doneLoadingTableViewData];
+}
 @end
