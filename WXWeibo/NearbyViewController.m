@@ -39,6 +39,7 @@
     [super showHUD:@"正在加载..." isDim:NO];
     
     //定位
+    //注：此处不能使用autorelease，否则会执行代理方法
     CLLocationManager *locationManager=[[CLLocationManager alloc] init];
     locationManager.delegate=self;
     [locationManager setDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];

@@ -579,6 +579,7 @@
 		2DD85FE917CD176300BEBB22 /* NearWeiboMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD85FE817CD176300BEBB22 /* NearWeiboMapViewController.m */; };
 		2DD85FED17CD190800BEBB22 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DD85FEC17CD190800BEBB22 /* MapKit.framework */; };
 		2DD85FF017CD1DA000BEBB22 /* WeiboAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD85FEF17CD1DA000BEBB22 /* WeiboAnnotation.m */; };
+		2DD85FF317CD9E5700BEBB22 /* WeiboAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD85FF217CD9E5700BEBB22 /* WeiboAnnotationView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1241,6 +1242,8 @@
 		2DD85FEC17CD190800BEBB22 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2DD85FEE17CD1DA000BEBB22 /* WeiboAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboAnnotation.h; sourceTree = "<group>"; };
 		2DD85FEF17CD1DA000BEBB22 /* WeiboAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboAnnotation.m; sourceTree = "<group>"; };
+		2DD85FF117CD9E5700BEBB22 /* WeiboAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboAnnotationView.h; sourceTree = "<group>"; };
+		2DD85FF217CD9E5700BEBB22 /* WeiboAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboAnnotationView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1519,6 +1522,8 @@
 				2DD85FE817CD176300BEBB22 /* NearWeiboMapViewController.m */,
 				2DD85FEE17CD1DA000BEBB22 /* WeiboAnnotation.h */,
 				2DD85FEF17CD1DA000BEBB22 /* WeiboAnnotation.m */,
+				2DD85FF117CD9E5700BEBB22 /* WeiboAnnotationView.h */,
+				2DD85FF217CD9E5700BEBB22 /* WeiboAnnotationView.m */,
 			);
 			name = Discover;
 			sourceTree = "<group>";
@@ -2784,6 +2789,7 @@
 				2D8AA28917CCAB780007A251 /* FriendShipsCell.m in Sources */,
 				2DD85FE917CD176300BEBB22 /* NearWeiboMapViewController.m in Sources */,
 				2DD85FF017CD1DA000BEBB22 /* WeiboAnnotation.m in Sources */,
+				2DD85FF317CD9E5700BEBB22 /* WeiboAnnotationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

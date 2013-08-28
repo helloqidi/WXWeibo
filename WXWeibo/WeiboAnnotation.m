@@ -37,7 +37,9 @@
         if (coord.count==2) {
             float lat=[[coord objectAtIndex:0] floatValue];
             float lon=[[coord objectAtIndex:1] floatValue];
-            self.coordinate=CLLocationCoordinate2DMake(lat, lon);
+            //self.coordinate=CLLocationCoordinate2DMake(lat, lon);
+            //注：不能使用self.coordinate,它是readonly,没有set方法
+            _coordinate=CLLocationCoordinate2DMake(lat, lon);
         }
     }
 

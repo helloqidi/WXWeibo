@@ -7,6 +7,7 @@
 //
 
 #import "DiscoverViewController.h"
+#import "NearWeiboMapViewController.h"
 
 @interface DiscoverViewController ()
 
@@ -62,7 +63,8 @@
 #pragma mark - Action
 - (void)nearWeiboAction
 {
-
+    NearWeiboMapViewController *nearCtrl=[[[NearWeiboMapViewController alloc] init] autorelease];
+    [self.navigationController pushViewController:nearCtrl animated:YES];
 }
 
 - (void)nearUserAction
