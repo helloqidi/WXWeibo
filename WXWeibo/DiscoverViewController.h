@@ -12,4 +12,7 @@
 
 @interface DiscoverViewController : BaseViewController
 
+@property (nonatomic,retain)UIButton *nearWeiboButton;
+@property (nonatomic,retain)UIButton *nearUserButton;
+
 @end

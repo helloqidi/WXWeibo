@@ -38,6 +38,7 @@
     
     [super showHUD:@"正在加载..." isDim:NO];
     
+    //定位
     CLLocationManager *locationManager=[[CLLocationManager alloc] init];
     locationManager.delegate=self;
     [locationManager setDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];

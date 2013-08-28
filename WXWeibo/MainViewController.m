@@ -15,6 +15,7 @@
 #import "BaseNavigationController.h"
 #import "UIFactory.h"
 #import "AppDelegate.h"
+#import "UserViewController.h"
 //#import "ThemeButton.h"
 
 @interface MainViewController ()
@@ -87,7 +88,10 @@
 {
     self.home=[[[HomeViewController alloc] init] autorelease];
     MessageViewController *message=[[[MessageViewController alloc] init] autorelease];
-    ProfileViewController *profile=[[[ProfileViewController alloc] init] autorelease];
+    //ProfileViewController *profile=[[[ProfileViewController alloc] init] autorelease];
+    UserViewController *profile=[[[UserViewController alloc] init] autorelease];
+    //显示当前用户的资料
+    profile.showLoginUser=YES;
     DiscoverViewController *discover=[[[DiscoverViewController alloc] init] autorelease];
     MoreViewController *more=[[[MoreViewController alloc] init] autorelease];
     

@@ -180,13 +180,17 @@
 {
     FriendshipsViewController *friendCtrl=[[[FriendshipsViewController alloc] init] autorelease];
     friendCtrl.userId=self.userModel.idstr;
+    friendCtrl.shipType=Attention;
     [self.viewController.navigationController pushViewController:friendCtrl animated:YES];
 }
 
 
 - (void)fansAction
 {
-    
+    FriendshipsViewController *friendCtrl=[[[FriendshipsViewController alloc] init] autorelease];
+    friendCtrl.userId=self.userModel.idstr;
+    friendCtrl.shipType=Fans;
+    [self.viewController.navigationController pushViewController:friendCtrl animated:YES];
 }
 
 @end

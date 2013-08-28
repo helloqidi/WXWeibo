@@ -16,17 +16,6 @@
 
 @implementation FriendshipsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        self.title=@"关注";
-    }
-    return self;
-}
-
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -37,31 +26,58 @@
     //初始化数组
     self.data=[NSMutableArray array];
     
-    [self loadAtData];
+    self.tableView.eventDelegate=self;
     
+    [super showHUD:@"加载中" isDim:YES];
+    
+    if (self.shipType==Fans) {
+        self.title=@"粉丝";
+        
+    }else{
+        self.title=@"关注";
+    }
+    
+    [self loadFriendshipData];
 }
 
-//加载关注列表数据
-- (void)loadAtData
+- (void)loadFriendshipData
 {
+    [super hideHUD];
+    
+    NSString *url=nil;
+    if (self.shipType==Fans) {
+        url=@"friendships/followers.json";
+        
+    }else{
+        url=@"friendships/friends.json";
+    }
     if (self.userId.length==0) {
         NSLog(@"用户id为空");
         return;
     }
     
     NSMutableDictionary *params=[NSMutableDictionary dictionaryWithObject:self.userId forKey:@"uid"];
-
-    [DataService requestWithURL:@"friendships/friends.json" params:params httpMethod:@"GET" completeBlock:^(id result) {
+    
+    //如果有下一页的游标，则传递。
+    if (self.cursor.length>0) {
+        [params setObject:self.cursor forKey:@"cursor"];
+    }
+    
+    
+    [DataService requestWithURL:url params:params httpMethod:@"GET" completeBlock:^(id result) {
         [self loadAtDataFinish:result];
     }];
 
-
 }
+
 
 - (void)loadAtDataFinish:(NSDictionary *)result
 {
-    NSArray *usersArray=[result objectForKey:@"users"];
+    //记录游标值
+    self.cursor=[[result objectForKey:@"next_cursor"] stringValue];
     
+    //用户数据
+    NSArray *usersArray=[result objectForKey:@"users"];
     /*组合后的结构：
      *[
      * [用户1,用户2，用户3],
@@ -72,7 +88,10 @@
     
     NSMutableArray *array2D=nil;
     for (int i=0; i<usersArray.count; i++) {
-        if (i%3==0) {
+        array2D=[self.data lastObject];
+        
+        //每次判断最后一个数组是否填满数据
+        if (array2D.count==3 || array2D==nil) {
             array2D=[NSMutableArray arrayWithCapacity:3];
             [self.data addObject:array2D];
         }
@@ -80,12 +99,46 @@
         UserModel *userModel=[[[UserModel alloc] initWithDataDic:userDic] autorelease];
         [array2D addObject:userModel];
     }
+    
+    //刷新UI
+    //此处虽然请求的是50，但是新浪接口经常返回的不足50
+    if (usersArray.count<47) {
+        self.tableView.isMore=NO;
+    }else{
+        self.tableView.isMore=YES;
+    }
+    
     self.tableView.data=self.data;
     [self.tableView reloadData];
+    
+    //收回下拉
+    if (self.cursor==nil) {
+        [self.tableView doneLoadingTableViewData];
+    }
     
 }
 
 
+#pragma mark -UITableView EventDelegate
+//下拉
+- (void)pullDown:(BaseTableView *)tableView
+{
+    //此时下拉的功能是：重新显示第一页，且只显示第一页。
+
+    self.cursor=nil;
+    [self.data removeAllObjects];
+    
+    [self loadFriendshipData];
+}
+
+//上拉
+- (void)pullUp:(BaseTableView *)tableView
+{
+    [self loadFriendshipData];
+}
+
+
+#pragma mark - dealloc
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

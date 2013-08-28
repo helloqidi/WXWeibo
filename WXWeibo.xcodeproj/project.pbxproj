@@ -576,6 +576,9 @@
 		2DD4D4B217C737ED006EC74C /* RectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D4B117C737EC006EC74C /* RectButton.m */; };
 		2DD4D4B917C762C4006EC74C /* InterfaceImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D4B817C762C4006EC74C /* InterfaceImageView.m */; };
 		2DD4D4BC17CA46F1006EC74C /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD4D4BB17CA46EF006EC74C /* WebViewController.m */; };
+		2DD85FE917CD176300BEBB22 /* NearWeiboMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD85FE817CD176300BEBB22 /* NearWeiboMapViewController.m */; };
+		2DD85FED17CD190800BEBB22 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DD85FEC17CD190800BEBB22 /* MapKit.framework */; };
+		2DD85FF017CD1DA000BEBB22 /* WeiboAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD85FEF17CD1DA000BEBB22 /* WeiboAnnotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1233,6 +1236,11 @@
 		2DD4D4B817C762C4006EC74C /* InterfaceImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterfaceImageView.m; sourceTree = "<group>"; };
 		2DD4D4BA17CA46EC006EC74C /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		2DD4D4BB17CA46EF006EC74C /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		2DD85FE717CD176300BEBB22 /* NearWeiboMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearWeiboMapViewController.h; sourceTree = "<group>"; };
+		2DD85FE817CD176300BEBB22 /* NearWeiboMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearWeiboMapViewController.m; sourceTree = "<group>"; };
+		2DD85FEC17CD190800BEBB22 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		2DD85FEE17CD1DA000BEBB22 /* WeiboAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboAnnotation.h; sourceTree = "<group>"; };
+		2DD85FEF17CD1DA000BEBB22 /* WeiboAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboAnnotation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1240,6 +1248,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DD85FED17CD190800BEBB22 /* MapKit.framework in Frameworks */,
 				2D8AA27A17CC7C6A0007A251 /* libxml2.2.dylib in Frameworks */,
 				2D8AA27817CC7C5A0007A251 /* libz.1.1.3.dylib in Frameworks */,
 				2D8AA27617CC7C4B0007A251 /* MobileCoreServices.framework in Frameworks */,
@@ -1279,6 +1288,7 @@
 		2D39D38C17BC69A300AA40EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2DD85FEC17CD190800BEBB22 /* MapKit.framework */,
 				2D8AA27917CC7C690007A251 /* libxml2.2.dylib */,
 				2D8AA27717CC7C590007A251 /* libz.1.1.3.dylib */,
 				2D8AA27517CC7C4A0007A251 /* MobileCoreServices.framework */,
@@ -1505,6 +1515,10 @@
 			children = (
 				2D39D3FA17BC7C7900AA40EB /* DiscoverViewController.h */,
 				2D39D3FB17BC7C7900AA40EB /* DiscoverViewController.m */,
+				2DD85FE717CD176300BEBB22 /* NearWeiboMapViewController.h */,
+				2DD85FE817CD176300BEBB22 /* NearWeiboMapViewController.m */,
+				2DD85FEE17CD1DA000BEBB22 /* WeiboAnnotation.h */,
+				2DD85FEF17CD1DA000BEBB22 /* WeiboAnnotation.m */,
 			);
 			name = Discover;
 			sourceTree = "<group>";
@@ -2768,6 +2782,8 @@
 				2D8AA28317CCA72A0007A251 /* FriendshipsViewController.m in Sources */,
 				2D8AA28617CCAAD40007A251 /* FriendShipsTableView.m in Sources */,
 				2D8AA28917CCAB780007A251 /* FriendShipsCell.m in Sources */,
+				2DD85FE917CD176300BEBB22 /* NearWeiboMapViewController.m in Sources */,
+				2DD85FF017CD1DA000BEBB22 /* WeiboAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -33,6 +33,14 @@
 	
     self.title=@"个人资料";
     
+    if (self.showLoginUser) {
+        //读取当前用户的信息
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSDictionary *sinaweiboInfo = [defaults objectForKey:@"SinaWeiboAuthData"];
+        NSString *userId=[sinaweiboInfo objectForKey:@"UserIDKey"];
+        self.userId=userId;
+    }
+
     [self _initView];
     
     [self loadUserData];
@@ -73,12 +81,18 @@
 //获得用户资料信息
 - (void)loadUserData
 {
-    if (self.userName.length==0) {
-        NSLog(@"用户名空");
+    if (self.userName.length==0 && self.userId.length==0) {
+        NSLog(@"用户名和id都为空");
         return;
     }
     
-    NSMutableDictionary *params=[NSMutableDictionary dictionaryWithObject:self.userName forKey:@"screen_name"];
+    NSMutableDictionary *params=[NSMutableDictionary dictionary];
+    if (self.userId.length!=0) {
+        params=[NSMutableDictionary dictionaryWithObject:self.userId forKey:@"uid"];
+    }else{
+        params=[NSMutableDictionary dictionaryWithObject:self.userName forKey:@"screen_name"];
+    }
+
     SinaWeiboRequest *request=[self.sinaweibo requestWithURL:@"users/show.json" params:params httpMethod:@"GET" block:^(id result) {
         [self loadUserDataFinish:result];
     }];
@@ -102,13 +116,19 @@
 //加载用户的微博
 - (void)loadWeiboData
 {
-    if (self.userName.length==0) {
-        NSLog(@"用户名空");
+    
+    if (self.userName.length==0 && self.userId.length==0) {
+        NSLog(@"用户名和id都为空");
         return;
     }
     
     //注：这个接口，新浪微博改变为：只有授权的才能读取，所以，在这不能读取所有用户的微博了。
-    NSMutableDictionary *params=[NSMutableDictionary dictionaryWithObject:self.userName forKey:@"screen_name"];
+    NSMutableDictionary *params=[NSMutableDictionary dictionary];
+    if (self.userId.length!=0) {
+        params=[NSMutableDictionary dictionaryWithObject:self.userId forKey:@"uid"];
+    }else{
+        params=[NSMutableDictionary dictionaryWithObject:self.userName forKey:@"screen_name"];
+    }
     SinaWeiboRequest *request=[self.sinaweibo requestWithURL:@"statuses/user_timeline.json" params:params httpMethod:@"GET" block:^(id result) {
         [self loadWeiboDataFinish:result];
     }];

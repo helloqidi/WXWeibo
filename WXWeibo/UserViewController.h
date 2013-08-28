@@ -13,6 +13,10 @@
 @interface UserViewController : BaseViewController<UITableViewEventDelegate>
 
 @property(nonatomic,retain)NSString *userName;
+@property(nonatomic,copy)NSString *userId;
+//是否是显示当前用户的资料
+@property(nonatomic,assign)BOOL showLoginUser;
+
 @property(nonatomic,retain)WeiboTableView *tableView;
 
 @property(nonatomic,retain)UserInfoView *userInfo;
